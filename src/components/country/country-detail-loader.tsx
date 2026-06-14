@@ -259,7 +259,7 @@ export function CountryDetailLoader({
             <button
               type="button"
               onClick={() => void loadMetrics()}
-              className="inline-flex min-h-[46px] items-center justify-center rounded-full bg-[var(--accent)] px-5 text-sm font-medium text-white shadow-[0_12px_28px_rgba(17,138,178,0.24)] transition-transform hover:-translate-y-0.5 hover:brightness-95"
+              className="inline-flex min-h-[46px] items-center justify-center rounded-full bg-[var(--accent)] px-5 text-sm font-medium text-white shadow-[0_12px_28px_rgba(54,117,183,0.24)] transition-transform hover:-translate-y-0.5 hover:brightness-95"
             >
               Load detailed metrics
             </button>

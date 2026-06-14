@@ -117,7 +117,7 @@ export function AnalyticsFilters({
     <TooltipProvider>
       <Card
         size="sm"
-        className={`border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(39,62,71,0.08)] ${isSidebar ? "" : "mt-8"}`}
+        className={`border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(2,20,32,0.08)] ${isSidebar ? "" : "mt-8"}`}
       >
         <CardHeader>
           <CardTitle>Filters</CardTitle>

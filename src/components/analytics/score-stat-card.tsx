@@ -12,7 +12,7 @@ export function ScoreStatCard({
   const toneClass =
     tone === "warm"
       ? "bg-[rgba(224,122,95,0.12)]"
-      : "bg-[rgba(17,138,178,0.12)]";
+      : "bg-[rgba(54,117,183,0.12)]";
 
   return (
     <div className={`rounded-2xl border border-[var(--border-soft)] p-4 ${toneClass}`}>

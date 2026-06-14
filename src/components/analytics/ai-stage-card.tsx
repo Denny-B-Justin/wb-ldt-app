@@ -27,7 +27,7 @@ function StatusBadge({
       ? "bg-[rgba(84,162,75,0.12)] text-[#2f7a2a]"
       : tone === "error"
         ? "bg-[rgba(228,87,86,0.12)] text-[#b23b3a]"
-        : "bg-[rgba(24,37,44,0.06)] text-[var(--muted-foreground)]";
+        : "bg-[rgba(55,66,145,0.06)] text-[var(--muted-foreground)]";
 
   return (
     <span className={`rounded-full px-3 py-1 text-xs font-medium ${className}`}>
@@ -62,7 +62,7 @@ export function AiStageCard({
     : null;
 
   return (
-    <section className="rounded-[1.75rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-5 shadow-[0_18px_50px_rgba(39,62,71,0.08)] xl:p-6">
+    <section className="rounded-[1.75rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-5 shadow-[0_18px_50px_rgba(2,20,32,0.08)] xl:p-6">
       <div className="flex flex-col gap-3">
         <div>
           <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">

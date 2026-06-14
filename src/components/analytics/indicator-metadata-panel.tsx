@@ -17,7 +17,7 @@ export function IndicatorMetadataPanel({
 }: IndicatorMetadataPanelProps) {
   if (!indicator) {
     return (
-      <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+      <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
         <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
           Metric metadata
         </p>
@@ -40,7 +40,7 @@ export function IndicatorMetadataPanel({
                   <span>{component.label}</span>
                   <span className="group relative inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--surface)] text-[11px] font-medium text-[var(--muted-foreground)]">
                     i
-                    <span className="pointer-events-none absolute right-0 top-6 z-10 hidden w-64 rounded-2xl border border-[var(--border-soft)] bg-[var(--tooltip-bg)] px-3 py-2 text-left text-xs font-normal leading-5 text-[var(--tooltip-foreground)] shadow-[0_18px_50px_rgba(39,62,71,0.28)] group-hover:block">
+                    <span className="pointer-events-none absolute right-0 top-6 z-10 hidden w-64 rounded-2xl border border-[var(--border-soft)] bg-[var(--tooltip-bg)] px-3 py-2 text-left text-xs font-normal leading-5 text-[var(--tooltip-foreground)] shadow-[0_18px_50px_rgba(2,20,32,0.28)] group-hover:block">
                       {component.description ?? "No description available."}
                     </span>
                   </span>
@@ -54,7 +54,7 @@ export function IndicatorMetadataPanel({
   }
 
   return (
-    <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+    <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
       <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
         Indicator metadata
       </p>
@@ -65,7 +65,7 @@ export function IndicatorMetadataPanel({
         {indicator.description ?? "No description available."}
       </p>
       <div className="mt-5 flex flex-wrap gap-2">
-        <span className="rounded-full bg-[rgba(17,138,178,0.12)] px-3 py-1 text-xs font-medium text-[var(--foreground)]">
+        <span className="rounded-full bg-[rgba(54,117,183,0.12)] px-3 py-1 text-xs font-medium text-[var(--foreground)]">
           {indicator.pillar ?? "unassigned"}
         </span>
         <span className="rounded-full bg-[rgba(224,122,95,0.12)] px-3 py-1 text-xs font-medium text-[var(--foreground)]">

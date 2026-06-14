@@ -9,7 +9,7 @@ export default function AnalyticsError({
 }) {
   return (
     <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6 pb-16 pt-10 sm:px-8 lg:px-12">
-      <div className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-8 shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+      <div className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-8 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
         <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
           Analytics error
         </p>

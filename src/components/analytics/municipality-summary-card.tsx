@@ -25,7 +25,7 @@ export function MunicipalitySummaryCard({
     : `${adminLabels.higher.singular}: ${municipality.province}`;
 
   return (
-    <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+    <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
       <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
         {lowerSingular} summary
       </p>

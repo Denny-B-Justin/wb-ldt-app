@@ -225,9 +225,9 @@ export function SngDisplaySection({
     direction: "desc",
   });
   const [searchQuery, setSearchQuery] = useState("");
-  const textColor = isDark ? "#edf4f6" : "#18252c";
-  const gridColor = isDark ? "rgba(205,225,233,0.1)" : "rgba(24,37,44,0.08)";
-  const chartSurface = isDark ? "rgba(22,32,38,0.96)" : "#ffffff";
+  const textColor = isDark ? "#f5f7ff" : "#374291";
+  const gridColor = isDark ? "rgba(201,211,234,0.1)" : "rgba(55,66,145,0.08)";
+  const chartSurface = isDark ? "rgba(7,28,42,0.96)" : "#ffffff";
   const tableColumns = useMemo(() => buildTableColumns(displayLabels), [displayLabels]);
   const exportColumns = useMemo(() => buildExportColumns(displayLabels), [displayLabels]);
 

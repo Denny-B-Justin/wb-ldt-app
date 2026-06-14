@@ -32,7 +32,7 @@ export async function CountryLandingPage({ country }: { country: Country }) {
       "inline-flex min-h-[58px] items-center justify-center rounded-full px-8 py-4 text-base font-medium transition-colors sm:min-w-[12rem]";
 
     return variant === "primary"
-      ? `${baseClassName} bg-[var(--accent)] text-white shadow-[0_12px_28px_rgba(17,138,178,0.24)] transition-transform hover:-translate-y-0.5 hover:brightness-95`
+      ? `${baseClassName} bg-[var(--accent)] text-white shadow-[0_12px_28px_rgba(54,117,183,0.24)] transition-transform hover:-translate-y-0.5 hover:brightness-95`
       : `${baseClassName} border border-[var(--border-strong)] bg-[var(--surface)] text-[var(--foreground)] hover:bg-[var(--surface-strong)]`;
   }
 
@@ -76,7 +76,7 @@ export async function CountryLandingPage({ country }: { country: Country }) {
       </section>
 
       <section className="mx-auto mt-14 w-full max-w-7xl px-6 sm:px-8 lg:px-12">
-        <article className="rounded-[1.9rem] border border-[var(--border-strong)] bg-white/80 p-7 shadow-[0_18px_45px_rgba(39,62,71,0.08)]">
+        <article className="rounded-[1.9rem] border border-[var(--border-strong)] bg-white/80 p-7 shadow-[0_18px_45px_rgba(2,20,32,0.08)]">
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
             Country snapshot
           </p>
@@ -117,7 +117,7 @@ export async function CountryLandingPage({ country }: { country: Country }) {
       <CountryContextPanel country={country} />
 
       <section className="mx-auto mt-10 mb-16 w-full max-w-7xl px-6 sm:px-8 lg:px-12">
-        <article className="rounded-[1.9rem] border border-[var(--border-strong)] bg-white/80 p-7 shadow-[0_18px_45px_rgba(39,62,71,0.08)]">
+        <article className="rounded-[1.9rem] border border-[var(--border-strong)] bg-white/80 p-7 shadow-[0_18px_45px_rgba(2,20,32,0.08)]">
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
             Administrative levels
           </p>

@@ -47,11 +47,11 @@ export function Scatter3DCard({
   const others = visiblePoints.filter(
     (point) => !point.selected && point.province !== selectedProvince,
   );
-  const chartSurface = isDark ? "rgba(22,32,38,0.96)" : "rgba(245,241,232,0.82)";
-  const gridColor = isDark ? "rgba(205,225,233,0.12)" : "rgba(24,37,44,0.12)";
-  const axisColor = isDark ? "rgba(205,225,233,0.2)" : "rgba(24,37,44,0.2)";
-  const textColor = isDark ? "#edf4f6" : "#18252c";
-  const mutedSeries = isDark ? "rgba(205,225,233,0.54)" : "rgba(24,37,44,0.58)";
+  const chartSurface = isDark ? "rgba(7,28,42,0.96)" : "rgba(238,242,251,0.86)";
+  const gridColor = isDark ? "rgba(201,211,234,0.12)" : "rgba(55,66,145,0.12)";
+  const axisColor = isDark ? "rgba(201,211,234,0.2)" : "rgba(55,66,145,0.2)";
+  const textColor = isDark ? "#f5f7ff" : "#374291";
+  const mutedSeries = isDark ? "rgba(201,211,234,0.54)" : "rgba(55,66,145,0.58)";
   const lowerSingular = adminLabels.lower.singular;
   const lowerPlural = adminLabels.lower.plural;
   const higherSingular = adminLabels.higher.singular;
@@ -60,7 +60,7 @@ export function Scatter3DCard({
     : `${higherSingular}: %{customdata[3]}<br>`;
 
   return (
-    <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+    <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
       <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
         3D scatterplot
       </p>

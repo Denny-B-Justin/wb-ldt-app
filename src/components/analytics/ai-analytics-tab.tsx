@@ -72,7 +72,7 @@ function StageButton({
       disabled={disabled}
       className={`inline-flex h-[42px] items-center justify-center rounded-full px-4 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-50 ${
         tone === "primary"
-          ? "bg-[var(--accent)] text-white shadow-[0_12px_28px_rgba(17,138,178,0.24)]"
+          ? "bg-[var(--accent)] text-white shadow-[0_12px_28px_rgba(54,117,183,0.24)]"
           : "border border-[var(--border-soft)] bg-white/80 text-[var(--foreground)]"
       }`}
     >
@@ -84,11 +84,11 @@ function StageButton({
 function WorkflowProgressRail({ steps }: { steps: WorkflowStep[] }) {
   const stateStyles: Record<WorkflowState, string> = {
     complete: "border-[rgba(84,162,75,0.34)] bg-[rgba(84,162,75,0.10)] text-[#2f7a2a]",
-    running: "border-[rgba(17,138,178,0.42)] bg-[rgba(17,138,178,0.12)] text-[var(--accent)]",
+    running: "border-[rgba(54,117,183,0.42)] bg-[rgba(54,117,183,0.12)] text-[var(--accent)]",
     failed: "border-[rgba(228,87,86,0.34)] bg-[rgba(228,87,86,0.10)] text-[#b23b3a]",
     blocked: "border-[rgba(148,163,184,0.55)] bg-[rgba(148,163,184,0.16)] text-[var(--foreground)]",
     optional: "border-[rgba(251,191,36,0.36)] bg-[rgba(251,191,36,0.10)] text-[#8a6416]",
-    ready: "border-[rgba(17,138,178,0.24)] bg-white/80 text-[var(--foreground)]",
+    ready: "border-[rgba(54,117,183,0.24)] bg-white/80 text-[var(--foreground)]",
   };
 
   const stateLabels: Record<WorkflowState, string> = {
@@ -101,7 +101,7 @@ function WorkflowProgressRail({ steps }: { steps: WorkflowStep[] }) {
   };
 
   return (
-    <section className="rounded-[1.5rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-4 shadow-[0_14px_36px_rgba(39,62,71,0.06)]">
+    <section className="rounded-[1.5rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-4 shadow-[0_14px_36px_rgba(2,20,32,0.06)]">
       <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
@@ -173,7 +173,7 @@ function WorkflowGuideCard({
   ];
 
   return (
-    <section className="overflow-hidden rounded-[1.5rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_14px_36px_rgba(39,62,71,0.06)]">
+    <section className="overflow-hidden rounded-[1.5rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_14px_36px_rgba(2,20,32,0.06)]">
       <div className="grid gap-0 xl:grid-cols-[minmax(0,1fr)_20rem]">
         <div className="p-5">
           <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
@@ -619,7 +619,7 @@ export function AiAnalyticsTab({
           </label>
           <button
             type="submit"
-            className="inline-flex h-[46px] items-center justify-center self-end rounded-full bg-[var(--accent)] px-5 text-sm font-medium text-white shadow-[0_12px_28px_rgba(17,138,178,0.24)]"
+            className="inline-flex h-[46px] items-center justify-center self-end rounded-full bg-[var(--accent)] px-5 text-sm font-medium text-white shadow-[0_12px_28px_rgba(54,117,183,0.24)]"
           >
             Apply
           </button>

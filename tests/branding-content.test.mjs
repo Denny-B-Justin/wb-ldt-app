@@ -41,6 +41,17 @@ test("global typography follows the requested Fira Sans and Inter stack", async 
   assert.match(css, /--font-heading: "Fira Sans", "Trebuchet MS", sans-serif;/);
 });
 
+test("global color tokens follow the GPB primary palette", async () => {
+  const css = await readFile("src/app/globals.css", "utf8");
+
+  assert.match(css, /--primary: #374291;/);
+  assert.match(css, /--foreground: #374291;/);
+  assert.match(css, /--muted-foreground: #3675b7;/);
+  assert.match(css, /--accent: #3675b7;/);
+  assert.match(css, /--gpb-chrome-bg: #3675b7;/);
+  assert.match(css, /--background: #021420;/);
+});
+
 test("about page follows the GPB LDT briefing content", async () => {
   const about = await readFile("src/app/about/page.tsx", "utf8");
 

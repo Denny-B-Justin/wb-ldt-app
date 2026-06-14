@@ -178,9 +178,9 @@ function buildYearOptions(records: StrategyInventoryRecord[]) {
 }
 
 function chartLayoutBase(isDark: boolean) {
-  const textColor = isDark ? "#edf4f6" : "#18252c";
-  const gridColor = isDark ? "rgba(205,225,233,0.1)" : "rgba(24,37,44,0.08)";
-  const chartSurface = isDark ? "rgba(22,32,38,0.96)" : "#ffffff";
+  const textColor = isDark ? "#f5f7ff" : "#374291";
+  const gridColor = isDark ? "rgba(201,211,234,0.1)" : "rgba(55,66,145,0.08)";
+  const chartSurface = isDark ? "rgba(7,28,42,0.96)" : "#ffffff";
 
   return {
     paper_bgcolor: "rgba(0,0,0,0)",
@@ -232,7 +232,7 @@ function PublicationYearChart({
               type: "bar",
               x: years,
               y: counts,
-              marker: { color: "#118ab2" },
+              marker: { color: "#3675b7" },
               customdata: counts.map((count) => count / total),
               hovertemplate:
                 "Publication year: %{x}<br>Documents: %{y}<br>Share: %{customdata:.0%}<extra></extra>",

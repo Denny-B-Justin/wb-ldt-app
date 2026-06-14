@@ -73,7 +73,7 @@ export default function Home() {
               {homeStats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex min-h-28 flex-col justify-between rounded-[1.25rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-5 shadow-[0_14px_34px_rgba(39,62,71,0.07)]"
+                  className="flex min-h-28 flex-col justify-between rounded-[1.25rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-5 shadow-[0_14px_34px_rgba(2,20,32,0.07)]"
                 >
                   <p className="font-mono text-2xl font-semibold text-[var(--foreground)]">
                     {stat.value}
@@ -90,7 +90,7 @@ export default function Home() {
       </section>
 
       <section className="mx-auto mt-12 w-full max-w-7xl px-6 sm:px-8 lg:px-12">
-        <article className="overflow-hidden rounded-[1.7rem] border border-[var(--border-soft)] bg-white/78 p-5 shadow-[0_18px_45px_rgba(39,62,71,0.08)] sm:p-7">
+        <article className="overflow-hidden rounded-[1.7rem] border border-[var(--border-soft)] bg-white/78 p-5 shadow-[0_18px_45px_rgba(2,20,32,0.08)] sm:p-7">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">

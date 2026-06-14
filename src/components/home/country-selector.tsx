@@ -31,7 +31,7 @@ export function CountrySelector() {
   return (
     <div
       id="country-workspaces"
-      className="mt-4 w-full max-w-[48rem] scroll-mt-28 rounded-[1.25rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-3 shadow-[0_14px_34px_rgba(39,62,71,0.07)] sm:p-4"
+      className="mt-4 w-full max-w-[48rem] scroll-mt-28 rounded-[1.25rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-3 shadow-[0_14px_34px_rgba(2,20,32,0.07)] sm:p-4"
     >
       <form
         onSubmit={handleSubmit}

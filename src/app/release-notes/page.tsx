@@ -196,7 +196,7 @@ function TypeBadge({ type }: { type: ReleaseType }) {
 export default function ReleaseNotesPage() {
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-8 px-6 pb-16 pt-10 sm:px-8 lg:px-12">
-      <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-8 shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+      <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-8 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
         <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
           Release notes
         </p>
@@ -234,7 +234,7 @@ export default function ReleaseNotesPage() {
         {releases.map((release) => (
           <article
             key={release.version}
-            className="rounded-[1.75rem] border border-[var(--border-soft)] bg-white/80 p-6 shadow-[0_14px_34px_rgba(39,62,71,0.06)] sm:p-8"
+            className="rounded-[1.75rem] border border-[var(--border-soft)] bg-white/80 p-6 shadow-[0_14px_34px_rgba(2,20,32,0.06)] sm:p-8"
           >
             <div className="flex flex-col gap-3 border-b border-[var(--border-soft)] pb-5 sm:flex-row sm:items-start sm:justify-between">
               <div>

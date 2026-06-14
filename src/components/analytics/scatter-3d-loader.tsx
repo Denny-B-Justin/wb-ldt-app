@@ -10,7 +10,7 @@ const DeferredScatter3DCard = dynamic(
   {
     ssr: false,
     loading: () => (
-      <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+      <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
         <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
           3D scatterplot
         </p>
@@ -28,7 +28,7 @@ export function Scatter3DLoader(props: Scatter3DCardProps) {
   }
 
   return (
-    <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+    <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
       <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
         Optional 3D scatterplot
       </p>
@@ -42,7 +42,7 @@ export function Scatter3DLoader(props: Scatter3DCardProps) {
       <button
         type="button"
         onClick={() => setIsLoaded(true)}
-        className="mt-6 inline-flex h-[46px] items-center justify-center rounded-full bg-[var(--accent)] px-5 text-sm font-medium text-white shadow-[0_12px_28px_rgba(17,138,178,0.24)]"
+        className="mt-6 inline-flex h-[46px] items-center justify-center rounded-full bg-[var(--accent)] px-5 text-sm font-medium text-white shadow-[0_12px_28px_rgba(54,117,183,0.24)]"
       >
         Load 3D chart
       </button>

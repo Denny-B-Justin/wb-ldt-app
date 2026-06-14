@@ -102,7 +102,7 @@ function Badge({
       ? "bg-[rgba(84,162,75,0.12)] text-[#2f7a2a]"
       : tone === "error"
         ? "bg-[rgba(228,87,86,0.12)] text-[#b23b3a]"
-        : "bg-[rgba(24,37,44,0.06)] text-[var(--muted-foreground)]";
+        : "bg-[rgba(55,66,145,0.06)] text-[var(--muted-foreground)]";
 
   return (
     <span className={`rounded-full px-3 py-1 text-xs font-medium ${className}`}>
@@ -646,7 +646,7 @@ export function AiIndicatorNarrativeResult({
       <ResultMeta result={result} />
       <EvidenceChips result={result} />
       <div className="mt-4 grid gap-3 xl:grid-cols-4">
-        <div className="rounded-[1.05rem] border border-[var(--border-soft)] bg-[rgba(17,138,178,0.07)] p-4">
+        <div className="rounded-[1.05rem] border border-[var(--border-soft)] bg-[rgba(54,117,183,0.07)] p-4">
           <p className="text-xs uppercase tracking-[0.16em] text-[var(--muted-foreground)]">
             Overall read
           </p>
@@ -685,7 +685,7 @@ export function AiIndicatorNarrativeResult({
       </div>
 
       {implicationSummary ? (
-        <div className="mt-4 rounded-[1.15rem] border border-[var(--border-soft)] bg-[rgba(17,138,178,0.06)] p-4">
+        <div className="mt-4 rounded-[1.15rem] border border-[var(--border-soft)] bg-[rgba(54,117,183,0.06)] p-4">
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
             Development implications
           </p>
@@ -758,7 +758,7 @@ export function AiAlignmentResult({ result }: { result: AiStageResponsePayload }
       <ResultMeta result={result} />
       <EvidenceChips result={result} />
       {sections.summary.length > 0 ? (
-        <div className="mt-4 rounded-[1.15rem] border border-[var(--border-soft)] bg-[rgba(17,138,178,0.06)] p-4">
+        <div className="mt-4 rounded-[1.15rem] border border-[var(--border-soft)] bg-[rgba(54,117,183,0.06)] p-4">
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
             Alignment summary
           </p>
@@ -773,7 +773,7 @@ export function AiAlignmentResult({ result }: { result: AiStageResponsePayload }
       ) : null}
       {visibleRows.length > 0 ? (
         <div className="mt-4 overflow-hidden rounded-[1.15rem] border border-[var(--border-soft)] bg-white">
-          <div className="hidden border-b border-[var(--border-soft)] bg-[rgba(24,37,44,0.04)] px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-foreground)] xl:grid xl:grid-cols-[220px_minmax(0,1fr)_250px]">
+          <div className="hidden border-b border-[var(--border-soft)] bg-[rgba(55,66,145,0.04)] px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-foreground)] xl:grid xl:grid-cols-[220px_minmax(0,1fr)_250px]">
             <span>Planning lens</span>
             <span>Finding</span>
             <span>Decision use</span>
@@ -829,7 +829,7 @@ export function AiSwotResult({ result }: { result: AiStageResponsePayload }) {
   const cards = [
     { title: "Strengths", items: swot.strengths, tone: "bg-[rgba(84,162,75,0.08)]" },
     { title: "Weaknesses", items: swot.weaknesses, tone: "bg-[rgba(228,87,86,0.08)]" },
-    { title: "Opportunities", items: swot.opportunities, tone: "bg-[rgba(17,138,178,0.06)]" },
+    { title: "Opportunities", items: swot.opportunities, tone: "bg-[rgba(54,117,183,0.06)]" },
     { title: "Threats", items: swot.threats, tone: "bg-[rgba(251,191,36,0.10)]" },
   ];
   const visibleCards = cards.filter((card) => card.items.length > 0);
@@ -922,7 +922,7 @@ export function AiRecommendationsResult({ result }: { result: AiStageResponsePay
                   </div>
                   <div className="flex flex-wrap gap-2 md:justify-end">
                     {hasData ? (
-                      <span className="rounded-full bg-[rgba(17,138,178,0.08)] px-3 py-1 text-xs text-[var(--accent)]">
+                      <span className="rounded-full bg-[rgba(54,117,183,0.08)] px-3 py-1 text-xs text-[var(--accent)]">
                         Data-backed
                       </span>
                     ) : null}
@@ -943,7 +943,7 @@ export function AiRecommendationsResult({ result }: { result: AiStageResponsePay
                   {(hasData || hasPlan) ? (
                     <div className="mt-4 grid gap-4 xl:grid-cols-2">
                       {hasData ? (
-                        <div className="rounded-[0.95rem] bg-[rgba(17,138,178,0.06)] p-4">
+                        <div className="rounded-[0.95rem] bg-[rgba(54,117,183,0.06)] p-4">
                           <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">Data-based justification</p>
                           <ul className="mt-2 space-y-2 text-sm leading-7 text-[var(--foreground)]">
                             {rec.dataJustification.map((item, index) => (
@@ -1015,7 +1015,7 @@ export function AiWebContextResult({ result }: { result: AiStageResponsePayload 
     {
       title: "Key takeaways",
       items: sections.keyTakeaways,
-      tone: "bg-[rgba(17,138,178,0.06)]",
+      tone: "bg-[rgba(54,117,183,0.06)]",
     },
     {
       title: "Policy signals",

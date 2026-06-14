@@ -122,7 +122,7 @@ function AnalyticsPendingPage({ country }: { country: Country }) {
 
 function AiPlanningUnavailable({ country }: { country: Country }) {
   return (
-    <Card className="border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+    <Card className="border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
       <CardHeader>
         <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
           AI planning brief
@@ -206,7 +206,7 @@ export default async function AnalyticsPage({
       <div className="mt-8 grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)] 2xl:grid-cols-[340px_minmax(0,1fr)]">
         <aside className="self-start xl:sticky xl:top-24">
           <div className="flex flex-col gap-4">
-            <Card size="sm" className="border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+            <Card size="sm" className="border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
               <CardHeader>
                 <CardTitle>Analytics workflow</CardTitle>
                 <CardDescription>Select a task area. Filters stay in the URL.</CardDescription>
@@ -274,7 +274,7 @@ export default async function AnalyticsPage({
           />
         ) : selectedTab === "single" ? (
         <div className="flex flex-col gap-6">
-          <Card className="border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+          <Card className="border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
             <CardHeader>
               <CardTitle className="text-2xl">Map & Drivers</CardTitle>
               <CardDescription className="max-w-4xl leading-7">
@@ -284,7 +284,7 @@ export default async function AnalyticsPage({
             </CardHeader>
           </Card>
 
-          <Card className="border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+          <Card className="border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
             <CardContent>
             <form className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_auto]">
               <input type="hidden" name="tab" value="single" />
@@ -336,7 +336,7 @@ export default async function AnalyticsPage({
         </div>
       ) : (
         <div className="flex flex-col gap-6">
-          <Card className="border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+          <Card className="border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
             <CardHeader>
               <CardTitle className="text-2xl">Compare Scores</CardTitle>
               <CardDescription className="max-w-4xl leading-7">

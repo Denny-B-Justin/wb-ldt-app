@@ -76,13 +76,13 @@ export function ScoreDriverChartCard({
   const scoreLabel = title.replace(/ Score$/, "");
   const diffColor = totalDiff >= 0 ? "#54a24b" : "#e45756";
   const diffSign = totalDiff >= 0 ? "+" : "";
-  const textColor = isDark ? "#edf4f6" : "#18252c";
-  const mutedColor = isDark ? "#96abb2" : "#5b6b74";
-  const gridColor = isDark ? "rgba(205,225,233,0.1)" : "rgba(24,37,44,0.08)";
-  const zeroLineColor = isDark ? "rgba(205,225,233,0.48)" : "rgba(91,107,116,0.8)";
+  const textColor = isDark ? "#f5f7ff" : "#374291";
+  const mutedColor = isDark ? "#c9d3ea" : "#3675b7";
+  const gridColor = isDark ? "rgba(201,211,234,0.1)" : "rgba(55,66,145,0.08)";
+  const zeroLineColor = isDark ? "rgba(201,211,234,0.48)" : "rgba(91,107,116,0.8)";
 
   return (
-    <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+    <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
       <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
         Waterfall chart
       </p>
