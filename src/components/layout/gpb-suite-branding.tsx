@@ -19,7 +19,7 @@ export function GpbSuiteBadge({ compact = false }: GpbSuiteBadgeProps) {
         "inline-flex min-h-16 items-center gap-3 border-[var(--gpb-chrome-divider)] text-[var(--gpb-chrome-active)] transition-colors duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gpb-chrome-focus)]",
         compact ? "border-t pt-4" : "border-l pl-6",
       )}
-      aria-label="Open the GPBP Suite page"
+      aria-label="Open the GPB Suite page"
     >
       <Image
         src={gpbpLogo}
@@ -29,7 +29,7 @@ export function GpbSuiteBadge({ compact = false }: GpbSuiteBadgeProps) {
       />
       <span className="text-sm font-semibold leading-tight">
         <span className="block">Part of the</span>
-        <span className="block">GPBP Suite</span>
+        <span className="block">GPB Suite</span>
       </span>
     </a>
   );
