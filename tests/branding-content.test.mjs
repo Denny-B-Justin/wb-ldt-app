@@ -58,8 +58,23 @@ test("header navigation links to the About page instead of country anchors", asy
   const headerBlock = siteLinks.match(/export const headerNavItems = \[[\s\S]*?\] as const;/)?.[0] ?? "";
 
   assert.match(headerBlock, /\{ href: "\/about", label: "About", exact: false \}/);
+  assert.match(headerBlock, /\{ href: "\/resources", label: "Resources", exact: false \}/);
   assert.doesNotMatch(headerBlock, /label: "Countries"/);
   assert.doesNotMatch(headerBlock, /#country-workspaces/);
+});
+
+test("resources page exposes core LDT Drive materials", async () => {
+  const resourcesPage = await readFile("src/app/resources/page.tsx", "utf8");
+  const resourcesData = await readFile("src/lib/resources.ts", "utf8");
+  const siteLinks = await readFile("src/components/layout/site-links.ts", "utf8");
+
+  assert.match(siteLinks, /href: "\/resources", label: "Resources"/);
+  assert.match(resourcesPage, /Core LDT materials/);
+  assert.match(resourcesPage, /Open Drive folder/);
+  assert.match(resourcesData, /1wUbAx7svxoAI-1de5EUHzijQSiAv5Q-a/);
+  assert.match(resourcesData, /pim-pam\.net GPB LDT Briefing 2026-05-23/);
+  assert.match(resourcesData, /GPBP LDT v1\.4 one-pager/);
+  assert.match(resourcesData, /GPBP LDT v1\.4 intro deck/);
 });
 
 test("about page follows the GPB LDT briefing content", async () => {
