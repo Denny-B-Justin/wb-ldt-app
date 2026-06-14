@@ -53,6 +53,15 @@ test("global color tokens follow the GPB primary palette", async () => {
   assert.match(css, /--background: #021420;/);
 });
 
+test("header navigation links to the About page instead of country anchors", async () => {
+  const siteLinks = await readFile("src/components/layout/site-links.ts", "utf8");
+  const headerBlock = siteLinks.match(/export const headerNavItems = \[[\s\S]*?\] as const;/)?.[0] ?? "";
+
+  assert.match(headerBlock, /\{ href: "\/about", label: "About", exact: false \}/);
+  assert.doesNotMatch(headerBlock, /label: "Countries"/);
+  assert.doesNotMatch(headerBlock, /#country-workspaces/);
+});
+
 test("about page follows the GPB LDT briefing content", async () => {
   const about = await readFile("src/app/about/page.tsx", "utf8");
 

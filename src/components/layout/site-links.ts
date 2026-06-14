@@ -1,6 +1,6 @@
 export const headerNavItems = [
   { href: "/", label: "Home", exact: true },
-  { href: "/#country-workspaces", label: "Countries", exact: true },
+  { href: "/about", label: "About", exact: false },
   { href: "/methodology", label: "Methodology", exact: false },
   { href: "/release-notes", label: "Release Notes", exact: false },
 ] as const;
