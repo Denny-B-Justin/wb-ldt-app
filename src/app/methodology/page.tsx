@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import pilDiagram from "../../../images/PIL Diagram.png";
-import { canonicalLabelMappings, scoreLabelMappings } from "@/lib/data/labels";
 
 const indicatorSelection = [
   "Relevance to local development outcomes that can inform public investment and planning dialogue.",
@@ -293,46 +292,6 @@ export default function MethodologyPage() {
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </div>
-
-        <div className="mt-6 grid gap-6 lg:grid-cols-2">
-          <article className="rounded-[1.25rem] border border-[var(--border-soft)] bg-[var(--surface)] p-5">
-            <h3 className="text-base font-semibold text-[var(--foreground)]">
-              Administrative field standardization
-            </h3>
-            <div className="mt-4 space-y-3 text-sm text-[var(--muted-foreground)]">
-              {canonicalLabelMappings.map((mapping) => (
-                <div
-                  key={mapping.raw}
-                  className="rounded-2xl bg-[var(--accent-soft)]/55 p-4"
-                >
-                  <p className="font-mono text-xs text-[var(--foreground)]">
-                    {mapping.raw}
-                  </p>
-                  <p className="mt-2">{mapping.canonical}</p>
-                </div>
-              ))}
-            </div>
-          </article>
-
-          <article className="rounded-[1.25rem] border border-[var(--border-soft)] bg-[var(--surface)] p-5">
-            <h3 className="text-base font-semibold text-[var(--foreground)]">
-              Score field standardization
-            </h3>
-            <div className="mt-4 space-y-3 text-sm text-[var(--muted-foreground)]">
-              {scoreLabelMappings.map((mapping) => (
-                <div
-                  key={mapping.raw}
-                  className="rounded-2xl bg-[var(--accent-soft)]/55 p-4"
-                >
-                  <p className="font-mono text-xs text-[var(--foreground)]">
-                    {mapping.raw}
-                  </p>
-                  <p className="mt-2">{mapping.canonical}</p>
-                </div>
-              ))}
-            </div>
-          </article>
         </div>
       </section>
 
