@@ -77,6 +77,23 @@ test("resources page exposes core LDT Drive materials", async () => {
   assert.match(resourcesData, /GPBP LDT v1\.4 intro deck/);
 });
 
+test("resources page exposes country document workspaces", async () => {
+  const resourcesPage = await readFile("src/app/resources/page.tsx", "utf8");
+  const resourcesData = await readFile("src/lib/resources.ts", "utf8");
+
+  assert.match(resourcesPage, /Country resource spaces/);
+  assert.match(resourcesPage, /Documents, demos, and analyses by country/);
+  assert.match(resourcesData, /countryResourcePacks/);
+  assert.match(resourcesData, /1WIOlbm9Et6-0CdmwCtw8KAIEqLdtcJbV/);
+  assert.match(resourcesData, /1bAHP-gN_0uLIIhCxhkkMBADylAvmbQdj/);
+  assert.match(resourcesData, /115tYIXw9uxTD_MFFDQYYz66sHdqf7Inx/);
+  assert.match(resourcesData, /PIM-PAM SRB SNG LIID Update 2026-06-09/);
+  assert.match(resourcesData, /LIID Serbia - Migration & Jobs Creation Analyses/);
+  assert.match(resourcesData, /Pim-Pam\.net GPBP Zambia Demos/);
+  assert.match(resourcesData, /Zambia AI demo/);
+  assert.match(resourcesData, /No top-level files were listed/);
+});
+
 test("about page follows the GPB LDT briefing content", async () => {
   const about = await readFile("src/app/about/page.tsx", "utf8");
 
