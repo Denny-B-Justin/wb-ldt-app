@@ -1,9 +1,5 @@
 import Image from "next/image";
 
-import ausLogo from "../../images/aus_logo.webp";
-import euLogo from "../../images/eu_logo.webp";
-import swissLogo from "../../images/swiss_logo.webp";
-import wbLogo from "../../images/wb_logo.webp";
 import pilDiagram from "../../images/PIL Diagram.png";
 import { CountrySelector } from "@/components/home/country-selector";
 import nplAnalyticsData from "@/generated/analytics-data.json";
@@ -144,32 +140,6 @@ export default function Home() {
         </article>
       </section>
 
-      <section className="mx-auto mb-16 w-full max-w-7xl px-6 sm:px-8 lg:px-12">
-        <article className="rounded-[1.9rem] border border-[var(--border-soft)] bg-white/78 p-7 shadow-[0_18px_45px_rgba(39,62,71,0.08)]">
-          <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
-            Implemented by
-          </p>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            <div className="flex min-h-24 items-center rounded-[1.5rem] border border-[var(--border-soft)] bg-[var(--surface)] px-5 py-4 shadow-[0_12px_30px_rgba(39,62,71,0.06)]">
-              <Image src={wbLogo} alt="The World Bank" className="h-11 w-auto" priority />
-            </div>
-            <div className="flex min-h-24 items-center rounded-[1.5rem] border border-[var(--border-soft)] bg-[var(--surface)] px-5 py-4 shadow-[0_12px_30px_rgba(39,62,71,0.06)]">
-              <Image src={euLogo} alt="European Union" className="h-11 w-auto" priority />
-            </div>
-            <div className="flex min-h-24 items-center rounded-[1.5rem] border border-[var(--border-soft)] bg-[var(--surface)] px-5 py-4 shadow-[0_12px_30px_rgba(39,62,71,0.06)]">
-              <Image
-                src={ausLogo}
-                alt="Australian Government Department of Foreign Affairs and Trade"
-                className="h-11 w-auto"
-                priority
-              />
-            </div>
-            <div className="flex min-h-24 items-center rounded-[1.5rem] border border-[var(--border-soft)] bg-[var(--surface)] px-5 py-4 shadow-[0_12px_30px_rgba(39,62,71,0.06)]">
-              <Image src={swissLogo} alt="Swiss Confederation" className="h-11 w-auto" priority />
-            </div>
-          </div>
-        </article>
-      </section>
     </main>
   );
 }
