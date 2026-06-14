@@ -48,7 +48,8 @@ test("global color tokens follow the GPB primary palette", async () => {
   assert.match(css, /--foreground: #374291;/);
   assert.match(css, /--muted-foreground: #3675b7;/);
   assert.match(css, /--accent: #3675b7;/);
-  assert.match(css, /--gpb-chrome-bg: #3675b7;/);
+  assert.match(css, /--gpb-chrome-bg: #021420;/);
+  assert.match(css, /--gpb-chrome-link: #c9d3ea;/);
   assert.match(css, /--background: #021420;/);
 });
 
