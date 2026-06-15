@@ -299,10 +299,6 @@ const SCORE_DEFINITIONS = [
       "Key Structure Internet Access Score",
       "Accessibility to Hospitals Score",
       "Accessibility to Schools Score",
-      "Railway Heatwave Score",
-      "Road Heatwave Score",
-      "Road Flood Score",
-      "Railway Flood Score",
     ],
   },
   {
@@ -314,6 +310,10 @@ const SCORE_DEFINITIONS = [
       "Air Quality Score",
       "Deforestation Score",
       "Emissions per Area Score",
+      "Railway Heatwave Score",
+      "Road Heatwave Score",
+      "Road Flood Score",
+      "Railway Flood Score",
     ],
   },
   {
