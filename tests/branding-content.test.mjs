@@ -7,7 +7,7 @@ test("branding assets and PIL diagram are wired into the app", async () => {
     access("images/gpb-logo.png"),
     access("images/ldt-logo-dark.png"),
     access("images/pimpam_logo.png"),
-    access("images/PIL Diagram.png"),
+    access("images/PIL Diagram v2.png"),
     access("images/about-ldt-size-distribution.png"),
     access("images/about-ldt-3d-pil-ranking.png"),
     access("images/about-ldt-2d-quadrant.png"),
@@ -27,8 +27,8 @@ test("branding assets and PIL diagram are wired into the app", async () => {
   assert.match(layoutBranding, /images\/gpb-logo\.png/);
   assert.match(layoutBranding, /images\/ldt-logo-dark\.png/);
   assert.match(layoutBranding, /images\/pimpam_logo\.png/);
-  assert.match(home, /PIL Diagram\.png/);
-  assert.match(methodology, /PIL Diagram\.png/);
+  assert.match(home, /PIL Diagram v2\.png/);
+  assert.match(methodology, /PIL Diagram v2\.png/);
 });
 
 test("global typography follows the requested Fira Sans and Inter stack", async () => {

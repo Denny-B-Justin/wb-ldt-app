@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import pilDiagram from "../../images/PIL Diagram.png";
+import pilDiagram from "../../images/PIL Diagram v2.png";
 import { CountrySelector } from "@/components/home/country-selector";
 import nplAnalyticsData from "@/generated/analytics-data.json";
 import serbiaAnalyticsData from "@/generated/serbia/analytics-data.json";

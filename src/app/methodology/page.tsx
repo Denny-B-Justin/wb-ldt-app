@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import pilDiagram from "../../../images/PIL Diagram.png";
+import pilDiagram from "../../../images/PIL Diagram v2.png";
 
 const indicatorSelection = [
   "Relevance to local development outcomes that can inform public investment and planning dialogue.",
@@ -23,21 +23,22 @@ const pillars = [
   {
     title: "Infrastructure",
     body:
-      "Infrastructure measures the availability, reach, and resilience of systems that support local service delivery and connectivity. It combines digital access, service accessibility, transport networks, and climate-risk exposure where those data are available.",
+      "Infrastructure measures the availability and reach of systems that support local service delivery and connectivity. It combines digital access and service accessibility where those data are available.",
     items: [
       "Broadband and mobile internet performance.",
       "Accessibility to schools, health facilities, and key local services.",
-      "Road and railway exposure to flood, heat, and other climate-related hazards.",
+      "Connectivity and access signals that help users compare service reach across local units.",
     ],
   },
   {
     title: "Livability",
     body:
-      "Livability reflects environmental and human-development conditions that shape daily life. The indicator set differs by country data availability, but it is designed to make environmental stress and quality-of-life signals visible at local scale.",
+      "Livability reflects environmental, climate-risk, and human-development conditions that shape daily life. The indicator set differs by country data availability, but it is designed to make environmental stress and quality-of-life signals visible at local scale.",
     items: [
       "Air quality and emissions indicators.",
+      "Road and railway exposure to flood, heat, and other climate-related hazards.",
       "Land-cover, deforestation, or green-space signals where available.",
-      "Human-development access indicators that complement infrastructure and prosperity scores.",
+      "Human-development conditions that complement infrastructure and prosperity scores.",
     ],
   },
 ];
