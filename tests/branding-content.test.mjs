@@ -109,6 +109,13 @@ test("about page follows the GPB LDT briefing content", async () => {
   assert.match(about, /Figure 1\. Panel of GPB LDT country demo highlights/);
   assert.match(about, /Replicability: adding the next country/);
   assert.match(about, /Selected country findings/);
+  assert.match(about, /161 Local Self Governments \(LSGs\)\*\*/);
+  assert.match(about, /~94%\*\*\*/);
+  assert.match(about, /~97%/);
+  assert.match(about, /the 94% figure does not include Kosovo/);
+  assert.doesNotMatch(about, /145 Local Self Governments \(LSGs\)\*\*/);
+  assert.doesNotMatch(about, /~90%\*\*\*/);
+  assert.doesNotMatch(about, /the 95% figure does not include Kosovo/);
   assert.match(about, /about-ldt-ai-recommendations\.png/);
   assert.match(about, /about-ldt-project-selection\.png/);
   assert.doesNotMatch(about, /Release 0\.7/);

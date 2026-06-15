@@ -127,8 +127,8 @@ const countryRows = [
     country: "Serbia",
     focus: "Municipalities",
     levelOne: "29 districts",
-    levelTwo: "145 Local Self Governments (LSGs)**",
-    strategies: "~90%***",
+    levelTwo: "161 Local Self Governments (LSGs)**",
+    strategies: "~94%***",
     topic: "LIID Early Investors",
   },
   {
@@ -136,7 +136,7 @@ const countryRows = [
     focus: "Districts",
     levelOne: "10 provinces",
     levelTwo: "116",
-    strategies: "~60%",
+    strategies: "~97%",
     topic: "Mining Districts",
   },
 ] as const;
@@ -403,7 +403,7 @@ export default function AboutPage() {
         <div className="mt-4 space-y-1 text-xs leading-6 text-[var(--muted-foreground)]">
           <p>* Provincial strategies are available.</p>
           <p>** For Serbia, 174 if Kosovo is included.</p>
-          <p>*** For Serbia, the 95% figure does not include Kosovo.</p>
+          <p>*** For Serbia, the 94% figure does not include Kosovo.</p>
         </div>
       </SectionCard>
 
