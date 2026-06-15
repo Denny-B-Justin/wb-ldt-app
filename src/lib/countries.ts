@@ -29,7 +29,7 @@ export const countries = [
         },
       ],
       note:
-        "Districts are retained where the source data includes them, but the country home page's main two-level rollup is province to municipality.",
+        "As Nepal transitions into a three-tier federal administrative system, the district level, comprised of 77 distinct regions, is removed from the main LDT two-level rollup. What remains is the federal level, provincial level, and local / municipal level.",
       sourceLinks: [
         {
           label: "Local government in Nepal",
@@ -176,7 +176,7 @@ export const countries = [
         },
       ],
       note:
-        "Serbia's administrative districts are central-government coordination areas rather than elected local governments; the LDT uses them as a practical grouping layer for local analysis.",
+        "Serbia's administrative districts are central-government coordination areas rather than elected local governments; the LDT uses them as a practical grouping layer for local analysis. In many Serbian contexts, Belgrade municipalities are often considered together as Belgrade, a single Admin level 1 entity, rather than as individual Admin level 2 regions.",
       sourceLinks: [
         {
           label: "Statistical Office of Serbia",

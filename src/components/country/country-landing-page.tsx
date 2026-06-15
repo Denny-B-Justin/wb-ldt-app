@@ -12,7 +12,13 @@ function lowerFirst(value: string) {
   return value.charAt(0).toLowerCase() + value.slice(1);
 }
 
-function CountryAdminLevelGuide({ country }: { country: Country }) {
+function CountryAdminLevelGuide({
+  country,
+  adminCountSummary,
+}: {
+  country: Country;
+  adminCountSummary: string;
+}) {
   const guide = country.adminLevelGuide;
 
   return (
@@ -34,6 +40,9 @@ function CountryAdminLevelGuide({ country }: { country: Country }) {
             </h2>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted-foreground)]">
               {guide.summary}
+            </p>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted-foreground)]">
+              {adminCountSummary}
             </p>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted-foreground)]">
               {guide.note}
@@ -108,6 +117,8 @@ export async function CountryLandingPage({ country }: { country: Country }) {
       ? `${baseClassName} bg-[var(--accent)] text-white shadow-[0_12px_28px_rgba(54,117,183,0.24)] transition-transform hover:-translate-y-0.5 hover:brightness-95`
       : `${baseClassName} border border-[var(--border-strong)] bg-[var(--surface)] text-[var(--foreground)] hover:bg-[var(--surface-strong)]`;
   }
+
+  const adminCountSummary = `In the ${model.latestYear} LDT release, Admin level 1 includes ${model.higherCount} ${higherPluralLabel}, and Admin level 2 includes ${model.lowerCount} ${lowerPluralLabel}.`;
 
   return (
     <main className="flex flex-1 flex-col">
@@ -189,7 +200,10 @@ export async function CountryLandingPage({ country }: { country: Country }) {
 
       <CountryContextPanel country={country} />
 
-      <CountryAdminLevelGuide country={country} />
+      <CountryAdminLevelGuide
+        country={country}
+        adminCountSummary={adminCountSummary}
+      />
 
       <section className="mx-auto mt-10 mb-16 w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <article className="rounded-[1.9rem] border border-[var(--border-strong)] bg-white/80 p-7 shadow-[0_18px_45px_rgba(2,20,32,0.08)]">

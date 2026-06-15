@@ -24,6 +24,20 @@ test("country metadata includes standardized admin-level guides", () => {
   }
 });
 
+test("country admin-level guides include requested context caveats", () => {
+  const nepal = getCountryBySlug("nepal");
+  const serbia = getCountryBySlug("serbia");
+
+  assert.match(nepal?.adminLevelGuide.note ?? "", /77 distinct regions/);
+  assert.match(
+    nepal?.adminLevelGuide.note ?? "",
+    /federal level, provincial level, and local \/ municipal level/,
+  );
+  assert.match(serbia?.adminLevelGuide.note ?? "", /Belgrade municipalities/);
+  assert.match(serbia?.adminLevelGuide.note ?? "", /single Admin level 1 entity/);
+  assert.match(serbia?.adminLevelGuide.note ?? "", /Admin level 2 regions/);
+});
+
 test("Zambia exposes public country-page metadata and district/province labels", () => {
   const country = getCountryBySlug("zambia");
 
