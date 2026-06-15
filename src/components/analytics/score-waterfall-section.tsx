@@ -16,7 +16,7 @@ function TooltipIcon({ text }: { text: string | null }) {
   return (
     <span className="group relative inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--surface)] text-[11px] font-medium text-[var(--muted-foreground)]">
       i
-      <span className="pointer-events-none absolute left-6 top-1/2 z-10 hidden w-64 -translate-y-1/2 rounded-2xl border border-[var(--border-soft)] bg-[var(--tooltip-bg)] px-3 py-2 text-left text-xs font-normal leading-5 text-[var(--tooltip-foreground)] shadow-[0_18px_50px_rgba(39,62,71,0.28)] group-hover:block">
+      <span className="pointer-events-none absolute left-6 top-1/2 z-10 hidden w-64 -translate-y-1/2 rounded-2xl border border-[var(--border-soft)] bg-[var(--tooltip-bg)] px-3 py-2 text-left text-xs font-normal leading-5 text-[var(--tooltip-foreground)] shadow-[0_18px_50px_rgba(2,20,32,0.28)] group-hover:block">
         {text ?? "No description available."}
       </span>
     </span>
@@ -46,7 +46,7 @@ function WaterfallCard({
     ) * 1.2;
 
   return (
-    <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+    <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
       <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
         Waterfall chart
       </p>
@@ -105,8 +105,8 @@ function WaterfallCard({
                   <TooltipIcon text={row.description} />
                 </div>
 
-                <div className="relative h-12 overflow-hidden rounded-full bg-[rgba(24,37,44,0.05)]">
-                  <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-[rgba(24,37,44,0.35)]" />
+                <div className="relative h-12 overflow-hidden rounded-full bg-[rgba(55,66,145,0.05)]">
+                  <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-[rgba(55,66,145,0.35)]" />
                   <div
                     className="absolute top-1/2 h-8 -translate-y-1/2 rounded-full"
                     style={{

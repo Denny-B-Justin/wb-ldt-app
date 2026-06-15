@@ -127,8 +127,8 @@ const countryRows = [
     country: "Serbia",
     focus: "Municipalities",
     levelOne: "29 districts",
-    levelTwo: "145 Local Self Governments (LSGs)**",
-    strategies: "~90%***",
+    levelTwo: "161 Local Self Governments (LSGs)**",
+    strategies: "~94%***",
     topic: "LIID Early Investors",
   },
   {
@@ -136,7 +136,7 @@ const countryRows = [
     focus: "Districts",
     levelOne: "10 provinces",
     levelTwo: "116",
-    strategies: "~60%",
+    strategies: "~97%",
     topic: "Mining Districts",
   },
 ] as const;
@@ -190,7 +190,7 @@ function SectionCard({
 export default function AboutPage() {
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-8 px-6 pb-16 pt-10 sm:px-8 lg:px-12">
-      <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-8 shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+      <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-8 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
         <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
           pim-pam.net Geospatial Planning and Budgeting Tools
         </p>
@@ -403,7 +403,7 @@ export default function AboutPage() {
         <div className="mt-4 space-y-1 text-xs leading-6 text-[var(--muted-foreground)]">
           <p>* Provincial strategies are available.</p>
           <p>** For Serbia, 174 if Kosovo is included.</p>
-          <p>*** For Serbia, the 95% figure does not include Kosovo.</p>
+          <p>*** For Serbia, the 94% figure does not include Kosovo.</p>
         </div>
       </SectionCard>
 

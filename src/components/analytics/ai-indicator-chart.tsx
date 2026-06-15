@@ -29,10 +29,10 @@ export function AiIndicatorChart({
   diagnostic,
 }: AiIndicatorChartProps) {
   const { isDark } = useTheme();
-  const textColor = isDark ? "#edf4f6" : "#18252c";
-  const gridColor = isDark ? "rgba(205,225,233,0.1)" : "rgba(24,37,44,0.08)";
-  const chartSurface = isDark ? "rgba(22,32,38,0.96)" : "#ffffff";
-  const mutedSeries = isDark ? "rgba(205,225,233,0.58)" : "rgba(24,37,44,0.7)";
+  const textColor = isDark ? "#f5f7ff" : "#374291";
+  const gridColor = isDark ? "rgba(201,211,234,0.1)" : "rgba(55,66,145,0.08)";
+  const chartSurface = isDark ? "rgba(7,28,42,0.96)" : "#ffffff";
+  const mutedSeries = isDark ? "rgba(201,211,234,0.58)" : "rgba(55,66,145,0.7)";
   const signal = diagnostic?.direction;
 
   return (
@@ -49,7 +49,7 @@ export function AiIndicatorChart({
                   ? "bg-[rgba(84,162,75,0.12)] text-[#2f7a2a]"
                   : signal === "Watchpoint"
                     ? "bg-[rgba(251,191,36,0.16)] text-[#8a6416]"
-                    : "bg-[rgba(24,37,44,0.06)] text-[var(--muted-foreground)]"
+                    : "bg-[rgba(55,66,145,0.06)] text-[var(--muted-foreground)]"
               }`}
             >
               {signal}
@@ -60,7 +60,7 @@ export function AiIndicatorChart({
           {series.description ?? "No description available."}
         </p>
         {diagnostic ? (
-          <div className="rounded-[1rem] border border-[var(--border-soft)] bg-[rgba(17,138,178,0.06)] p-3">
+          <div className="rounded-[1rem] border border-[var(--border-soft)] bg-[rgba(54,117,183,0.06)] p-3">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted-foreground)]">
               {diagnostic.year ? `Latest ${diagnostic.year} values` : "Latest year values"}
             </p>
@@ -90,8 +90,8 @@ export function AiIndicatorChart({
               name: municipalityLabel,
               x: series.points.map((point) => point.year),
               y: series.points.map((point) => point.municipalityValue),
-              marker: { color: "#118ab2", size: 8 },
-              line: { color: "#118ab2", width: 3 },
+              marker: { color: "#3675b7", size: 8 },
+              line: { color: "#3675b7", width: 3 },
             },
             {
               type: "scatter",

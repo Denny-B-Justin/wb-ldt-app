@@ -70,7 +70,7 @@ function buildFillExpression(minimum: number | null, maximum: number | null) {
       "case",
       ["==", ["get", "metricValue"], null],
       "#e7e7e7",
-      "#118ab2",
+      "#3675b7",
     ] as ExpressionSpecification;
   }
 
@@ -83,9 +83,9 @@ function buildFillExpression(minimum: number | null, maximum: number | null) {
       ["linear"],
       ["to-number", ["get", "metricValue"]],
       minimum,
-      "#e2efea",
+      "#e5ebf8",
       maximum,
-      "#118ab2",
+      "#3675b7",
     ],
   ] as ExpressionSpecification;
 }
@@ -225,7 +225,7 @@ export function ChoroplethMapCard({
         type: "line",
         source: "municipalities",
         paint: {
-          "line-color": "rgba(24,37,44,0.24)",
+          "line-color": "rgba(55,66,145,0.24)",
           "line-width": 0.8,
         },
       });
@@ -347,7 +347,7 @@ export function ChoroplethMapCard({
   }, [features, maximum, minimum, selectedCompositeKey, sourceData]);
 
   return (
-    <section className="overflow-hidden rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(39,62,71,0.08)]">
+    <section className="overflow-hidden rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
       <div className="flex items-center justify-between border-b border-[var(--border-soft)] px-6 py-5">
         <div>
           <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
@@ -357,17 +357,17 @@ export function ChoroplethMapCard({
             {metric.label}
           </h2>
         </div>
-        <span className="rounded-full bg-[rgba(17,138,178,0.12)] px-3 py-1 text-xs font-medium text-[var(--foreground)]">
+        <span className="rounded-full bg-[rgba(54,117,183,0.12)] px-3 py-1 text-xs font-medium text-[var(--foreground)]">
           {coverageLabel}
         </span>
       </div>
-      <div className="relative border-b border-[var(--border-soft)] bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(244,249,249,0.9))] px-4 py-4">
+      <div className="relative border-b border-[var(--border-soft)] bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(238,242,251,0.9))] px-4 py-4">
         <div ref={containerRef} className="h-[460px] w-full overflow-hidden rounded-[1.5rem] border border-[var(--border-soft)]" />
         <div className="pointer-events-none absolute bottom-8 left-8 rounded-2xl border border-[var(--border-soft)] bg-white/88 px-4 py-3 shadow-sm backdrop-blur">
           <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
             Legend
           </p>
-          <div className="mt-3 h-3 w-44 rounded-full bg-[linear-gradient(90deg,#e2efea_0%,#118ab2_100%)]" />
+          <div className="mt-3 h-3 w-44 rounded-full bg-[linear-gradient(90deg,#e5ebf8_0%,#3675b7_100%)]" />
           <div className="mt-2 flex justify-between font-mono text-xs text-[var(--muted-foreground)]">
             <span>{minimum === null ? "n/a" : minimum.toFixed(2)}</span>
             <span>{maximum === null ? "n/a" : maximum.toFixed(2)}</span>

@@ -178,9 +178,9 @@ function buildYearOptions(records: StrategyInventoryRecord[]) {
 }
 
 function chartLayoutBase(isDark: boolean) {
-  const textColor = isDark ? "#edf4f6" : "#18252c";
-  const gridColor = isDark ? "rgba(205,225,233,0.1)" : "rgba(24,37,44,0.08)";
-  const chartSurface = isDark ? "rgba(22,32,38,0.96)" : "#ffffff";
+  const textColor = isDark ? "#f5f7ff" : "#374291";
+  const gridColor = isDark ? "rgba(201,211,234,0.1)" : "rgba(55,66,145,0.08)";
+  const chartSurface = isDark ? "rgba(7,28,42,0.96)" : "#ffffff";
 
   return {
     paper_bgcolor: "rgba(0,0,0,0)",
@@ -232,7 +232,7 @@ function PublicationYearChart({
               type: "bar",
               x: years,
               y: counts,
-              marker: { color: "#118ab2" },
+              marker: { color: "#3675b7" },
               customdata: counts.map((count) => count / total),
               hovertemplate:
                 "Publication year: %{x}<br>Documents: %{y}<br>Share: %{customdata:.0%}<extra></extra>",
@@ -365,7 +365,7 @@ function StrategyInventoryTable({
             </h2>
           </div>
           <p className="text-sm text-[var(--muted-foreground)]">
-            Showing {formatNumber(sortedRows.length)} of {formatNumber(records.length)} sample records
+            Showing {formatNumber(sortedRows.length)} of {formatNumber(records.length)} inventory records
           </p>
         </div>
 
@@ -631,8 +631,8 @@ function FollowUpPanel({
       {summary.unlisted_missing_lsg_count > 0 ? (
         <div className="mt-5 rounded-[1.2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-4 text-sm leading-7 text-[var(--muted-foreground)]">
           {formatNumber(summary.unlisted_missing_lsg_count)} expected Serbian LSGs are not
-          represented in the current sample inventory yet. Add the production master list
-          to convert this placeholder count into named follow-up rows.
+          represented in the current inventory yet. Add the validated master list
+          to convert this count into named follow-up rows.
         </div>
       ) : null}
 
