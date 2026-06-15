@@ -12,6 +12,79 @@ function lowerFirst(value: string) {
   return value.charAt(0).toLowerCase() + value.slice(1);
 }
 
+function CountryAdminLevelGuide({ country }: { country: Country }) {
+  const guide = country.adminLevelGuide;
+
+  return (
+    <section
+      className="mx-auto mt-6 w-full max-w-7xl px-6 sm:px-8 lg:px-12"
+      aria-labelledby={`${country.slug}-admin-level-guide-heading`}
+    >
+      <article className="rounded-[1.9rem] border border-[var(--border-strong)] bg-white/80 p-7 shadow-[0_18px_45px_rgba(2,20,32,0.08)]">
+        <div className="grid gap-7 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start">
+          <div>
+            <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
+              Administrative context
+            </p>
+            <h2
+              id={`${country.slug}-admin-level-guide-heading`}
+              className="mt-3 text-2xl font-semibold tracking-tight text-[var(--foreground)]"
+            >
+              Admin levels 1 and 2 in {country.name}
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted-foreground)]">
+              {guide.summary}
+            </p>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted-foreground)]">
+              {guide.note}
+            </p>
+          </div>
+
+          <dl className="grid gap-4 sm:grid-cols-2">
+            {guide.levels.map((level) => (
+              <div
+                key={`${level.label}-${level.name}`}
+                className="rounded-[1.35rem] border border-[var(--border-soft)] bg-[var(--surface)] p-5"
+              >
+                <dt>
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
+                    {level.label}
+                  </span>
+                  <span className="mt-2 block text-xl font-semibold text-[var(--foreground)]">
+                    {level.name}
+                  </span>
+                </dt>
+                <dd className="mt-3 text-sm leading-7 text-[var(--muted-foreground)]">
+                  {level.description}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div className="mt-6 flex flex-col gap-3 border-t border-[var(--border-soft)] pt-5 sm:flex-row sm:items-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
+            Sources
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {guide.sourceLinks.map((source) => (
+              <a
+                key={source.href}
+                href={source.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-10 items-center rounded-full border border-[var(--border-soft)] bg-white px-4 py-2 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)] dark:bg-[var(--surface-strong)]"
+              >
+                {source.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </article>
+    </section>
+  );
+}
+
 export async function CountryLandingPage({ country }: { country: Country }) {
   const dataset = await loadCountryDataset(country);
   const model = buildCountryHomeModel(country, dataset);
@@ -113,6 +186,8 @@ export async function CountryLandingPage({ country }: { country: Country }) {
           </div>
         </article>
       </section>
+
+      <CountryAdminLevelGuide country={country} />
 
       <CountryContextPanel country={country} />
 

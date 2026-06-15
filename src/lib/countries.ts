@@ -11,6 +11,36 @@ export const countries = [
       middle: { singular: "District", plural: "Districts" },
       higher: { singular: "Province", plural: "Provinces" },
     },
+    adminLevelGuide: {
+      summary:
+        "The LDT uses Nepal's province-to-local-level structure so users can compare municipalities while still reading results in their provincial planning context.",
+      levels: [
+        {
+          label: "Admin level 1",
+          name: "Province",
+          description:
+            "Provinces are the higher subnational frame used on the country page to group municipalities and summarize geographic coverage.",
+        },
+        {
+          label: "Admin level 2",
+          name: "Municipality / local level",
+          description:
+            "Municipalities and rural municipalities are the local government units used for LDT analytics. Nepal's local level includes metropolitan cities, sub-metropolitan cities, municipalities, and rural municipalities.",
+        },
+      ],
+      note:
+        "Districts are retained where the source data includes them, but the country home page's main two-level rollup is province to municipality.",
+      sourceLinks: [
+        {
+          label: "Local government in Nepal",
+          href: "https://en.wikipedia.org/wiki/Local_government_in_Nepal",
+        },
+        {
+          label: "Administrative divisions of Nepal",
+          href: "https://en.wikipedia.org/wiki/Administrative_divisions_of_Nepal",
+        },
+      ],
+    },
     profile: {
       populationMillions: null,
       areaKm2: null,
@@ -51,6 +81,36 @@ export const countries = [
       lower: { singular: "District", plural: "Districts" },
       middle: null,
       higher: { singular: "Province", plural: "Provinces" },
+    },
+    adminLevelGuide: {
+      summary:
+        "The LDT uses Zambia's province-to-district structure so district-level comparisons can be understood against the country's higher administrative planning geography.",
+      levels: [
+        {
+          label: "Admin level 1",
+          name: "Province",
+          description:
+            "Provinces are the higher administrative grouping used to organize district results, compare regional patterns, and connect local evidence to national planning priorities.",
+        },
+        {
+          label: "Admin level 2",
+          name: "District",
+          description:
+            "Districts are the local analysis units in the Zambia workspace. They are the units shown in district analytics, maps, and planning-document workflows.",
+        },
+      ],
+      note:
+        "The current LDT release follows the app's loaded Zambia workspace of 10 provinces and 116 districts.",
+      sourceLinks: [
+        {
+          label: "Provinces of Zambia",
+          href: "https://en.wikipedia.org/wiki/Provinces_of_Zambia",
+        },
+        {
+          label: "Subdivisions of Zambia",
+          href: "https://en.wikipedia.org/wiki/Subdivisions_of_Zambia",
+        },
+      ],
     },
     profile: {
       populationMillions: 22.5,
@@ -97,6 +157,36 @@ export const countries = [
       lower: { singular: "Municipality", plural: "Municipalities" },
       middle: null,
       higher: { singular: "District", plural: "Districts" },
+    },
+    adminLevelGuide: {
+      summary:
+        "The LDT uses Serbia's district-to-local-self-government structure so municipality-level evidence can be compared within the country's administrative district geography.",
+      levels: [
+        {
+          label: "Admin level 1",
+          name: "District",
+          description:
+            "Administrative districts are used in the app as the higher grouping for Serbian municipalities and cities, matching how the workspace summarizes local coverage.",
+        },
+        {
+          label: "Admin level 2",
+          name: "Municipality / city",
+          description:
+            "Municipalities and cities are the local self-government units used for Serbia's LDT analytics, maps, strategy inventory, and country landing-page counts.",
+        },
+      ],
+      note:
+        "Serbia's administrative districts are central-government coordination areas rather than elected local governments; the LDT uses them as a practical grouping layer for local analysis.",
+      sourceLinks: [
+        {
+          label: "Statistical Office of Serbia",
+          href: "https://www.stat.gov.rs/en-US/oblasti/registar-prostornih-jedinica-i-gis/administrativno-teritorijalna-podela-i-nstj-nivoi-1-2-3/upravni-okruzi",
+        },
+        {
+          label: "Administrative divisions of Serbia",
+          href: "https://en.wikipedia.org/wiki/Administrative_divisions_of_Serbia",
+        },
+      ],
     },
     profile: {
       populationMillions: 6.7,

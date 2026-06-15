@@ -3,6 +3,27 @@ import test from "node:test";
 
 import { getCountryBySlug } from "../src/lib/countries.ts";
 
+test("country metadata includes standardized admin-level guides", () => {
+  const expectedLowerNames = new Map([
+    ["nepal", "Municipality / local level"],
+    ["zambia", "District"],
+    ["serbia", "Municipality / city"],
+  ]);
+
+  for (const [slug, expectedLowerName] of expectedLowerNames) {
+    const country = getCountryBySlug(slug);
+
+    assert.ok(country?.adminLevelGuide);
+    assert.equal(country.adminLevelGuide.levels.length, 2);
+    assert.equal(country.adminLevelGuide.levels[0].label, "Admin level 1");
+    assert.equal(country.adminLevelGuide.levels[1].label, "Admin level 2");
+    assert.equal(country.adminLevelGuide.levels[1].name, expectedLowerName);
+    assert.ok(country.adminLevelGuide.summary.includes("LDT"));
+    assert.ok(country.adminLevelGuide.note.length > 40);
+    assert.ok(country.adminLevelGuide.sourceLinks.length >= 1);
+  }
+});
+
 test("Zambia exposes public country-page metadata and district/province labels", () => {
   const country = getCountryBySlug("zambia");
 
