@@ -187,9 +187,9 @@ export async function CountryLandingPage({ country }: { country: Country }) {
         </article>
       </section>
 
-      <CountryAdminLevelGuide country={country} />
-
       <CountryContextPanel country={country} />
+
+      <CountryAdminLevelGuide country={country} />
 
       <section className="mx-auto mt-10 mb-16 w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <article className="rounded-[1.9rem] border border-[var(--border-strong)] bg-white/80 p-7 shadow-[0_18px_45px_rgba(2,20,32,0.08)]">
