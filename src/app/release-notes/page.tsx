@@ -37,6 +37,130 @@ const versionTypes: Array<{
 
 const releases: Release[] = [
   {
+    version: "Release v1.4.4",
+    date: "June 15, 2026",
+    type: "Minor",
+    summary:
+      "This release polishes the GPB ecosystem presentation after the multi-country release, adds a Resources page for LDT and country materials, and applies reviewer-requested content corrections across the public pages.",
+    sections: [
+      {
+        title: "GPB ecosystem UI alignment",
+        items: [
+          "Aligned the global header and footer with the GPB digital tools guidance, including the dark chrome treatment, GPB Suite badge, PIM-PAM footer branding, and updated LDT logo usage.",
+          "Reordered the primary navigation to Home, About, Methodology, Resources, and Release Notes, and replaced the previous Countries header link with About.",
+          "Applied the GPB primary palette across the app while preserving the black header and footer treatment requested for the digital tools shell.",
+        ],
+      },
+      {
+        title: "Resources page",
+        items: [
+          "Added a Resources page to the header and footer for core LDT reference materials and country-specific workspaces.",
+          "Linked the GPB LDT briefing, one-pager, and intro deck, plus Serbia, Zambia, and Nepal country folders with direct links to visible country documents, demos, and notebooks.",
+          "Refined the Resources layout by removing redundant folder copy and the top-level Drive button so the page stays focused on document cards and country packs.",
+        ],
+      },
+      {
+        title: "Content cleanup and corrections",
+        items: [
+          "Removed the homepage implemented-by strip and the methodology standardization mapping block to reduce page clutter.",
+          "Updated About page country findings to use 161 Serbia LSGs, approximately 94% Serbia strategy coverage, approximately 97% Zambia strategy coverage, and the corrected 94% Kosovo footnote.",
+          "Standardized GPB Suite naming across header and footer surfaces.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "Release v1.4.3",
+    date: "June 13, 2026",
+    type: "Minor",
+    summary:
+      "This release prepares the Local Development Tracker for the next multi-country release by expanding Serbia and Zambia workspaces, strengthening the Strategy Inventory dashboard, improving country-aware AI planning support, refreshing GPB LDT branding/content, and hardening production deployment on Vercel.",
+    sections: [
+      {
+        title: "Multi-country workspaces",
+        items: [
+          "Added live Serbia and Zambia country landing pages and analytics routes.",
+          "Standardized Nepal, Serbia, and Zambia on the same shared country landing-page layout.",
+          "Updated the homepage to report global workspace coverage across all loaded countries.",
+          "Added generated analytics fallbacks and tracing so country analytics load correctly in production.",
+        ],
+      },
+      {
+        title: "Strategy inventory",
+        items: [
+          "Added Strategy Inventory dashboards for Serbia and Zambia.",
+          "Added Supabase-backed strategy inventory storage and ingest support.",
+          "Added fallback and sample inventory data for preview resilience.",
+          "Corrected Serbia coverage and readiness logic, including the 161-LSG denominator and Serbian-language AI-readiness handling.",
+        ],
+      },
+      {
+        title: "AI planning workflow",
+        items: [
+          "Made AI planning requests country-aware for Nepal, Serbia, and Zambia.",
+          "Updated local and SNG plan context handling while preserving existing stage compatibility.",
+          "Improved graceful behavior when local plan URLs are missing.",
+          "Fixed Vercel PDF parsing issues with server-side PDF.js worker and polyfill handling.",
+        ],
+      },
+      {
+        title: "Branding, content, and documentation",
+        items: [
+          "Refreshed the About page using the GPB LDT Briefing content.",
+          "Embedded GPB LDT figures, tables, and demo screenshots from the briefing document.",
+          "Updated typography to Fira Sans headings and Inter body copy.",
+          "Added the PIL diagram to the homepage and Methodology page.",
+          "Expanded Release Notes into a more specific versioned changelog inspired by the GPBP release-notes format.",
+        ],
+      },
+      {
+        title: "Deployment and stability",
+        items: [
+          "Bundled generated analytics JSON assets for Vercel.",
+          "Added tracing safeguards for analytics fallbacks used by AI routes.",
+          "Removed build-time Google font fetching from the Next.js build path.",
+          "Added regression tests for branding/content, release notes, strategy inventory, and country-page behavior.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "Release v1.4.2",
+    date: "June 12, 2026",
+    type: "Minor",
+    summary:
+      "This release moves the app beyond the original Nepal-only framing, enables Serbia and Zambia strategy inventory workflows, and fixes production deployment issues for generated analytics assets and PDF document parsing on Vercel.",
+    sections: [
+      {
+        title: "Strategy inventory workflows",
+        items: [
+          "Added Strategy Inventory dashboards for Serbia and Zambia.",
+          "Backed the strategy inventory with a new Supabase table and ingest script.",
+          "Added Serbia and Zambia sample and fallback inventory data.",
+          "Corrected Serbia inventory coverage and readiness logic, including treating parsed Serbian-language documents as AI-ready.",
+        ],
+      },
+      {
+        title: "Shared country experience",
+        items: [
+          "Updated country landing pages so Nepal, Serbia, and Zambia use the same shared layout.",
+          "Added country-aware landing actions, including the Strategy Inventory button.",
+          "Made Development plan source availability collapsible by default.",
+          "Updated homepage stats to summarize all loaded country workspaces instead of Nepal only.",
+          "Removed static Nepal-only homepage framing.",
+        ],
+      },
+      {
+        title: "Release notes and production fixes",
+        items: [
+          "Added Release v1.4 notes.",
+          "Fixed Vercel deployment and runtime issues for generated analytics JSON files.",
+          "Added PDF.js server-side worker and polyfill handling for Vercel AI document parsing.",
+        ],
+      },
+    ],
+  },
+  {
     version: "Release v1.4",
     date: "June 12, 2026",
     type: "Major",
