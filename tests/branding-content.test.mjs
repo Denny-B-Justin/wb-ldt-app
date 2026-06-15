@@ -59,6 +59,10 @@ test("header navigation links to the About page instead of country anchors", asy
 
   assert.match(headerBlock, /\{ href: "\/about", label: "About", exact: false \}/);
   assert.match(headerBlock, /\{ href: "\/resources", label: "Resources", exact: false \}/);
+  assert.match(
+    headerBlock,
+    /label: "Methodology"[\s\S]*label: "Resources"[\s\S]*label: "Release Notes"/,
+  );
   assert.doesNotMatch(headerBlock, /label: "Countries"/);
   assert.doesNotMatch(headerBlock, /#country-workspaces/);
 });
@@ -70,7 +74,8 @@ test("resources page exposes core LDT Drive materials", async () => {
 
   assert.match(siteLinks, /href: "\/resources", label: "Resources"/);
   assert.match(resourcesPage, /Core LDT materials/);
-  assert.match(resourcesPage, /Open Drive folder/);
+  assert.doesNotMatch(resourcesPage, /Open Drive folder/);
+  assert.doesNotMatch(resourcesPage, /ldtResourceFolder\.description/);
   assert.match(resourcesData, /1wUbAx7svxoAI-1de5EUHzijQSiAv5Q-a/);
   assert.match(resourcesData, /pim-pam\.net GPB LDT Briefing 2026-05-23/);
   assert.match(resourcesData, /GPBP LDT v1\.4 one-pager/);

@@ -11,7 +11,6 @@ import {
 import {
   countryResourcePacks,
   ldtResourceFiles,
-  ldtResourceFolder,
   type CountryResourcePack,
   type ResourceFile,
 } from "@/lib/resources";
@@ -131,44 +130,27 @@ function CountryResourceCard({ pack }: { pack: CountryResourcePack }) {
 export default function ResourcesPage() {
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-6 pb-16 pt-10 sm:px-8 lg:px-12">
-      <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end">
-        <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
-            Resources
-          </p>
-          <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-[var(--foreground)] sm:text-5xl">
-            LDT documents and working materials
-          </h1>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted-foreground)]">
-            A curated set of reference materials for understanding the Local Development
-            Tracker, sharing the GPB approach, and supporting country-facing discussions.
-          </p>
-        </div>
-
-        <a
-          href={ldtResourceFolder.href}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[0.95rem] bg-[var(--foreground)] px-5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(2,20,32,0.18)] transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"
-        >
-          <FolderOpen aria-hidden="true" className="size-4" />
-          Open Drive folder
-        </a>
+      <section className="max-w-4xl">
+        <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
+          Resources
+        </p>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-[var(--foreground)] sm:text-5xl">
+          LDT documents and working materials
+        </h1>
+        <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted-foreground)]">
+          A curated set of reference materials for understanding the Local Development
+          Tracker, sharing the GPB approach, and supporting country-facing discussions.
+        </p>
       </section>
 
       <section>
-        <div className="flex flex-col gap-3 border-b border-[var(--border-soft)] pb-5 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
-              Core LDT materials
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold text-[var(--foreground)]">
-              Start here
-            </h2>
-          </div>
-          <p className="max-w-xl text-sm leading-7 text-[var(--muted-foreground)]">
-            {ldtResourceFolder.description}
+        <div className="border-b border-[var(--border-soft)] pb-5">
+          <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
+            Core LDT materials
           </p>
+          <h2 className="mt-2 text-2xl font-semibold text-[var(--foreground)]">
+            Start here
+          </h2>
         </div>
 
         <div className="mt-6 grid gap-5 md:grid-cols-3">
