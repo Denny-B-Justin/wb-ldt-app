@@ -1,9 +1,0 @@
-metric,value
-OSR rows,464
-OSR rows matched to score geography,464
-OSR rows without score match,0
-Score rows with OSR values,464
-Score rows without OSR match in common years,0
-Score rows for years not present in OSR,116
-Unique OSR geography crosswalk rows,132
-Crosswalk rows with normalization notes,47
