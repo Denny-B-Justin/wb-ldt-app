@@ -107,6 +107,13 @@ export const countryResourcePacks: CountryResourcePack[] = [
         description:
           "Notebook demo for AI-assisted Zambia analysis and narrative generation workflows.",
       },
+      {
+        title: "GPB LDT - Zambia OSR analysis",
+        format: "Notebook",
+        href: "https://drive.google.com/file/d/18DX7cuGtZcmtet1qMurQpHri_SvNQhRp/view?usp=drive_link",
+        description:
+          "Notebook comparing Zambia PIL score patterns with own-source revenue outcomes and mining-district context.",
+      },
     ],
   },
   {

@@ -96,6 +96,8 @@ test("resources page exposes country document workspaces", async () => {
   assert.match(resourcesData, /LIID Serbia - Migration & Jobs Creation Analyses/);
   assert.match(resourcesData, /Pim-Pam\.net GPBP Zambia Demos/);
   assert.match(resourcesData, /Zambia AI demo/);
+  assert.match(resourcesData, /GPB LDT - Zambia OSR analysis/);
+  assert.match(resourcesData, /18DX7cuGtZcmtet1qMurQpHri_SvNQhRp/);
   assert.match(resourcesData, /No top-level files were listed/);
 });
 
