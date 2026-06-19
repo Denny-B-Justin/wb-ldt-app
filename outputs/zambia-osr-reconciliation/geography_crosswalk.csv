@@ -1,0 +1,133 @@
+osr_Province,osr_District,canonical_Province,canonical_District,matched_score_Province,matched_score_District,match_status,osr_years,osr_rows,reconciliation_notes
+Central,Chibombo,Central,Chibombo,Central,Chibombo,matched,2021;2022;2023;2024,4,
+Central,Chisamba,Central,Chisamba,Central,Chisamba,matched,2021;2022;2023;2024,4,
+Central,Chitambo,Central,Chitambo,Central,Chitambo,matched,2021;2022;2023;2024,4,
+Central,Itezhi-tezhi,Central,Itezhi-tezhi,Central,Itezhi-Tezhi,matched,2021;2022;2023;2024,4,score district normalized: Itezhi-Tezhi -> Itezhi-tezhi
+Central,Kabwe Municipal Council,Central,Kabwe,Central,Kabwe,matched,2021;2022;2023;2024,4,council suffix removed: Kabwe Municipal Council -> Kabwe
+Central,Kapiri Mposhi,Central,Kapiri Mposhi,Central,Kapiri Mposhi,matched,2021;2022;2023;2024,4,
+Central,Luano,Central,Luano,Central,Luano,matched,2021;2022;2023;2024,4,
+Central,Mkushi,Central,Mkushi,Central,Mkushi,matched,2021;2022;2023;2024,4,
+Central,Mumbwa,Central,Mumbwa,Central,Mumbwa,matched,2021;2022;2023;2024,4,
+Central,Ngabwe,Central,Ngabwe,Central,Ngabwe,matched,2023;2024,2,
+Central,NgabweTown Council,Central,Ngabwe,Central,Ngabwe,matched,2021;2022,2,council suffix removed: NgabweTown Council -> Ngabwe
+Central,Serenje,Central,Serenje,Central,Serenje,matched,2021;2022;2023;2024,4,
+Central,Shibuyunji,Central,Shibuyunji,Central,Shibuyunji,matched,2021;2022;2023;2024,4,
+Copperbelt,Chililabombwe Municipal Council,Copperbelt,Chililabombwe,Copperbelt,Chililabombwe,matched,2021;2022;2023;2024,4,council suffix removed: Chililabombwe Municipal Council -> Chililabombwe
+Copperbelt,Chingola Municipal Council,Copperbelt,Chingola,Copperbelt,Chingola,matched,2021;2022;2023;2024,4,council suffix removed: Chingola Municipal Council -> Chingola
+Copperbelt,Kalulushi Municipal Council,Copperbelt,Kalulushi,Copperbelt,Kalulushi,matched,2021;2022;2023;2024,4,council suffix removed: Kalulushi Municipal Council -> Kalulushi
+Copperbelt,Kitwe City Council,Copperbelt,Kitwe,Copperbelt,Kitwe,matched,2021;2022;2023;2024,4,council suffix removed: Kitwe City Council -> Kitwe
+Copperbelt,Luanshya Municipal Council,Copperbelt,Luanshya,Copperbelt,Luanshya,matched,2021;2022;2023;2024,4,council suffix removed: Luanshya Municipal Council -> Luanshya
+Copperbelt,Lufwanyama,Copperbelt,Lufwanyama,Copperbelt,Lufwanyama,matched,2021;2022;2023;2024,4,
+Copperbelt,Masaiti,Copperbelt,Masaiti,Copperbelt,Masaiti,matched,2021;2022;2023;2024,4,
+Copperbelt,Mpongwe,Copperbelt,Mpongwe,Copperbelt,Mpongwe,matched,2021;2022;2023;2024,4,
+Copperbelt,Mufulira Municipal Council,Copperbelt,Mufulira,Copperbelt,Mufulira,matched,2021;2022;2023;2024,4,council suffix removed: Mufulira Municipal Council -> Mufulira
+Copperbelt,Ndola City Coucil,Copperbelt,Ndola,Copperbelt,Ndola,matched,2021;2022;2023,3,council suffix removed: Ndola City Coucil -> Ndola
+Copperbelt,Ndola City Council,Copperbelt,Ndola,Copperbelt,Ndola,matched,2024,1,council suffix removed: Ndola City Council -> Ndola
+Eastern,Chadiza,Eastern,Chadiza,Eastern,Chadiza,matched,2021;2022;2023;2024,4,
+Eastern,Chasefu,Eastern,Chasefu,Eastern,Chasefu,matched,2021;2022;2023;2024,4,
+Eastern,Chipangali,Eastern,Chipangali,Eastern,Chipangali,matched,2021;2022;2023;2024,4,
+Eastern,Chipata City Council,Eastern,Chipata,Eastern,Chipata,matched,2021;2022;2023;2024,4,council suffix removed: Chipata City Council -> Chipata
+Eastern,Kasenengwa,Eastern,Kasenengwa,Eastern,Kasenengwa,matched,2021;2022;2023;2024,4,
+Eastern,Katete,Eastern,Katete,Eastern,Katete,matched,2021;2022;2023;2024,4,
+Eastern,Lumezi,Eastern,Lumezi,Eastern,Lumezi,matched,2021;2022;2023;2024,4,
+Eastern,Lundazi,Eastern,Lundazi,Eastern,Lundazi,matched,2021;2022;2023;2024,4,
+Eastern,Lusangazi,Eastern,Lusangazi,Eastern,Lusangazi,matched,2021;2022;2023;2024,4,
+Eastern,Mambwe,Eastern,Mambwe,Eastern,Mambwe,matched,2021;2022;2023;2024,4,
+Eastern,Nyimba,Eastern,Nyimba,Eastern,Nyimba,matched,2024,1,
+Eastern,NyimbaTown Council,Eastern,Nyimba,Eastern,Nyimba,matched,2021;2022;2023,3,council suffix removed: NyimbaTown Council -> Nyimba
+Eastern,Petauke,Eastern,Petauke,Eastern,Petauke,matched,2021;2022;2023;2024,4,
+Eastern,Sinda,Eastern,Sinda,Eastern,Sinda,matched,2021;2022;2023;2024,4,
+Eastern,Vubwi,Eastern,Vubwi,Eastern,Vubwi,matched,2021;2022;2023;2024,4,
+Luapula,Chembe,Luapula,Chembe,Luapula,Chembe,matched,2021;2022;2023;2024,4,
+Luapula,Chienge,Luapula,Chiengi,Luapula,Chiengi,matched,2024,1,district spelling normalized: Chienge -> Chiengi
+Luapula,Chiengi,Luapula,Chiengi,Luapula,Chiengi,matched,2021;2022;2023,3,
+Luapula,Chifunabuli,Luapula,Chifunabuli,Luapula,Chifunabuli,matched,2021;2022;2023;2024,4,
+Luapula,Chipili,Luapula,Chipili,Luapula,Chipili,matched,2021;2022;2023;2024,4,
+Luapula,Kawambwa,Luapula,Kawambwa,Luapula,Kawambwa,matched,2021;2022;2023;2024,4,
+Luapula,Lunga,Luapula,Lunga,Luapula,Lunga,matched,2021;2022;2023;2024,4,
+Luapula,Mansa Municipal Council,Luapula,Mansa,Luapula,Mansa,matched,2021;2022;2023;2024,4,council suffix removed: Mansa Municipal Council -> Mansa
+Luapula,Milenge,Luapula,Milengi,Luapula,Milengi,matched,2021;2022;2023;2024,4,district spelling normalized: Milenge -> Milengi
+Luapula,Mwansabombwe,Luapula,Mwansabombwe,Luapula,Mwansabombwe,matched,2021;2022;2023;2024,4,
+Luapula,Mwense,Luapula,Mwense,Luapula,Mwense,matched,2021;2022;2023;2024,4,
+Luapula,Nchelenge,Luapula,Nchelenge,Luapula,Nchelenge,matched,2021;2022;2023;2024,4,
+Luapula,Samfya,Luapula,Samfya,Luapula,Samfya,matched,2021;2022;2023;2024,4,
+Lusaka,Chilanga,Lusaka,Chilanga,Lusaka,Chilanga,matched,2021;2022;2023;2024,4,
+Southern,Chirundu,Lusaka,Chirundu,Lusaka,Chirundu,matched,2021;2022;2023;2024,4,OSR province differs from score/admin geography: Southern -> Lusaka
+Lusaka,Chongwe,Lusaka,Chongwe,Lusaka,Chongwe,matched,2024,1,
+Lusaka,Chongwe Municipal Council,Lusaka,Chongwe,Lusaka,Chongwe,matched,2021;2022;2023,3,council suffix removed: Chongwe Municipal Council -> Chongwe
+Lusaka,Kafue,Lusaka,Kafue,Lusaka,Kafue,matched,2021;2022;2023;2024,4,
+Lusaka,Luangwa,Lusaka,Luangwa,Lusaka,Luangwa,matched,2021;2022;2023;2024,4,
+Lusaka,Lusaka City Council,Lusaka,Lusaka,Lusaka,Lusaka,matched,2021;2022;2023;2024,4,council suffix removed: Lusaka City Council -> Lusaka
+Lusaka,Rufunsa,Lusaka,Rufunsa,Lusaka,Rufunsa,matched,2021;2022;2023;2024,4,
+Eastern,Chama,Muchinga,Chama,Muchiga,Chama,matched,2021;2022;2023;2024,4,OSR province differs from score/admin geography: Eastern -> Muchinga; score province normalized: Muchiga -> Muchinga
+Muchinga,Chinsali Municipal Council,Muchinga,Chinsali,Muchiga,Chinsali,matched,2021;2022;2023;2024,4,council suffix removed: Chinsali Municipal Council -> Chinsali; score province normalized: Muchiga -> Muchinga
+Muchinga,Isoka,Muchinga,Isoka,Muchiga,Isoka,matched,2021;2022;2023;2024,4,score province normalized: Muchiga -> Muchinga
+Muchinga,Kanchibiya,Muchinga,Kanchibiya,Muchiga,Kanchibiya,matched,2021;2022;2023;2024,4,score province normalized: Muchiga -> Muchinga
+Muchinga,Lavushimanda,Muchinga,Lavushimanda,Muchiga,Lavushimanda,matched,2021;2022;2023;2024,4,score province normalized: Muchiga -> Muchinga
+Muchinga,Mafinga,Muchinga,Mafinga,Muchiga,Mafinga,matched,2021;2022;2023;2024,4,score province normalized: Muchiga -> Muchinga
+Muchinga,Mpika,Muchinga,Mpika,Muchiga,Mpika,matched,2021;2022;2023;2024,4,score province normalized: Muchiga -> Muchinga
+Muchinga,Nakonde,Muchinga,Nakonde,Muchiga,Nakonde,matched,2021;2022;2023;2024,4,score province normalized: Muchiga -> Muchinga
+Muchinga,Shiwang'andu,Muchinga,Shiwang'andu,Muchiga,Shiwang'Andu,matched,2021;2022;2023;2024,4,score province normalized: Muchiga -> Muchinga; score district normalized: Shiwang'Andu -> Shiwang'andu
+North Western,Chavuma,North-Western,Chavuma,North-Western,Chavuma,matched,2021;2022;2023;2024,4,province normalized: North Western -> North-Western
+North Western,Ikelenge,North-Western,Ikelenge,North-Western,Ikelenge,matched,2021;2022;2023;2024,4,province normalized: North Western -> North-Western
+North Western,Kabompo,North-Western,Kabompo,North-Western,Kabompo,matched,2021;2022;2023;2024,4,province normalized: North Western -> North-Western
+North Western,Kalumbila,North-Western,Kalumbila,North-Western,Kalumbila,matched,2021;2022;2023;2024,4,province normalized: North Western -> North-Western
+North Western,Kasempa,North-Western,Kasempa,North-Western,Kasempa,matched,2021;2022;2023;2024,4,province normalized: North Western -> North-Western
+North Western,Manyinga,North-Western,Manyinga,North-Western,Manyinga,matched,2021;2022;2023;2024,4,province normalized: North Western -> North-Western
+North Western,Mufumbwe,North-Western,Mufumbwe,North-Western,Mufumbwe,matched,2021;2022;2023;2024,4,province normalized: North Western -> North-Western
+North Western,Mushindamo,North-Western,Mushindano,North-Western,Mushindano,matched,2021;2022;2023;2024,4,province normalized: North Western -> North-Western; district spelling normalized: Mushindamo -> Mushindano
+North Western,Mwinilunga,North-Western,Mwinilunga,North-Western,Mwinilunga,matched,2021;2022;2023;2024,4,province normalized: North Western -> North-Western
+North Western,Solwezi Municipal Council,North-Western,Solwezi,North-Western,Solwezi,matched,2021;2022;2023;2024,4,province normalized: North Western -> North-Western; council suffix removed: Solwezi Municipal Council -> Solwezi
+North Western,Zambezi,North-Western,Zambezi,North-Western,Zambezi,matched,2021;2022;2023;2024,4,province normalized: North Western -> North-Western
+Northern,Chilubi,Northern,Chilubi,Northern,Chilubi,matched,2024,1,
+Northern ,Chilubi,Northern,Chilubi,Northern,Chilubi,matched,2021;2022;2023,3,
+Northern,Kaputa,Northern,Kaputa,Northern,Kaputa,matched,2024,1,
+Northern ,Kaputa,Northern,Kaputa,Northern,Kaputa,matched,2021;2022;2023,3,
+Northern,Kasama Municipal Council,Northern,Kasama,Northern,Kasama,matched,2021;2022;2023;2024,4,council suffix removed: Kasama Municipal Council -> Kasama
+Northern,Lunte,Northern,Lunte,Northern,Lunte,matched,2024,1,
+Northern ,Lunte,Northern,Lunte,Northern,Lunte,matched,2021;2022;2023,3,
+Northern,Lupososhi,Northern,Lupososhi,Northern,Lupososhi,matched,2024,1,
+Northern ,Lupososhi,Northern,Lupososhi,Northern,Lupososhi,matched,2021;2022;2023,3,
+Northern,Luwingu,Northern,Luwingu,Northern,Luwingu,matched,2024,1,
+Northern ,Luwingu,Northern,Luwingu,Northern,Luwingu,matched,2021;2022;2023,3,
+Northern,Mbala Municipal Council,Northern,Mbala,Northern,Mbala,matched,2021;2022;2023;2024,4,council suffix removed: Mbala Municipal Council -> Mbala
+Northern,Mporokoso,Northern,Mporokoso,Northern,Mporokoso,matched,2024,1,
+Northern ,Mporokoso,Northern,Mporokoso,Northern,Mporokoso,matched,2021;2022;2023,3,
+Northern,Mpulungu,Northern,Mpulungu,Northern,Mpulungu,matched,2024,1,
+Northern ,Mpulungu,Northern,Mpulungu,Northern,Mpulungu,matched,2021;2022;2023,3,
+Northern,Mungwi,Northern,Mungwi,Northern,Mungwi,matched,2024,1,
+Northern ,Mungwi,Northern,Mungwi,Northern,Mungwi,matched,2021;2022;2023,3,
+Northern,Nsama,Northern,Nsama,Northern,Nsama,matched,2024,1,
+Northern ,Nsama,Northern,Nsama,Northern,Nsama,matched,2021;2022;2023,3,
+Northern,Senga Hill,Northern,Senga Hill,Northern,Senga Hill,matched,2024,1,
+Northern ,Senga Hill,Northern,Senga Hill,Northern,Senga Hill,matched,2021;2022;2023,3,
+Southern,Chikankata,Southern,Chikankanta,Southern,Chikankanta,matched,2021;2022;2023;2024,4,district spelling normalized: Chikankata -> Chikankanta
+Southern,Choma Municipal Council,Southern,Choma,Southern,Choma,matched,2021;2022;2023;2024,4,council suffix removed: Choma Municipal Council -> Choma
+Southern,Gwembe,Southern,Gwembe,Southern,Gwembe,matched,2021;2022;2023;2024,4,
+Southern,Kalomo,Southern,Kalomo,Southern,Kalomo,matched,2021;2022;2023;2024,4,
+Southern,Kazungula,Southern,Kazungula,Southern,Kazungula,matched,2021;2022;2023;2024,4,
+Southern,Livingstone City Council,Southern,Livingstone,Southern,Livingstone,matched,2021;2022;2023;2024,4,council suffix removed: Livingstone City Council -> Livingstone
+Southern,Mazabuka Municipal Council,Southern,Mazabuka,Southern,Mazabuka,matched,2021;2022;2023;2024,4,council suffix removed: Mazabuka Municipal Council -> Mazabuka
+Southern,Monze,Southern,Monze,Southern,Monze,matched,2021;2022;2023;2024,4,
+Southern,Namwala,Southern,Namwala,Southern,Namwala,matched,2021;2022;2023;2024,4,
+Southern,Pemba,Southern,Pemba,Southern,Pemba,matched,2021;2022;2023;2024,4,
+Southern,Siavonga,Southern,Siavonga,Southern,Siavonga,matched,2021;2022;2023;2024,4,
+Southern,Sinazongwe,Southern,Sinazongwe,Southern,Sinazongwe,matched,2021;2022;2023;2024,4,
+Southern,Zimba,Southern,Zimba,Southern,Zimba,matched,2021;2022;2023;2024,4,
+Western,Kalabo,Western,Kalabo,Western,Kalabo,matched,2021;2022;2023;2024,4,
+Western,Kaoma,Western,Kaoma,Western,Kaoma,matched,2021;2022;2023;2024,4,
+Western,Limulunga,Western,Limulunga,Western,Limulunga,matched,2021;2022;2023;2024,4,
+Western,Luampa,Western,Luampa,Western,Luampa,matched,2021;2022;2023;2024,4,
+Western,Lukulu,Western,Lukulu,Western,Lukulu,matched,2021;2022;2023;2024,4,
+Western,Mitete,Western,Mitete,Western,Mitete,matched,2021;2022;2023;2024,4,
+Western,Mongu Municipal Council,Western,Mongu,Western,Mongu,matched,2021;2022;2023;2024,4,council suffix removed: Mongu Municipal Council -> Mongu
+Western,Mulobezi,Western,Mulobezi,Western,Mulobezi,matched,2021;2022;2023;2024,4,
+Western,Mwandi,Western,Mwandi,Western,Mwandi,matched,2021;2022;2023;2024,4,
+Western,Nalolo,Western,Nalolo,Western,Nalolo,matched,2021;2022;2023;2024,4,
+Western,Nkeyema,Western,Nkeyema,Western,Nkeyema,matched,2021;2022;2023;2024,4,
+Western,Senanga,Western,Senanga,Western,Senanga,matched,2021;2022;2023;2024,4,
+Western,Sesheke,Western,Sesheke,Western,Sesheke,matched,2021;2022;2023;2024,4,
+Western,Shang'ombo,Western,Shangombo,Western,Shangombo,matched,2024,1,district spelling normalized: Shang'ombo -> Shangombo
+Western,Shangombo,Western,Shangombo,Western,Shangombo,matched,2021;2022;2023,3,
+Western,Sikongo,Western,Sikongo,Western,Sikongo,matched,2021;2022;2023;2024,4,
+Western,Sioma,Western,Sioma,Western,Sioma,matched,2021;2022;2023;2024,4,

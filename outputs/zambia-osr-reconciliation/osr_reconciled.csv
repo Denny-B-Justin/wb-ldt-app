@@ -1,0 +1,465 @@
+Province,District,local_taxes,fees_charges,licences,levies,permits,com_ventures,total_OSR,Year,canonical_Province,canonical_District,matched_score_Province,matched_score_District,join_key,match_status,reconciliation_notes
+Central,Chibombo,1968400.0,4876849.0,483910.0,1446782.0,965613.0,121424.0,9862978.0,2021,Central,Chibombo,Central,Chibombo,2021::central::chibombo,matched,
+Central,Chisamba,108188.0,3656385.0,145204.0,350710.0,53915.0,26789.0,4341191.0,2021,Central,Chisamba,Central,Chisamba,2021::central::chisamba,matched,
+Central,Chitambo,6220.0,746222.0,70041.0,164527.0,11109.0,-42966.0,955153.0,2021,Central,Chitambo,Central,Chitambo,2021::central::chitambo,matched,
+Central,Itezhi-tezhi,1964130.0,1060822.0,216354.0,245769.0,99128.0,0.0,3586203.0,2021,Central,Itezhi-tezhi,Central,Itezhi-Tezhi,2021::central::itezhi tezhi,matched,score district normalized: Itezhi-Tezhi -> Itezhi-tezhi
+Central,Kabwe Municipal Council,9468195.0,6437159.0,535814.0,1640874.0,5261632.0,0.0,23343674.0,2021,Central,Kabwe,Central,Kabwe,2021::central::kabwe,matched,council suffix removed: Kabwe Municipal Council -> Kabwe
+Central,Kapiri Mposhi,4631118.0,5088765.0,76054.0,1940092.0,305488.0,1957225.0,13998742.0,2021,Central,Kapiri Mposhi,Central,Kapiri Mposhi,2021::central::kapiri mposhi,matched,
+Central,Luano,961107.0,2692838.0,16548.0,76167.0,26644.0,20716.0,3794020.0,2021,Central,Luano,Central,Luano,2021::central::luano,matched,
+Central,Mkushi,1147806.0,1346510.0,24180.0,4629278.0,465435.0,-5253.0,7607956.0,2021,Central,Mkushi,Central,Mkushi,2021::central::mkushi,matched,
+Central,Mumbwa,1805169.0,4086126.0,25825.0,1326151.0,288501.0,-41.0,7531731.0,2021,Central,Mumbwa,Central,Mumbwa,2021::central::mumbwa,matched,
+Central,NgabweTown Council,4905.0,88539.0,71822.0,319982.0,200.0,0.0,485448.0,2021,Central,Ngabwe,Central,Ngabwe,2021::central::ngabwe,matched,council suffix removed: NgabweTown Council -> Ngabwe
+Central,Serenje,461269.0,5056602.0,146412.0,579575.0,680815.0,52301.0,6976974.0,2021,Central,Serenje,Central,Serenje,2021::central::serenje,matched,
+Central,Shibuyunji,4188500.0,1521773.0,26494.0,268850.0,98826.0,0.0,6104443.0,2021,Central,Shibuyunji,Central,Shibuyunji,2021::central::shibuyunji,matched,
+Copperbelt,Chililabombwe Municipal Council,21163342.0,29715561.0,614700.0,8332346.0,3670282.0,0.0,63496231.0,2021,Copperbelt,Chililabombwe,Copperbelt,Chililabombwe,2021::copperbelt::chililabombwe,matched,council suffix removed: Chililabombwe Municipal Council -> Chililabombwe
+Copperbelt,Chingola Municipal Council,37386901.0,8159284.0,623999.0,2225284.0,4002407.0,0.0,52397875.0,2021,Copperbelt,Chingola,Copperbelt,Chingola,2021::copperbelt::chingola,matched,council suffix removed: Chingola Municipal Council -> Chingola
+Copperbelt,Kalulushi Municipal Council,53232598.0,6398169.0,1059413.0,236124.0,966139.0,65793.0,61958236.0,2021,Copperbelt,Kalulushi,Copperbelt,Kalulushi,2021::copperbelt::kalulushi,matched,council suffix removed: Kalulushi Municipal Council -> Kalulushi
+Copperbelt,Kitwe City Council,50033282.0,53015172.0,1165666.0,2734090.0,11401812.0,0.0,118350022.0,2021,Copperbelt,Kitwe,Copperbelt,Kitwe,2021::copperbelt::kitwe,matched,council suffix removed: Kitwe City Council -> Kitwe
+Copperbelt,Luanshya Municipal Council,26450594.0,6629701.0,961082.0,68878.0,1743173.0,92581.0,35946009.0,2021,Copperbelt,Luanshya,Copperbelt,Luanshya,2021::copperbelt::luanshya,matched,council suffix removed: Luanshya Municipal Council -> Luanshya
+Copperbelt,Lufwanyama,7162197.0,3219565.0,156431.0,520623.0,162129.0,0.0,11220945.0,2021,Copperbelt,Lufwanyama,Copperbelt,Lufwanyama,2021::copperbelt::lufwanyama,matched,
+Copperbelt,Masaiti,4777724.0,532492.0,1840.0,770858.0,236815.0,-13464.0,6306265.0,2021,Copperbelt,Masaiti,Copperbelt,Masaiti,2021::copperbelt::masaiti,matched,
+Copperbelt,Mpongwe,226181.0,1011185.0,41770.0,3346455.0,142335.0,0.0,4767926.0,2021,Copperbelt,Mpongwe,Copperbelt,Mpongwe,2021::copperbelt::mpongwe,matched,
+Copperbelt,Mufulira Municipal Council,28851372.0,7788650.0,1186338.0,0.0,1902645.0,556686.0,40285691.0,2021,Copperbelt,Mufulira,Copperbelt,Mufulira,2021::copperbelt::mufulira,matched,council suffix removed: Mufulira Municipal Council -> Mufulira
+Copperbelt,Ndola City Coucil,25258618.0,36141276.0,5046902.0,0.0,15103230.0,63275.0,81613301.0,2021,Copperbelt,Ndola,Copperbelt,Ndola,2021::copperbelt::ndola,matched,council suffix removed: Ndola City Coucil -> Ndola
+Eastern,Chadiza,2175468.0,470406.0,1855.0,1489123.0,106473.0,0.0,4243325.0,2021,Eastern,Chadiza,Eastern,Chadiza,2021::eastern::chadiza,matched,
+Eastern,Chama,26788.0,330674.0,6240.0,213866.0,49855.0,0.0,627423.0,2021,Muchinga,Chama,Muchiga,Chama,2021::muchinga::chama,matched,OSR province differs from score/admin geography: Eastern -> Muchinga; score province normalized: Muchiga -> Muchinga
+Eastern,Chasefu,7945.0,723652.0,5730.0,80895.0,2920.0,0.0,821142.0,2021,Eastern,Chasefu,Eastern,Chasefu,2021::eastern::chasefu,matched,
+Eastern,Chipangali,12005.0,694146.0,32663.0,322149.0,9560.0,162969.0,1233492.0,2021,Eastern,Chipangali,Eastern,Chipangali,2021::eastern::chipangali,matched,
+Eastern,Chipata City Council,5997415.0,7579018.0,2303691.0,21395.0,5479613.0,0.0,21381132.0,2021,Eastern,Chipata,Eastern,Chipata,2021::eastern::chipata,matched,council suffix removed: Chipata City Council -> Chipata
+Eastern,Kasenengwa,5108.0,449937.0,12255.0,212643.0,51887.0,0.0,731830.0,2021,Eastern,Kasenengwa,Eastern,Kasenengwa,2021::eastern::kasenengwa,matched,
+Eastern,Katete,332498.0,1913879.0,31105.0,441642.0,248923.0,61852.0,3029899.0,2021,Eastern,Katete,Eastern,Katete,2021::eastern::katete,matched,
+Eastern,Lumezi,6565.0,493973.0,2360.0,122321.0,9879.0,0.0,635098.0,2021,Eastern,Lumezi,Eastern,Lumezi,2021::eastern::lumezi,matched,
+Eastern,Lundazi,171443.0,2321242.0,21277.0,444253.0,342432.0,84410.0,3385057.0,2021,Eastern,Lundazi,Eastern,Lundazi,2021::eastern::lundazi,matched,
+Eastern,Lusangazi,6530.0,1691405.0,32595.0,119249.0,33074.0,0.0,1882853.0,2021,Eastern,Lusangazi,Eastern,Lusangazi,2021::eastern::lusangazi,matched,
+Eastern,Mambwe,998302.0,501202.0,15168.0,300285.0,50052.0,116235.0,1981244.0,2021,Eastern,Mambwe,Eastern,Mambwe,2021::eastern::mambwe,matched,
+Eastern,NyimbaTown Council,1092752.0,2036789.0,2036789.0,25470.0,961779.0,4935777.0,11089356.0,2021,Eastern,Nyimba,Eastern,Nyimba,2021::eastern::nyimba,matched,council suffix removed: NyimbaTown Council -> Nyimba
+Eastern,Petauke,881303.0,2939380.0,8412.0,677271.0,772869.0,-366102.0,4913133.0,2021,Eastern,Petauke,Eastern,Petauke,2021::eastern::petauke,matched,
+Eastern,Sinda,35466.0,1120069.0,15168.0,300285.0,50052.0,116236.0,1637276.0,2021,Eastern,Sinda,Eastern,Sinda,2021::eastern::sinda,matched,
+Eastern,Vubwi,12045.0,548498.0,8660.0,83435.0,2440.0,0.0,655078.0,2021,Eastern,Vubwi,Eastern,Vubwi,2021::eastern::vubwi,matched,
+Luapula,Chembe,16361.0,1852890.0,62292.0,462822.0,38048.0,0.0,2432413.0,2021,Luapula,Chembe,Luapula,Chembe,2021::luapula::chembe,matched,
+Luapula,Chiengi,8888.0,397830.0,11724.0,465483.0,23424.0,223821.0,1131170.0,2021,Luapula,Chiengi,Luapula,Chiengi,2021::luapula::chiengi,matched,
+Luapula,Chifunabuli,8005.0,484830.0,92365.0,53263.0,42545.0,0.0,681008.0,2021,Luapula,Chifunabuli,Luapula,Chifunabuli,2021::luapula::chifunabuli,matched,
+Luapula,Chipili,710.0,692821.0,1537.0,6480.0,250.0,67863.0,769661.0,2021,Luapula,Chipili,Luapula,Chipili,2021::luapula::chipili,matched,
+Luapula,Kawambwa,361756.0,2273865.0,183126.0,6072.0,159128.0,8527.0,2992474.0,2021,Luapula,Kawambwa,Luapula,Kawambwa,2021::luapula::kawambwa,matched,
+Luapula,Lunga,2100.0,139735.0,0.0,53877.0,0.0,0.0,195712.0,2021,Luapula,Lunga,Luapula,Lunga,2021::luapula::lunga,matched,
+Luapula,Mansa Municipal Council,1548604.0,5570778.0,148524.0,1628523.0,1431466.0,228429.0,10556324.0,2021,Luapula,Mansa,Luapula,Mansa,2021::luapula::mansa,matched,council suffix removed: Mansa Municipal Council -> Mansa
+Luapula,Milenge,11026.0,389302.0,21715.0,15040.0,900.0,71722.0,509705.0,2021,Luapula,Milengi,Luapula,Milengi,2021::luapula::milengi,matched,district spelling normalized: Milenge -> Milengi
+Luapula,Mwansabombwe,13263.0,514594.0,0.0,87591.0,61682.0,0.0,677130.0,2021,Luapula,Mwansabombwe,Luapula,Mwansabombwe,2021::luapula::mwansabombwe,matched,
+Luapula,Mwense,1336772.0,986200.0,9408.0,188558.0,71857.0,-35918.0,2556877.0,2021,Luapula,Mwense,Luapula,Mwense,2021::luapula::mwense,matched,
+Luapula,Nchelenge,32730.0,929662.0,11255.0,439067.0,31895.0,0.0,1444609.0,2021,Luapula,Nchelenge,Luapula,Nchelenge,2021::luapula::nchelenge,matched,
+Luapula,Samfya,207499.0,1067739.0,38069.0,591960.0,365576.0,-17182.0,2253661.0,2021,Luapula,Samfya,Luapula,Samfya,2021::luapula::samfya,matched,
+Lusaka,Chilanga,5374221.0,2120860.0,32595.0,635124.0,642487.0,0.0,8805287.0,2021,Lusaka,Chilanga,Lusaka,Chilanga,2021::lusaka::chilanga,matched,
+Lusaka,Chongwe Municipal Council,4056495.0,14305398.0,350200.0,5056550.0,1437409.0,169801.0,25375853.0,2021,Lusaka,Chongwe,Lusaka,Chongwe,2021::lusaka::chongwe,matched,council suffix removed: Chongwe Municipal Council -> Chongwe
+Lusaka,Kafue,2478096.0,13624286.0,32595.0,1615577.0,1561551.0,0.0,19312105.0,2021,Lusaka,Kafue,Lusaka,Kafue,2021::lusaka::kafue,matched,
+Lusaka,Luangwa,131955.0,1004192.0,172121.0,1106179.0,76921.0,0.0,2491368.0,2021,Lusaka,Luangwa,Lusaka,Luangwa,2021::lusaka::luangwa,matched,
+Lusaka,Lusaka City Council,87638102.0,77102688.0,3392653.0,45380698.0,25475099.0,3230000.0,242219240.0,2021,Lusaka,Lusaka,Lusaka,Lusaka,2021::lusaka::lusaka,matched,council suffix removed: Lusaka City Council -> Lusaka
+Lusaka,Rufunsa,23766.0,905220.0,59339.0,268985.0,91858.0,0.0,1349168.0,2021,Lusaka,Rufunsa,Lusaka,Rufunsa,2021::lusaka::rufunsa,matched,
+Muchinga,Chinsali Municipal Council,446613.0,2493252.0,558632.0,25314.0,422295.0,-7870.0,3938236.0,2021,Muchinga,Chinsali,Muchiga,Chinsali,2021::muchinga::chinsali,matched,council suffix removed: Chinsali Municipal Council -> Chinsali; score province normalized: Muchiga -> Muchinga
+Muchinga,Isoka,283906.0,1729881.0,4840.0,217678.0,403701.0,311782.0,2951788.0,2021,Muchinga,Isoka,Muchiga,Isoka,2021::muchinga::isoka,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Kanchibiya,3766.0,520275.0,2308.0,13226.0,13619.0,0.0,553194.0,2021,Muchinga,Kanchibiya,Muchiga,Kanchibiya,2021::muchinga::kanchibiya,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Lavushimanda,2120.0,220392.0,1945.0,20809.0,27545.0,0.0,272811.0,2021,Muchinga,Lavushimanda,Muchiga,Lavushimanda,2021::muchinga::lavushimanda,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Mafinga,5820.0,446369.0,1490.0,72359.0,28050.0,0.0,554088.0,2021,Muchinga,Mafinga,Muchiga,Mafinga,2021::muchinga::mafinga,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Mpika,439571.0,2486311.0,58592.0,1067803.0,777655.0,0.0,4829932.0,2021,Muchinga,Mpika,Muchiga,Mpika,2021::muchinga::mpika,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Nakonde,37831.0,15317680.0,36348.0,994552.0,281251.0,872074.0,17539736.0,2021,Muchinga,Nakonde,Muchiga,Nakonde,2021::muchinga::nakonde,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Shiwang'andu,25682.0,1009549.0,6385.0,58072.0,25570.0,0.0,1125258.0,2021,Muchinga,Shiwang'andu,Muchiga,Shiwang'Andu,2021::muchinga::shiwang andu,matched,score province normalized: Muchiga -> Muchinga; score district normalized: Shiwang'Andu -> Shiwang'andu
+North Western,Chavuma,62331.0,725004.0,1938.0,191997.0,21129.0,0.0,1002399.0,2021,North-Western,Chavuma,North-Western,Chavuma,2021::north western::chavuma,matched,province normalized: North Western -> North-Western
+North Western,Ikelenge,8468.0,230775.0,19864.0,234047.0,1950.0,0.0,495104.0,2021,North-Western,Ikelenge,North-Western,Ikelenge,2021::north western::ikelenge,matched,province normalized: North Western -> North-Western
+North Western,Kabompo,17727.0,571786.0,8342.0,1029422.0,56647.0,0.0,1683924.0,2021,North-Western,Kabompo,North-Western,Kabompo,2021::north western::kabompo,matched,province normalized: North Western -> North-Western
+North Western,Kalumbila,63788543.0,2265012.0,195485.0,1014232.0,293370.0,0.0,67556642.0,2021,North-Western,Kalumbila,North-Western,Kalumbila,2021::north western::kalumbila,matched,province normalized: North Western -> North-Western
+North Western,Kasempa,546374.0,1117019.0,9150.0,346785.0,85172.0,0.0,2104500.0,2021,North-Western,Kasempa,North-Western,Kasempa,2021::north western::kasempa,matched,province normalized: North Western -> North-Western
+North Western,Manyinga,13617.0,492300.84,4196.0,1440334.0,1775.0,0.0,1952222.84,2021,North-Western,Manyinga,North-Western,Manyinga,2021::north western::manyinga,matched,province normalized: North Western -> North-Western
+North Western,Mufumbwe,1078463.0,67945.0,0.0,0.0,0.0,-2596.0,1143812.0,2021,North-Western,Mufumbwe,North-Western,Mufumbwe,2021::north western::mufumbwe,matched,province normalized: North Western -> North-Western
+North Western,Mushindamo,568.0,3060005.0,61839.0,50600.0,22846.0,0.0,3195858.0,2021,North-Western,Mushindano,North-Western,Mushindano,2021::north western::mushindano,matched,province normalized: North Western -> North-Western; district spelling normalized: Mushindamo -> Mushindano
+North Western,Mwinilunga,622310.0,845501.0,92355.0,860536.0,122613.0,27286.0,2570601.0,2021,North-Western,Mwinilunga,North-Western,Mwinilunga,2021::north western::mwinilunga,matched,province normalized: North Western -> North-Western
+North Western,Solwezi Municipal Council,68903133.0,29321398.0,369339.0,2124937.0,1927478.0,-5319.0,102640966.0,2021,North-Western,Solwezi,North-Western,Solwezi,2021::north western::solwezi,matched,province normalized: North Western -> North-Western; council suffix removed: Solwezi Municipal Council -> Solwezi
+North Western,Zambezi,2090.0,541199.0,1472.0,795496.0,290300.0,10149.0,1640706.0,2021,North-Western,Zambezi,North-Western,Zambezi,2021::north western::zambezi,matched,province normalized: North Western -> North-Western
+Northern ,Chilubi,16043.0,244659.0,3320.0,68624.0,1300.0,-4589.0,329357.0,2021,Northern,Chilubi,Northern,Chilubi,2021::northern::chilubi,matched,
+Northern ,Kaputa,20561.0,560471.0,500.0,114693.0,79270.0,37470.0,812965.0,2021,Northern,Kaputa,Northern,Kaputa,2021::northern::kaputa,matched,
+Northern,Kasama Municipal Council,2224769.0,7472580.0,317739.0,1621714.0,818911.0,0.0,12455713.0,2021,Northern,Kasama,Northern,Kasama,2021::northern::kasama,matched,council suffix removed: Kasama Municipal Council -> Kasama
+Northern ,Lunte,3500.0,135057.0,4800.0,2200.0,1150.0,16545.0,163252.0,2021,Northern,Lunte,Northern,Lunte,2021::northern::lunte,matched,
+Northern ,Lupososhi,1005.0,689269.0,901.0,20955.0,4688.0,0.0,716818.0,2021,Northern,Lupososhi,Northern,Lupososhi,2021::northern::lupososhi,matched,
+Northern ,Luwingu,261698.0,376701.0,28598.0,140829.0,94494.0,29693.0,932013.0,2021,Northern,Luwingu,Northern,Luwingu,2021::northern::luwingu,matched,
+Northern,Mbala Municipal Council,442447.0,1658230.0,68617.0,387703.0,320972.0,0.0,2877969.0,2021,Northern,Mbala,Northern,Mbala,2021::northern::mbala,matched,council suffix removed: Mbala Municipal Council -> Mbala
+Northern ,Mporokoso,40030.0,733037.0,126590.0,0.0,57922.0,0.0,957579.0,2021,Northern,Mporokoso,Northern,Mporokoso,2021::northern::mporokoso,matched,
+Northern ,Mpulungu,1176432.0,936341.0,364997.0,393430.0,0.0,0.0,2871200.0,2021,Northern,Mpulungu,Northern,Mpulungu,2021::northern::mpulungu,matched,
+Northern ,Mungwi,85213.0,914548.0,114648.0,52877.0,37671.0,412.0,1205369.0,2021,Northern,Mungwi,Northern,Mungwi,2021::northern::mungwi,matched,
+Northern ,Nsama,7175.0,388725.0,2194.0,427103.0,2250.0,0.0,827447.0,2021,Northern,Nsama,Northern,Nsama,2021::northern::nsama,matched,
+Northern ,Senga Hill,18450.0,507893.0,33729.0,90.0,2811.0,0.0,562973.0,2021,Northern,Senga Hill,Northern,Senga Hill,2021::northern::senga hill,matched,
+Southern,Chikankata,5662404.0,1173124.0,132540.0,690785.0,46971.0,0.0,7705824.0,2021,Southern,Chikankanta,Southern,Chikankanta,2021::southern::chikankanta,matched,district spelling normalized: Chikankata -> Chikankanta
+Southern,Chirundu,93816.0,7210836.0,91625.0,121641.0,903469.0,0.0,8421387.0,2021,Lusaka,Chirundu,Lusaka,Chirundu,2021::lusaka::chirundu,matched,OSR province differs from score/admin geography: Southern -> Lusaka
+Southern,Choma Municipal Council,3681206.0,4736165.0,570707.0,1645754.0,1020323.0,0.0,11654155.0,2021,Southern,Choma,Southern,Choma,2021::southern::choma,matched,council suffix removed: Choma Municipal Council -> Choma
+Southern,Gwembe,56545.0,343577.0,8850.0,543518.0,28600.0,138146.0,1119236.0,2021,Southern,Gwembe,Southern,Gwembe,2021::southern::gwembe,matched,
+Southern,Kalomo,333044.0,3115465.0,30410.0,503910.0,202873.0,0.0,4185702.0,2021,Southern,Kalomo,Southern,Kalomo,2021::southern::kalomo,matched,
+Southern,Kazungula,337208.0,9295822.0,32850.0,558034.0,144723.0,-97507.0,10271130.0,2021,Southern,Kazungula,Southern,Kazungula,2021::southern::kazungula,matched,
+Southern,Livingstone City Council,19698199.0,6416477.0,555645.0,4565020.0,3592758.0,0.0,34828099.0,2021,Southern,Livingstone,Southern,Livingstone,2021::southern::livingstone,matched,council suffix removed: Livingstone City Council -> Livingstone
+Southern,Mazabuka Municipal Council,11267865.0,3647692.0,763084.0,303515.0,1085331.0,1993.0,17069480.0,2021,Southern,Mazabuka,Southern,Mazabuka,2021::southern::mazabuka,matched,council suffix removed: Mazabuka Municipal Council -> Mazabuka
+Southern,Monze,1118737.0,2606724.0,243934.0,1039662.0,325328.0,95967.0,5430352.0,2021,Southern,Monze,Southern,Monze,2021::southern::monze,matched,
+Southern,Namwala,12840.0,1399607.0,80750.0,1143104.0,170841.0,-2610.0,2804532.0,2021,Southern,Namwala,Southern,Namwala,2021::southern::namwala,matched,
+Southern,Pemba,4048.0,315028.0,27925.0,226430.0,2100.0,5471.0,581002.0,2021,Southern,Pemba,Southern,Pemba,2021::southern::pemba,matched,
+Southern,Siavonga,6479147.0,773658.0,71825.0,2458577.0,237180.0,184255.0,10204642.0,2021,Southern,Siavonga,Southern,Siavonga,2021::southern::siavonga,matched,
+Southern,Sinazongwe,5191794.0,1538794.0,4006334.0,291000.0,598000.0,0.0,11625922.0,2021,Southern,Sinazongwe,Southern,Sinazongwe,2021::southern::sinazongwe,matched,
+Southern,Zimba,74247.0,1311684.0,26736.0,414549.0,81898.0,137659.0,2046773.0,2021,Southern,Zimba,Southern,Zimba,2021::southern::zimba,matched,
+Western,Kalabo,28325.0,273039.0,10154.0,199333.0,46604.0,503718.0,1061173.0,2021,Western,Kalabo,Western,Kalabo,2021::western::kalabo,matched,
+Western,Kaoma,61536.0,1332377.0,85907.0,633717.0,345570.0,0.0,2459107.0,2021,Western,Kaoma,Western,Kaoma,2021::western::kaoma,matched,
+Western,Limulunga,17810.0,127636.0,14485.0,211816.0,70635.0,0.0,442382.0,2021,Western,Limulunga,Western,Limulunga,2021::western::limulunga,matched,
+Western,Luampa,11553.0,275714.0,23895.0,252470.0,0.0,0.0,563632.0,2021,Western,Luampa,Western,Luampa,2021::western::luampa,matched,
+Western,Lukulu,5985.0,469135.0,7044.0,962315.0,13480.0,0.0,1457959.0,2021,Western,Lukulu,Western,Lukulu,2021::western::lukulu,matched,
+Western,Mitete,6075.0,60676.0,400.0,2000.0,2843.0,360169.0,432163.0,2021,Western,Mitete,Western,Mitete,2021::western::mitete,matched,
+Western,Mongu Municipal Council,1511538.0,5031260.0,1383820.0,1950323.0,947313.0,918.0,10825172.0,2021,Western,Mongu,Western,Mongu,2021::western::mongu,matched,council suffix removed: Mongu Municipal Council -> Mongu
+Western,Mulobezi,6985.0,358055.0,9420.0,283017.0,34110.0,0.0,691587.0,2021,Western,Mulobezi,Western,Mulobezi,2021::western::mulobezi,matched,
+Western,Mwandi,15073.0,261835.0,10450.0,248846.0,1420.0,0.0,537624.0,2021,Western,Mwandi,Western,Mwandi,2021::western::mwandi,matched,
+Western,Nalolo,150870.0,133699.0,1250.0,29142.0,100.0,0.0,315061.0,2021,Western,Nalolo,Western,Nalolo,2021::western::nalolo,matched,
+Western,Nkeyema,16041.0,158498.0,9900.0,1061441.0,29493.0,0.0,1275373.0,2021,Western,Nkeyema,Western,Nkeyema,2021::western::nkeyema,matched,
+Western,Senanga,436049.0,791310.0,262271.0,92914.0,151245.0,249877.0,1983666.0,2021,Western,Senanga,Western,Senanga,2021::western::senanga,matched,
+Western,Sesheke,101702.0,3039860.0,70430.0,796357.0,137710.0,33050.0,4179109.0,2021,Western,Sesheke,Western,Sesheke,2021::western::sesheke,matched,
+Western,Shangombo,11270.0,501521.0,4216.0,342295.0,4300.0,0.0,863602.0,2021,Western,Shangombo,Western,Shangombo,2021::western::shangombo,matched,
+Western,Sikongo,6373.0,341268.0,2582.0,82757.0,300.0,0.0,433280.0,2021,Western,Sikongo,Western,Sikongo,2021::western::sikongo,matched,
+Western,Sioma,10343.0,117940.0,1200.0,77241.0,10800.0,0.0,217524.0,2021,Western,Sioma,Western,Sioma,2021::western::sioma,matched,
+Central,Chibombo,1287819.0,5310536.0,562436.0,1681556.0,1122306.0,8720.0,9973373.0,2022,Central,Chibombo,Central,Chibombo,2022::central::chibombo,matched,
+Central,Chisamba,284231.0,1787901.0,152739.0,416121.0,191087.0,-4299.0,2827780.0,2022,Central,Chisamba,Central,Chisamba,2022::central::chisamba,matched,
+Central,Chitambo,3540.0,1080232.0,66093.0,128760.0,14219.0,0.0,1292844.0,2022,Central,Chitambo,Central,Chitambo,2022::central::chitambo,matched,
+Central,Itezhi-tezhi,2117616.0,1026711.0,627359.0,317064.0,445793.0,0.0,4534543.0,2022,Central,Itezhi-tezhi,Central,Itezhi-Tezhi,2022::central::itezhi tezhi,matched,score district normalized: Itezhi-Tezhi -> Itezhi-tezhi
+Central,Kabwe Municipal Council,7433033.0,12529054.0,733955.0,1714710.0,5603827.0,2871469.0,30886048.0,2022,Central,Kabwe,Central,Kabwe,2022::central::kabwe,matched,council suffix removed: Kabwe Municipal Council -> Kabwe
+Central,Kapiri Mposhi,3518891.0,7969858.0,223245.0,1940092.0,555058.0,45646.0,14252790.0,2022,Central,Kapiri Mposhi,Central,Kapiri Mposhi,2022::central::kapiri mposhi,matched,
+Central,Luano,1011235.0,597976.0,1844.0,56659.0,24390.0,45353.0,1737457.0,2022,Central,Luano,Central,Luano,2022::central::luano,matched,
+Central,Mkushi,524723.0,1421752.0,33165.0,4200561.0,537179.0,146880.0,6864260.0,2022,Central,Mkushi,Central,Mkushi,2022::central::mkushi,matched,
+Central,Mumbwa,2375870.0,3919262.0,75320.0,1699599.0,641386.0,21854.0,8733291.0,2022,Central,Mumbwa,Central,Mumbwa,2022::central::mumbwa,matched,
+Central,NgabweTown Council,4856.0,467069.0,90395.0,214091.0,8070.0,235970.0,1020451.0,2022,Central,Ngabwe,Central,Ngabwe,2022::central::ngabwe,matched,council suffix removed: NgabweTown Council -> Ngabwe
+Central,Serenje,304213.0,5574390.0,184546.0,1025930.0,812200.0,95720.0,7996999.0,2022,Central,Serenje,Central,Serenje,2022::central::serenje,matched,
+Central,Shibuyunji,5219932.0,381941.0,37950.0,193714.0,91588.0,0.0,5925125.0,2022,Central,Shibuyunji,Central,Shibuyunji,2022::central::shibuyunji,matched,
+Copperbelt,Chililabombwe Municipal Council,27980208.0,29186099.0,932560.0,12348859.0,3841029.0,0.0,74288755.0,2022,Copperbelt,Chililabombwe,Copperbelt,Chililabombwe,2022::copperbelt::chililabombwe,matched,council suffix removed: Chililabombwe Municipal Council -> Chililabombwe
+Copperbelt,Chingola Municipal Council,50224626.0,27725826.0,689003.0,2196772.0,3944561.0,0.0,84780788.0,2022,Copperbelt,Chingola,Copperbelt,Chingola,2022::copperbelt::chingola,matched,council suffix removed: Chingola Municipal Council -> Chingola
+Copperbelt,Kalulushi Municipal Council,86561058.0,4794913.0,1248977.0,1057879.0,320000.0,0.0,93982827.0,2022,Copperbelt,Kalulushi,Copperbelt,Kalulushi,2022::copperbelt::kalulushi,matched,council suffix removed: Kalulushi Municipal Council -> Kalulushi
+Copperbelt,Kitwe City Council,56764070.0,34184243.0,1311152.0,3211282.0,14036276.0,0.0,109507023.0,2022,Copperbelt,Kitwe,Copperbelt,Kitwe,2022::copperbelt::kitwe,matched,council suffix removed: Kitwe City Council -> Kitwe
+Copperbelt,Luanshya Municipal Council,34482706.0,7112284.0,1251553.0,125342.0,1414820.0,-284.0,44386421.0,2022,Copperbelt,Luanshya,Copperbelt,Luanshya,2022::copperbelt::luanshya,matched,council suffix removed: Luanshya Municipal Council -> Luanshya
+Copperbelt,Lufwanyama,4133817.0,3134942.0,168421.0,800171.0,281155.0,0.0,8518506.0,2022,Copperbelt,Lufwanyama,Copperbelt,Lufwanyama,2022::copperbelt::lufwanyama,matched,
+Copperbelt,Masaiti,7164325.0,451741.0,8755.0,1240376.0,132295.0,0.0,8997492.0,2022,Copperbelt,Masaiti,Copperbelt,Masaiti,2022::copperbelt::masaiti,matched,
+Copperbelt,Mpongwe,252035.0,3576546.0,40560.0,925541.0,282068.0,0.0,5076750.0,2022,Copperbelt,Mpongwe,Copperbelt,Mpongwe,2022::copperbelt::mpongwe,matched,
+Copperbelt,Mufulira Municipal Council,24769977.0,10303890.0,99110.0,1384979.0,1924303.0,0.0,38482259.0,2022,Copperbelt,Mufulira,Copperbelt,Mufulira,2022::copperbelt::mufulira,matched,council suffix removed: Mufulira Municipal Council -> Mufulira
+Copperbelt,Ndola City Coucil,31754234.0,26395031.0,4734809.0,0.0,15909.0,8379.0,62908362.0,2022,Copperbelt,Ndola,Copperbelt,Ndola,2022::copperbelt::ndola,matched,council suffix removed: Ndola City Coucil -> Ndola
+Eastern,Chadiza,145188.0,621475.0,18810.0,2280243.0,148670.0,0.0,3214386.0,2022,Eastern,Chadiza,Eastern,Chadiza,2022::eastern::chadiza,matched,
+Eastern,Chama,26788.0,330674.0,6240.0,213866.0,49855.0,0.0,627423.0,2022,Muchinga,Chama,Muchiga,Chama,2022::muchinga::chama,matched,OSR province differs from score/admin geography: Eastern -> Muchinga; score province normalized: Muchiga -> Muchinga
+Eastern,Chasefu,4707.0,331491.0,2590.0,180841.0,3375.0,0.0,523004.0,2022,Eastern,Chasefu,Eastern,Chasefu,2022::eastern::chasefu,matched,
+Eastern,Chipangali,14730.0,470925.0,11520.0,462051.0,9070.0,162284.0,1130580.0,2022,Eastern,Chipangali,Eastern,Chipangali,2022::eastern::chipangali,matched,
+Eastern,Chipata City Council,7119277.0,8530531.0,3014744.0,0.0,5841596.0,23922.0,24530070.0,2022,Eastern,Chipata,Eastern,Chipata,2022::eastern::chipata,matched,council suffix removed: Chipata City Council -> Chipata
+Eastern,Kasenengwa,5745.0,682931.0,15900.0,260104.0,16832.0,0.0,981512.0,2022,Eastern,Kasenengwa,Eastern,Kasenengwa,2022::eastern::kasenengwa,matched,
+Eastern,Katete,614441.0,1588400.0,159122.0,443329.0,468337.0,74808.0,3348437.0,2022,Eastern,Katete,Eastern,Katete,2022::eastern::katete,matched,
+Eastern,Lumezi,2370.0,428093.0,3630.0,209628.0,10860.0,54530.0,709111.0,2022,Eastern,Lumezi,Eastern,Lumezi,2022::eastern::lumezi,matched,
+Eastern,Lundazi,128261.0,2689443.0,61290.0,580855.0,395498.0,402420.0,4257767.0,2022,Eastern,Lundazi,Eastern,Lundazi,2022::eastern::lundazi,matched,
+Eastern,Lusangazi,2938.0,342366.0,24256.0,149582.0,54848.0,0.0,573990.0,2022,Eastern,Lusangazi,Eastern,Lusangazi,2022::eastern::lusangazi,matched,
+Eastern,Mambwe,1927225.0,679859.0,38200.0,401159.0,95188.0,-33283.0,3108348.0,2022,Eastern,Mambwe,Eastern,Mambwe,2022::eastern::mambwe,matched,
+Eastern,NyimbaTown Council,1285405.0,2544526.0,38403.0,780463.0,575853.0,145002.0,5369652.0,2022,Eastern,Nyimba,Eastern,Nyimba,2022::eastern::nyimba,matched,council suffix removed: NyimbaTown Council -> Nyimba
+Eastern,Petauke,1250322.0,3618493.0,11834.0,849472.0,1257614.0,-194313.0,6793422.0,2022,Eastern,Petauke,Eastern,Petauke,2022::eastern::petauke,matched,
+Eastern,Sinda,40553.0,1231528.0,0.0,271311.0,180714.0,128850.0,1852956.0,2022,Eastern,Sinda,Eastern,Sinda,2022::eastern::sinda,matched,
+Eastern,Vubwi,9865.0,535179.0,4825.0,72168.0,5860.0,1638227.0,2266124.0,2022,Eastern,Vubwi,Eastern,Vubwi,2022::eastern::vubwi,matched,
+Luapula,Chembe,21008.0,2671553.0,19564.0,443386.0,87333.0,0.0,3242844.0,2022,Luapula,Chembe,Luapula,Chembe,2022::luapula::chembe,matched,
+Luapula,Chiengi,7878.0,282260.0,0.0,351182.0,1207.0,-78428.0,564099.0,2022,Luapula,Chiengi,Luapula,Chiengi,2022::luapula::chiengi,matched,
+Luapula,Chifunabuli,11025.0,855744.0,70354.0,72551.0,55745.0,0.0,1065419.0,2022,Luapula,Chifunabuli,Luapula,Chifunabuli,2022::luapula::chifunabuli,matched,
+Luapula,Chipili,5055.0,693942.0,5954.0,7000.0,1470.0,0.0,713421.0,2022,Luapula,Chipili,Luapula,Chipili,2022::luapula::chipili,matched,
+Luapula,Kawambwa,468732.0,2471781.0,243628.0,25441.0,332169.0,30123.0,3571874.0,2022,Luapula,Kawambwa,Luapula,Kawambwa,2022::luapula::kawambwa,matched,
+Luapula,Lunga,2250.0,31600.0,650.0,51703.0,1350.0,0.0,87553.0,2022,Luapula,Lunga,Luapula,Lunga,2022::luapula::lunga,matched,
+Luapula,Mansa Municipal Council,1631784.0,6638131.0,178250.0,3007834.0,1738631.0,526311.0,13720941.0,2022,Luapula,Mansa,Luapula,Mansa,2022::luapula::mansa,matched,council suffix removed: Mansa Municipal Council -> Mansa
+Luapula,Milenge,10673.0,517514.0,10620.0,7050.0,300.0,71840.0,617997.0,2022,Luapula,Milengi,Luapula,Milengi,2022::luapula::milengi,matched,district spelling normalized: Milenge -> Milengi
+Luapula,Mwansabombwe,12992.0,429297.0,400.0,47570.0,75165.0,0.0,565424.0,2022,Luapula,Mwansabombwe,Luapula,Mwansabombwe,2022::luapula::mwansabombwe,matched,
+Luapula,Mwense,1337936.0,1311604.0,15600.0,251824.0,137608.0,14459.0,3069031.0,2022,Luapula,Mwense,Luapula,Mwense,2022::luapula::mwense,matched,
+Luapula,Nchelenge,60762.0,1401413.0,0.0,612231.0,57510.0,20500.0,2152416.0,2022,Luapula,Nchelenge,Luapula,Nchelenge,2022::luapula::nchelenge,matched,
+Luapula,Samfya,207499.0,1067739.0,38069.0,591960.0,365576.0,-17182.0,2253661.0,2022,Luapula,Samfya,Luapula,Samfya,2022::luapula::samfya,matched,
+Lusaka,Chilanga,5460090.0,1455344.0,2316457.0,2647468.0,1057967.0,0.0,12937326.0,2022,Lusaka,Chilanga,Lusaka,Chilanga,2022::lusaka::chilanga,matched,
+Lusaka,Chongwe Municipal Council,7954140.0,10840823.0,713648.0,7538203.0,2584661.0,241526.0,29873001.0,2022,Lusaka,Chongwe,Lusaka,Chongwe,2022::lusaka::chongwe,matched,council suffix removed: Chongwe Municipal Council -> Chongwe
+Lusaka,Kafue,3862322.0,7025722.0,3265733.0,834810.0,2159327.0,0.0,17147914.0,2022,Lusaka,Kafue,Lusaka,Kafue,2022::lusaka::kafue,matched,
+Lusaka,Luangwa,129256.0,1182422.0,256579.0,1719553.0,89645.0,55624.0,3433079.0,2022,Lusaka,Luangwa,Lusaka,Luangwa,2022::lusaka::luangwa,matched,
+Lusaka,Lusaka City Council,105543585.0,76024653.0,5340513.0,44164671.0,34693517.0,6988154.0,272755093.0,2022,Lusaka,Lusaka,Lusaka,Lusaka,2022::lusaka::lusaka,matched,council suffix removed: Lusaka City Council -> Lusaka
+Lusaka,Rufunsa,35715.0,2493247.0,76858.0,202461.0,117576.0,0.0,2925857.0,2022,Lusaka,Rufunsa,Lusaka,Rufunsa,2022::lusaka::rufunsa,matched,
+Muchinga,Chinsali Municipal Council,575048.0,3835709.0,76175.0,566176.0,442898.0,76124.0,5572130.0,2022,Muchinga,Chinsali,Muchiga,Chinsali,2022::muchinga::chinsali,matched,council suffix removed: Chinsali Municipal Council -> Chinsali; score province normalized: Muchiga -> Muchinga
+Muchinga,Isoka,230032.0,2937610.0,15237.0,467220.0,443580.0,270025.0,4363704.0,2022,Muchinga,Isoka,Muchiga,Isoka,2022::muchinga::isoka,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Kanchibiya,11367.0,451964.0,0.0,6055.0,41892.0,0.0,511278.0,2022,Muchinga,Kanchibiya,Muchiga,Kanchibiya,2022::muchinga::kanchibiya,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Lavushimanda,3975.0,450914.0,0.0,41222.0,81515.0,0.0,577626.0,2022,Muchinga,Lavushimanda,Muchiga,Lavushimanda,2022::muchinga::lavushimanda,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Mafinga,8932.0,668782.0,5449.0,101587.0,37388.0,0.0,822138.0,2022,Muchinga,Mafinga,Muchiga,Mafinga,2022::muchinga::mafinga,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Mpika,852306.0,3856500.0,74024.0,1065445.0,758020.0,0.0,6606295.0,2022,Muchinga,Mpika,Muchiga,Mpika,2022::muchinga::mpika,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Nakonde,10783.0,26331584.0,59181.0,863097.0,667914.0,13923.0,27946482.0,2022,Muchinga,Nakonde,Muchiga,Nakonde,2022::muchinga::nakonde,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Shiwang'andu,2910.0,782058.0,2250.0,38006.0,32670.0,0.0,857894.0,2022,Muchinga,Shiwang'andu,Muchiga,Shiwang'Andu,2022::muchinga::shiwang andu,matched,score province normalized: Muchiga -> Muchinga; score district normalized: Shiwang'Andu -> Shiwang'andu
+North Western,Chavuma,731610.0,689454.0,4703.0,438161.0,21592.0,0.0,1885520.0,2022,North-Western,Chavuma,North-Western,Chavuma,2022::north western::chavuma,matched,province normalized: North Western -> North-Western
+North Western,Ikelenge,9702.0,389427.0,36108.0,110086.0,3215.0,0.0,548538.0,2022,North-Western,Ikelenge,North-Western,Ikelenge,2022::north western::ikelenge,matched,province normalized: North Western -> North-Western
+North Western,Kabompo,16158.0,1004289.0,5587.0,1218153.0,73062.0,0.0,2317249.0,2022,North-Western,Kabompo,North-Western,Kabompo,2022::north western::kabompo,matched,province normalized: North Western -> North-Western
+North Western,Kalumbila,63030844.0,2321053.0,11960.0,948319.0,880521.0,0.0,67192697.0,2022,North-Western,Kalumbila,North-Western,Kalumbila,2022::north western::kalumbila,matched,province normalized: North Western -> North-Western
+North Western,Kasempa,479937.0,2376043.0,29290.0,433962.0,51210.0,525910.0,3896352.0,2022,North-Western,Kasempa,North-Western,Kasempa,2022::north western::kasempa,matched,province normalized: North Western -> North-Western
+North Western,Manyinga,12323.0,713920.0,11639.0,1173468.0,2630.0,0.0,1913980.0,2022,North-Western,Manyinga,North-Western,Manyinga,2022::north western::manyinga,matched,province normalized: North Western -> North-Western
+North Western,Mufumbwe,7693.0,827566.0,50.0,834642.0,104040.0,-10682.0,1763309.0,2022,North-Western,Mufumbwe,North-Western,Mufumbwe,2022::north western::mufumbwe,matched,province normalized: North Western -> North-Western
+North Western,Mushindamo,7630.0,2720629.6,46240.0,29281.5,10056844.28,0.0,12860625.38,2022,North-Western,Mushindano,North-Western,Mushindano,2022::north western::mushindano,matched,province normalized: North Western -> North-Western; district spelling normalized: Mushindamo -> Mushindano
+North Western,Mwinilunga,11528.0,893889.0,230319.0,858214.0,26822.0,95587.0,2116359.0,2022,North-Western,Mwinilunga,North-Western,Mwinilunga,2022::north western::mwinilunga,matched,province normalized: North Western -> North-Western
+North Western,Solwezi Municipal Council,59159027.0,6360531.0,526370.0,2848001.0,2270072.0,-11565.0,71152436.0,2022,North-Western,Solwezi,North-Western,Solwezi,2022::north western::solwezi,matched,province normalized: North Western -> North-Western; council suffix removed: Solwezi Municipal Council -> Solwezi
+North Western,Zambezi,2855.0,735878.0,138849.0,432457.0,288422.0,139606.0,1738067.0,2022,North-Western,Zambezi,North-Western,Zambezi,2022::north western::zambezi,matched,province normalized: North Western -> North-Western
+Northern ,Chilubi,16283.0,391420.0,4135.0,103330.0,5967.0,2270.0,523405.0,2022,Northern,Chilubi,Northern,Chilubi,2022::northern::chilubi,matched,
+Northern ,Kaputa,23435.0,578996.0,1445.0,140707.0,23438.0,-39033.0,728988.0,2022,Northern,Kaputa,Northern,Kaputa,2022::northern::kaputa,matched,
+Northern,Kasama Municipal Council,2767019.0,4837678.0,202918.0,1697161.0,1454403.0,0.0,10959179.0,2022,Northern,Kasama,Northern,Kasama,2022::northern::kasama,matched,council suffix removed: Kasama Municipal Council -> Kasama
+Northern ,Lunte,735.0,135000.0,1450.0,8400.0,0.0,-29155.0,116430.0,2022,Northern,Lunte,Northern,Lunte,2022::northern::lunte,matched,
+Northern ,Lupososhi,3903.0,504264.0,3932.0,20296.0,53548.0,0.0,585943.0,2022,Northern,Lupososhi,Northern,Lupososhi,2022::northern::lupososhi,matched,
+Northern ,Luwingu,142179.0,872636.0,30186.0,230254.0,24233.0,22270.0,1321758.0,2022,Northern,Luwingu,Northern,Luwingu,2022::northern::luwingu,matched,
+Northern,Mbala Municipal Council,482160.0,2155261.0,158243.0,438350.0,435106.0,6291.0,3675411.0,2022,Northern,Mbala,Northern,Mbala,2022::northern::mbala,matched,council suffix removed: Mbala Municipal Council -> Mbala
+Northern ,Mporokoso,117762.0,490253.0,182859.0,0.0,68878.0,551.0,860303.0,2022,Northern,Mporokoso,Northern,Mporokoso,2022::northern::mporokoso,matched,
+Northern ,Mpulungu,571504.0,1112755.0,335603.0,588962.0,162364.0,-13738.0,2757450.0,2022,Northern,Mpulungu,Northern,Mpulungu,2022::northern::mpulungu,matched,
+Northern ,Mungwi,129815.0,644084.0,133728.0,57670.0,24248.0,15340.0,1004885.0,2022,Northern,Mungwi,Northern,Mungwi,2022::northern::mungwi,matched,
+Northern ,Nsama,9808.0,397832.0,1350.0,665010.0,30226.0,8422.0,1112648.0,2022,Northern,Nsama,Northern,Nsama,2022::northern::nsama,matched,
+Northern ,Senga Hill,35878.0,459263.0,72958.0,60.0,5500.0,0.0,573659.0,2022,Northern,Senga Hill,Northern,Senga Hill,2022::northern::senga hill,matched,
+Southern,Chikankata,4601019.0,972245.0,213090.0,607715.0,34432.0,0.0,6428501.0,2022,Southern,Chikankanta,Southern,Chikankanta,2022::southern::chikankanta,matched,district spelling normalized: Chikankata -> Chikankanta
+Southern,Chirundu,695694.0,8638097.0,183360.0,140638.0,1164859.0,0.0,10822648.0,2022,Lusaka,Chirundu,Lusaka,Chirundu,2022::lusaka::chirundu,matched,OSR province differs from score/admin geography: Southern -> Lusaka
+Southern,Choma Municipal Council,4160452.0,5587660.0,295742.0,2233686.0,1272621.0,403541.0,13953702.0,2022,Southern,Choma,Southern,Choma,2022::southern::choma,matched,council suffix removed: Choma Municipal Council -> Choma
+Southern,Gwembe,74319.0,1065977.0,5600.0,559949.0,17900.0,45445.0,1769190.0,2022,Southern,Gwembe,Southern,Gwembe,2022::southern::gwembe,matched,
+Southern,Kalomo,277397.0,4473862.0,15639.0,512380.0,182674.0,34187.0,5496139.0,2022,Southern,Kalomo,Southern,Kalomo,2022::southern::kalomo,matched,
+Southern,Kazungula,601042.0,13673071.0,52650.0,650028.0,217153.0,35875.0,15229819.0,2022,Southern,Kazungula,Southern,Kazungula,2022::southern::kazungula,matched,
+Southern,Livingstone City Council,27794731.0,8138144.0,721580.0,5791640.0,4248788.0,0.0,46694883.0,2022,Southern,Livingstone,Southern,Livingstone,2022::southern::livingstone,matched,council suffix removed: Livingstone City Council -> Livingstone
+Southern,Mazabuka Municipal Council,11238122.0,3797826.0,1181519.0,224009.0,1192188.0,6947.0,17640611.0,2022,Southern,Mazabuka,Southern,Mazabuka,2022::southern::mazabuka,matched,council suffix removed: Mazabuka Municipal Council -> Mazabuka
+Southern,Monze,1554115.0,2783654.0,249652.0,556119.0,1423432.0,52230.0,6619202.0,2022,Southern,Monze,Southern,Monze,2022::southern::monze,matched,
+Southern,Namwala,37130.0,731279.0,84525.0,1887477.0,273411.0,-29218.0,2984604.0,2022,Southern,Namwala,Southern,Namwala,2022::southern::namwala,matched,
+Southern,Pemba,16313.0,1167011.0,62598.0,287237.0,8442.0,20998.0,1562599.0,2022,Southern,Pemba,Southern,Pemba,2022::southern::pemba,matched,
+Southern,Siavonga,5765799.0,234835.0,116863.0,5834197.0,347167.0,99480.0,12398341.0,2022,Southern,Siavonga,Southern,Siavonga,2022::southern::siavonga,matched,
+Southern,Sinazongwe,4924535.0,833689.0,509391.0,2514176.0,81015.0,0.0,8862806.0,2022,Southern,Sinazongwe,Southern,Sinazongwe,2022::southern::sinazongwe,matched,
+Southern,Zimba,65757.0,1196523.0,19022.0,595369.0,149173.0,2168.0,2028012.0,2022,Southern,Zimba,Southern,Zimba,2022::southern::zimba,matched,
+Western,Kalabo,3914.0,245879.0,14841.0,170181.0,65666.0,545331.0,1045812.0,2022,Western,Kalabo,Western,Kalabo,2022::western::kalabo,matched,
+Western,Kaoma,51948.0,1683066.0,147000.0,1206218.0,167750.0,0.0,3255982.0,2022,Western,Kaoma,Western,Kaoma,2022::western::kaoma,matched,
+Western,Limulunga,16394.0,168986.0,19890.0,313685.0,23740.0,1790.0,544485.0,2022,Western,Limulunga,Western,Limulunga,2022::western::limulunga,matched,
+Western,Luampa,11893.0,270369.0,60056.0,226602.0,4913.0,0.0,573833.0,2022,Western,Luampa,Western,Luampa,2022::western::luampa,matched,
+Western,Lukulu,14813.0,678251.0,7846.0,544680.0,10100.0,0.0,1255690.0,2022,Western,Lukulu,Western,Lukulu,2022::western::lukulu,matched,
+Western,Mitete,5850.0,185620.0,1610.0,8419.0,550.0,281110.0,483159.0,2022,Western,Mitete,Western,Mitete,2022::western::mitete,matched,
+Western,Mongu Municipal Council,1428436.0,4150491.0,1404665.0,533244.0,1257141.0,55093.0,8829070.0,2022,Western,Mongu,Western,Mongu,2022::western::mongu,matched,council suffix removed: Mongu Municipal Council -> Mongu
+Western,Mulobezi,14114.0,526913.0,16235.0,89941.0,37482.0,11786.0,696471.0,2022,Western,Mulobezi,Western,Mulobezi,2022::western::mulobezi,matched,
+Western,Mwandi,8583.0,255604.0,11160.0,236521.0,22220.0,0.0,534088.0,2022,Western,Mwandi,Western,Mwandi,2022::western::mwandi,matched,
+Western,Nalolo,150870.0,133699.0,1250.0,29142.0,100.0,0.0,315061.0,2022,Western,Nalolo,Western,Nalolo,2022::western::nalolo,matched,
+Western,Nkeyema,19390.0,263013.0,6300.0,1137093.0,24650.0,0.0,1450446.0,2022,Western,Nkeyema,Western,Nkeyema,2022::western::nkeyema,matched,
+Western,Senanga,113191.0,969184.0,348000.0,80161.0,199825.0,65962.0,1776323.0,2022,Western,Senanga,Western,Senanga,2022::western::senanga,matched,
+Western,Sesheke,103827.0,3049333.0,131725.0,857493.0,144580.0,-22131.0,4264827.0,2022,Western,Sesheke,Western,Sesheke,2022::western::sesheke,matched,
+Western,Shangombo,12156.0,633364.0,12790.0,358276.0,7019.0,0.0,1023605.0,2022,Western,Shangombo,Western,Shangombo,2022::western::shangombo,matched,
+Western,Sikongo,7118.0,514292.0,2490.0,63600.0,550.0,100549.0,688599.0,2022,Western,Sikongo,Western,Sikongo,2022::western::sikongo,matched,
+Western,Sioma,10463.0,527565.0,3550.0,106917.0,8400.0,0.0,656895.0,2022,Western,Sioma,Western,Sioma,2022::western::sioma,matched,
+Central,Chibombo,5294598.0,4231249.0,865840.0,3123314.0,4453534.0,0.0,17968535.0,2023,Central,Chibombo,Central,Chibombo,2023::central::chibombo,matched,
+Central,Chisamba,991690.0,2201416.0,128691.0,463296.0,133209.0,0.0,3918302.0,2023,Central,Chisamba,Central,Chisamba,2023::central::chisamba,matched,
+Central,Chitambo,5665.0,1591758.0,114430.0,90557.0,21020.0,0.0,1823430.0,2023,Central,Chitambo,Central,Chitambo,2023::central::chitambo,matched,
+Central,Itezhi-tezhi,1713378.0,2254155.0,318670.0,427082.0,290256.0,0.0,5003541.0,2023,Central,Itezhi-tezhi,Central,Itezhi-Tezhi,2023::central::itezhi tezhi,matched,score district normalized: Itezhi-Tezhi -> Itezhi-tezhi
+Central,Kabwe Municipal Council,11651268.0,16686099.0,489260.0,1914847.0,6073842.0,0.0,36815316.0,2023,Central,Kabwe,Central,Kabwe,2023::central::kabwe,matched,council suffix removed: Kabwe Municipal Council -> Kabwe
+Central,Kapiri Mposhi,3036401.0,9128142.0,56595.0,5081813.0,577845.0,0.0,17880796.0,2023,Central,Kapiri Mposhi,Central,Kapiri Mposhi,2023::central::kapiri mposhi,matched,
+Central,Luano,1604621.0,789042.0,185630.0,17406.0,109231.0,0.0,2705930.0,2023,Central,Luano,Central,Luano,2023::central::luano,matched,
+Central,Mkushi,830478.0,1414684.0,50050.0,4982769.0,682810.0,0.0,7960791.0,2023,Central,Mkushi,Central,Mkushi,2023::central::mkushi,matched,
+Central,Mumbwa,1433374.0,7007523.0,1875956.0,781946.0,1537236.0,0.0,12636035.0,2023,Central,Mumbwa,Central,Mumbwa,2023::central::mumbwa,matched,
+Central,Ngabwe,4770.0,304722.0,111873.0,139798.0,21121.0,0.0,582284.0,2023,Central,Ngabwe,Central,Ngabwe,2023::central::ngabwe,matched,
+Central,Serenje,564852.0,4866505.0,342544.0,1391043.0,675025.0,0.0,7839969.0,2023,Central,Serenje,Central,Serenje,2023::central::serenje,matched,
+Central,Shibuyunji,6119392.0,602486.0,26700.0,282962.0,163733.0,0.0,7195273.0,2023,Central,Shibuyunji,Central,Shibuyunji,2023::central::shibuyunji,matched,
+Copperbelt,Chililabombwe Municipal Council,27404439.0,42084091.0,525395.0,10286067.0,3927264.0,0.0,84227256.0,2023,Copperbelt,Chililabombwe,Copperbelt,Chililabombwe,2023::copperbelt::chililabombwe,matched,council suffix removed: Chililabombwe Municipal Council -> Chililabombwe
+Copperbelt,Chingola Municipal Council,58777100.0,14849994.0,500678.0,2477351.0,4325467.0,0.0,80930590.0,2023,Copperbelt,Chingola,Copperbelt,Chingola,2023::copperbelt::chingola,matched,council suffix removed: Chingola Municipal Council -> Chingola
+Copperbelt,Kalulushi Municipal Council,78660186.0,5307912.0,1742368.0,260855.0,1861820.0,0.0,87833141.0,2023,Copperbelt,Kalulushi,Copperbelt,Kalulushi,2023::copperbelt::kalulushi,matched,council suffix removed: Kalulushi Municipal Council -> Kalulushi
+Copperbelt,Kitwe City Council,103108229.0,33952206.0,1499034.0,8188637.0,10373730.0,0.0,157121836.0,2023,Copperbelt,Kitwe,Copperbelt,Kitwe,2023::copperbelt::kitwe,matched,council suffix removed: Kitwe City Council -> Kitwe
+Copperbelt,Luanshya Municipal Council,34735934.41,7179164.0,1156873.0,202417.0,1467237.0,21637.0,44763262.41,2023,Copperbelt,Luanshya,Copperbelt,Luanshya,2023::copperbelt::luanshya,matched,council suffix removed: Luanshya Municipal Council -> Luanshya
+Copperbelt,Lufwanyama,15996210.0,2881425.0,108418.0,765773.0,232149.0,0.0,19983975.0,2023,Copperbelt,Lufwanyama,Copperbelt,Lufwanyama,2023::copperbelt::lufwanyama,matched,
+Copperbelt,Masaiti,11716196.0,422386.0,22001.0,889034.0,267579.0,29918.0,13347114.0,2023,Copperbelt,Masaiti,Copperbelt,Masaiti,2023::copperbelt::masaiti,matched,
+Copperbelt,Mpongwe,625370.0,4792041.0,39928.0,1704802.0,379729.0,0.0,7541870.0,2023,Copperbelt,Mpongwe,Copperbelt,Mpongwe,2023::copperbelt::mpongwe,matched,
+Copperbelt,Mufulira Municipal Council,54545749.0,12092346.0,1079499.0,0.0,1952491.0,0.0,69670085.0,2023,Copperbelt,Mufulira,Copperbelt,Mufulira,2023::copperbelt::mufulira,matched,council suffix removed: Mufulira Municipal Council -> Mufulira
+Copperbelt,Ndola City Coucil,45214194.0,24594349.0,8055226.0,0.0,14955045.0,-142289.0,92676525.0,2023,Copperbelt,Ndola,Copperbelt,Ndola,2023::copperbelt::ndola,matched,council suffix removed: Ndola City Coucil -> Ndola
+Eastern,Chadiza,72345.0,656933.0,25650.0,2045246.0,175984.0,0.0,2976158.0,2023,Eastern,Chadiza,Eastern,Chadiza,2023::eastern::chadiza,matched,
+Eastern,Chama,71609.0,486384.0,8870.0,258120.0,91270.0,946578.0,1862831.0,2023,Muchinga,Chama,Muchiga,Chama,2023::muchinga::chama,matched,OSR province differs from score/admin geography: Eastern -> Muchinga; score province normalized: Muchiga -> Muchinga
+Eastern,Chasefu,5799.0,665482.0,13000.0,285402.0,6180.0,0.0,975863.0,2023,Eastern,Chasefu,Eastern,Chasefu,2023::eastern::chasefu,matched,
+Eastern,Chipangali,8473.0,669138.0,10570.0,601719.0,54715.0,0.0,1344615.0,2023,Eastern,Chipangali,Eastern,Chipangali,2023::eastern::chipangali,matched,
+Eastern,Chipata City Council,8351400.0,13641207.0,2820646.0,481210.0,6395556.0,28130.0,31718149.0,2023,Eastern,Chipata,Eastern,Chipata,2023::eastern::chipata,matched,council suffix removed: Chipata City Council -> Chipata
+Eastern,Kasenengwa,5213.0,1330572.0,82830.0,3048.0,394052.0,0.0,1815715.0,2023,Eastern,Kasenengwa,Eastern,Kasenengwa,2023::eastern::kasenengwa,matched,
+Eastern,Katete,951415.0,2348180.0,132979.0,572203.0,530505.0,0.0,4535282.0,2023,Eastern,Katete,Eastern,Katete,2023::eastern::katete,matched,
+Eastern,Lumezi,9450.0,659272.0,9000.0,249045.0,35990.0,0.0,962757.0,2023,Eastern,Lumezi,Eastern,Lumezi,2023::eastern::lumezi,matched,
+Eastern,Lundazi,167923.0,2690615.0,62820.0,656047.0,398929.0,0.0,3976334.0,2023,Eastern,Lundazi,Eastern,Lundazi,2023::eastern::lundazi,matched,
+Eastern,Lusangazi,6858.0,366885.0,42060.0,110472.0,42947.0,0.0,569222.0,2023,Eastern,Lusangazi,Eastern,Lusangazi,2023::eastern::lusangazi,matched,
+Eastern,Mambwe,1314379.0,943489.0,36940.0,524147.0,234628.0,36255.0,3089838.0,2023,Eastern,Mambwe,Eastern,Mambwe,2023::eastern::mambwe,matched,
+Eastern,NyimbaTown Council,1038986.0,2330731.0,32768.0,655748.0,375866.0,0.0,4434099.0,2023,Eastern,Nyimba,Eastern,Nyimba,2023::eastern::nyimba,matched,council suffix removed: NyimbaTown Council -> Nyimba
+Eastern,Petauke,2090002.0,3274795.0,26702.0,943224.0,1401319.0,315000.0,8051042.0,2023,Eastern,Petauke,Eastern,Petauke,2023::eastern::petauke,matched,
+Eastern,Sinda,89836.0,1128880.0,382772.0,570.0,85995.0,0.0,1688053.0,2023,Eastern,Sinda,Eastern,Sinda,2023::eastern::sinda,matched,
+Eastern,Vubwi,12391.0,624867.0,5200.0,120950.0,12655.0,0.0,776063.0,2023,Eastern,Vubwi,Eastern,Vubwi,2023::eastern::vubwi,matched,
+Luapula,Chembe,10364.0,3407201.0,14554.0,570710.0,148651.0,0.0,4151480.0,2023,Luapula,Chembe,Luapula,Chembe,2023::luapula::chembe,matched,
+Luapula,Chiengi,18990.0,471435.0,1169.0,770477.0,44054.0,783199.0,2089324.0,2023,Luapula,Chiengi,Luapula,Chiengi,2023::luapula::chiengi,matched,
+Luapula,Chifunabuli,8560.0,284493.0,112856.0,37883.0,79309.0,0.0,523101.0,2023,Luapula,Chifunabuli,Luapula,Chifunabuli,2023::luapula::chifunabuli,matched,
+Luapula,Chipili,6842.0,703401.0,400.0,48424.0,1000.0,-15135.0,744932.0,2023,Luapula,Chipili,Luapula,Chipili,2023::luapula::chipili,matched,
+Luapula,Kawambwa,438731.25,2738515.67,326963.7,9645.0,423780.3,47126.0,3984761.92,2023,Luapula,Kawambwa,Luapula,Kawambwa,2023::luapula::kawambwa,matched,
+Luapula,Lunga,1943.0,700.0,0.0,68561.0,0.0,-55521.0,15683.0,2023,Luapula,Lunga,Luapula,Lunga,2023::luapula::lunga,matched,
+Luapula,Mansa Municipal Council,2011214.0,4979300.0,151313.0,2826366.0,1985803.0,851902.0,12805898.0,2023,Luapula,Mansa,Luapula,Mansa,2023::luapula::mansa,matched,council suffix removed: Mansa Municipal Council -> Mansa
+Luapula,Milenge,17380.0,587187.0,9105.0,53097.0,3630.0,0.0,670399.0,2023,Luapula,Milengi,Luapula,Milengi,2023::luapula::milengi,matched,district spelling normalized: Milenge -> Milengi
+Luapula,Mwansabombwe,10177.0,589333.0,325.0,99539.0,231420.0,0.0,930794.0,2023,Luapula,Mwansabombwe,Luapula,Mwansabombwe,2023::luapula::mwansabombwe,matched,
+Luapula,Mwense,1341103.0,1725345.0,17590.0,235416.0,168709.0,0.0,3488163.0,2023,Luapula,Mwense,Luapula,Mwense,2023::luapula::mwense,matched,
+Luapula,Nchelenge,67589.0,1337225.0,50.0,872460.0,85355.0,0.0,2362679.0,2023,Luapula,Nchelenge,Luapula,Nchelenge,2023::luapula::nchelenge,matched,
+Luapula,Samfya,545943.0,789134.0,10193.0,814531.0,404647.0,0.0,2564448.0,2023,Luapula,Samfya,Luapula,Samfya,2023::luapula::samfya,matched,
+Lusaka,Chilanga,5665774.0,2518416.0,3348031.0,3426320.0,1387537.0,0.0,16346078.0,2023,Lusaka,Chilanga,Lusaka,Chilanga,2023::lusaka::chilanga,matched,
+Lusaka,Chongwe Municipal Council,15381745.0,13973102.0,898621.0,5885613.0,3958748.0,147178.0,40245007.0,2023,Lusaka,Chongwe,Lusaka,Chongwe,2023::lusaka::chongwe,matched,council suffix removed: Chongwe Municipal Council -> Chongwe
+Lusaka,Kafue,10227532.0,9660148.0,3149826.0,1035255.0,3348590.0,0.0,27421351.0,2023,Lusaka,Kafue,Lusaka,Kafue,2023::lusaka::kafue,matched,
+Lusaka,Luangwa,292377.13,1368573.44,289401.0,1740302.0,113420.0,0.0,3804073.57,2023,Lusaka,Luangwa,Lusaka,Luangwa,2023::lusaka::luangwa,matched,
+Lusaka,Lusaka City Council,86342712.0,133779291.0,4367999.0,42514418.0,62707520.0,2700000.0,332411940.0,2023,Lusaka,Lusaka,Lusaka,Lusaka,2023::lusaka::lusaka,matched,council suffix removed: Lusaka City Council -> Lusaka
+Lusaka,Rufunsa,21682.0,2706701.0,114405.0,240306.0,135779.0,230203.0,3449076.0,2023,Lusaka,Rufunsa,Lusaka,Rufunsa,2023::lusaka::rufunsa,matched,
+Muchinga,Chinsali Municipal Council,1379471.0,4045524.0,195469.0,845782.0,753001.0,49048.0,7268295.0,2023,Muchinga,Chinsali,Muchiga,Chinsali,2023::muchinga::chinsali,matched,council suffix removed: Chinsali Municipal Council -> Chinsali; score province normalized: Muchiga -> Muchinga
+Muchinga,Isoka,205144.0,2464817.0,8630.0,742316.0,431438.0,51284.0,3903629.0,2023,Muchinga,Isoka,Muchiga,Isoka,2023::muchinga::isoka,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Kanchibiya,10155.0,708616.0,0.0,52154.0,40238.0,0.0,811163.0,2023,Muchinga,Kanchibiya,Muchiga,Kanchibiya,2023::muchinga::kanchibiya,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Lavushimanda,2750.0,1007392.0,0.0,61538.0,106695.0,0.0,1178375.0,2023,Muchinga,Lavushimanda,Muchiga,Lavushimanda,2023::muchinga::lavushimanda,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Mafinga,7254.0,1007056.0,5960.0,314739.0,65563.0,0.0,1400572.0,2023,Muchinga,Mafinga,Muchiga,Mafinga,2023::muchinga::mafinga,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Mpika,2218971.0,7075273.0,83027.0,1010707.0,958979.0,190592.0,11537549.0,2023,Muchinga,Mpika,Muchiga,Mpika,2023::muchinga::mpika,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Nakonde,10057.0,32215657.0,209514.0,1344869.0,2179644.0,0.0,35959741.0,2023,Muchinga,Nakonde,Muchiga,Nakonde,2023::muchinga::nakonde,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Shiwang'andu,78138.0,1018737.0,11200.0,120958.0,49350.0,0.0,1278383.0,2023,Muchinga,Shiwang'andu,Muchiga,Shiwang'Andu,2023::muchinga::shiwang andu,matched,score province normalized: Muchiga -> Muchinga; score district normalized: Shiwang'Andu -> Shiwang'andu
+North Western,Chavuma,417690.0,1029967.0,11833.0,282748.0,25707.0,0.0,1767945.0,2023,North-Western,Chavuma,North-Western,Chavuma,2023::north western::chavuma,matched,province normalized: North Western -> North-Western
+North Western,Ikelenge,15210.0,292183.0,121312.0,204089.0,4445.0,0.0,637239.0,2023,North-Western,Ikelenge,North-Western,Ikelenge,2023::north western::ikelenge,matched,province normalized: North Western -> North-Western
+North Western,Kabompo,1217542.0,1092288.0,3335.0,1463266.0,181942.0,0.0,3958373.0,2023,North-Western,Kabompo,North-Western,Kabompo,2023::north western::kabompo,matched,province normalized: North Western -> North-Western
+North Western,Kalumbila,115382365.0,5101904.0,180726.0,1228933.0,263255.0,0.0,122157183.0,2023,North-Western,Kalumbila,North-Western,Kalumbila,2023::north western::kalumbila,matched,province normalized: North Western -> North-Western
+North Western,Kasempa,1581726.0,1849648.0,64155.0,823350.0,53495.0,0.0,4372374.0,2023,North-Western,Kasempa,North-Western,Kasempa,2023::north western::kasempa,matched,province normalized: North Western -> North-Western
+North Western,Manyinga,25551.0,562209.0,10901.0,1505243.0,33035.0,0.0,2136939.0,2023,North-Western,Manyinga,North-Western,Manyinga,2023::north western::manyinga,matched,province normalized: North Western -> North-Western
+North Western,Mufumbwe,6213.0,1640696.0,300.0,1359325.0,94152.0,0.0,3100686.0,2023,North-Western,Mufumbwe,North-Western,Mufumbwe,2023::north western::mufumbwe,matched,province normalized: North Western -> North-Western
+North Western,Mushindamo,9289.0,5375671.4,72606.0,49163.1,255075.0,0.0,5761804.5,2023,North-Western,Mushindano,North-Western,Mushindano,2023::north western::mushindano,matched,province normalized: North Western -> North-Western; district spelling normalized: Mushindamo -> Mushindano
+North Western,Mwinilunga,37050.0,1170105.0,556790.0,905207.0,124213.0,0.0,2793365.0,2023,North-Western,Mwinilunga,North-Western,Mwinilunga,2023::north western::mwinilunga,matched,province normalized: North Western -> North-Western
+North Western,Solwezi Municipal Council,80326212.0,6805577.0,266093.0,2716847.0,1686980.0,-11565.0,91790144.0,2023,North-Western,Solwezi,North-Western,Solwezi,2023::north western::solwezi,matched,province normalized: North Western -> North-Western; council suffix removed: Solwezi Municipal Council -> Solwezi
+North Western,Zambezi,169128.0,1760496.0,100462.0,400564.0,30932.0,0.0,2461582.0,2023,North-Western,Zambezi,North-Western,Zambezi,2023::north western::zambezi,matched,province normalized: North Western -> North-Western
+Northern ,Chilubi,24427.0,488841.0,4050.0,193397.0,5600.0,0.0,716315.0,2023,Northern,Chilubi,Northern,Chilubi,2023::northern::chilubi,matched,
+Northern ,Kaputa,20715.0,656451.0,10145.0,214558.0,41392.0,0.0,943261.0,2023,Northern,Kaputa,Northern,Kaputa,2023::northern::kaputa,matched,
+Northern,Kasama Municipal Council,2921932.0,13149129.0,390632.0,2432963.0,1735061.0,0.0,20629717.0,2023,Northern,Kasama,Northern,Kasama,2023::northern::kasama,matched,council suffix removed: Kasama Municipal Council -> Kasama
+Northern ,Lunte,863.0,255481.0,9149.0,76558.0,1001.0,0.0,343052.0,2023,Northern,Lunte,Northern,Lunte,2023::northern::lunte,matched,
+Northern ,Lupososhi,9825.0,404487.0,8464.0,54796.0,58892.0,0.0,536464.0,2023,Northern,Lupososhi,Northern,Lupososhi,2023::northern::lupososhi,matched,
+Northern ,Luwingu,83891.0,1718347.0,29462.0,12828.0,297078.0,0.0,2141606.0,2023,Northern,Luwingu,Northern,Luwingu,2023::northern::luwingu,matched,
+Northern,Mbala Municipal Council,1120009.0,2293205.0,145046.0,312303.0,198549.0,5728.0,4074840.0,2023,Northern,Mbala,Northern,Mbala,2023::northern::mbala,matched,council suffix removed: Mbala Municipal Council -> Mbala
+Northern ,Mporokoso,187574.0,871487.0,121817.0,188773.0,46817.0,0.0,1416468.0,2023,Northern,Mporokoso,Northern,Mporokoso,2023::northern::mporokoso,matched,
+Northern ,Mpulungu,1895828.0,947685.0,272492.0,1015812.0,88105.0,8702.0,4228624.0,2023,Northern,Mpulungu,Northern,Mpulungu,2023::northern::mpulungu,matched,
+Northern ,Mungwi,126586.0,519710.0,178705.0,1856.0,35728.0,134334.0,996919.0,2023,Northern,Mungwi,Northern,Mungwi,2023::northern::mungwi,matched,
+Northern ,Nsama,4410.0,408851.0,200.0,179815.0,50248.0,2900.0,646424.0,2023,Northern,Nsama,Northern,Nsama,2023::northern::nsama,matched,
+Northern ,Senga Hill,57870.0,644925.0,93698.0,255.0,4650.0,0.0,801398.0,2023,Northern,Senga Hill,Northern,Senga Hill,2023::northern::senga hill,matched,
+Southern,Chikankata,12659968.0,1080163.0,0.0,0.0,0.0,0.0,13740131.0,2023,Southern,Chikankanta,Southern,Chikankanta,2023::southern::chikankanta,matched,district spelling normalized: Chikankata -> Chikankanta
+Southern,Chirundu,325162.0,19134695.0,220900.0,163188.0,1522608.0,0.0,21366553.0,2023,Lusaka,Chirundu,Lusaka,Chirundu,2023::lusaka::chirundu,matched,OSR province differs from score/admin geography: Southern -> Lusaka
+Southern,Choma Municipal Council,2836852.0,5879223.0,1141030.0,2034891.0,2294673.0,185206.0,14371875.0,2023,Southern,Choma,Southern,Choma,2023::southern::choma,matched,council suffix removed: Choma Municipal Council -> Choma
+Southern,Gwembe,70165.0,545796.0,15300.0,722990.0,38750.0,0.0,1393001.0,2023,Southern,Gwembe,Southern,Gwembe,2023::southern::gwembe,matched,
+Southern,Kalomo,926322.0,8495466.0,40790.0,560153.0,396530.0,-7739.0,10411522.0,2023,Southern,Kalomo,Southern,Kalomo,2023::southern::kalomo,matched,
+Southern,Kazungula,396680.0,14521836.0,21450.0,887574.0,229015.0,0.0,16056555.0,2023,Southern,Kazungula,Southern,Kazungula,2023::southern::kazungula,matched,
+Southern,Livingstone City Council,27794731.0,8138144.0,721580.0,5791640.0,4248788.0,0.0,46694883.0,2023,Southern,Livingstone,Southern,Livingstone,2023::southern::livingstone,matched,council suffix removed: Livingstone City Council -> Livingstone
+Southern,Mazabuka Municipal Council,5492067.0,18752101.0,1442764.0,131044.0,1604766.0,42096.0,27464838.0,2023,Southern,Mazabuka,Southern,Mazabuka,2023::southern::mazabuka,matched,council suffix removed: Mazabuka Municipal Council -> Mazabuka
+Southern,Monze,920780.0,2242374.0,198638.0,802735.0,1764705.0,0.0,5929232.0,2023,Southern,Monze,Southern,Monze,2023::southern::monze,matched,
+Southern,Namwala,109433.0,1142806.0,63590.0,2096304.0,293393.0,0.0,3705526.0,2023,Southern,Namwala,Southern,Namwala,2023::southern::namwala,matched,
+Southern,Pemba,19891.0,806210.0,65563.0,273847.0,65264.0,0.0,1230775.0,2023,Southern,Pemba,Southern,Pemba,2023::southern::pemba,matched,
+Southern,Siavonga,7417345.0,4208325.0,119230.0,9011599.0,329117.0,0.0,21085616.0,2023,Southern,Siavonga,Southern,Siavonga,2023::southern::siavonga,matched,
+Southern,Sinazongwe,4895758.0,911687.0,821094.0,3311859.0,192964.0,0.0,10133362.0,2023,Southern,Sinazongwe,Southern,Sinazongwe,2023::southern::sinazongwe,matched,
+Southern,Zimba,128665.0,1802093.0,87261.0,478570.0,200434.0,0.0,2697023.0,2023,Southern,Zimba,Southern,Zimba,2023::southern::zimba,matched,
+Western,Kalabo,3686.0,448713.0,22575.0,111418.0,81187.0,0.0,667579.0,2023,Western,Kalabo,Western,Kalabo,2023::western::kalabo,matched,
+Western,Kaoma,478365.0,1887060.0,126550.0,2272602.0,213820.0,0.0,4978397.0,2023,Western,Kaoma,Western,Kaoma,2023::western::kaoma,matched,
+Western,Limulunga,20385.0,277922.0,38469.0,287753.0,22136.0,18328.0,664993.0,2023,Western,Limulunga,Western,Limulunga,2023::western::limulunga,matched,
+Western,Luampa,16118.0,311311.0,26513.0,510364.0,5120.0,0.0,869426.0,2023,Western,Luampa,Western,Luampa,2023::western::luampa,matched,
+Western,Lukulu,15503.0,907691.0,5773.0,666148.0,20690.0,0.0,1615805.0,2023,Western,Lukulu,Western,Lukulu,2023::western::lukulu,matched,
+Western,Mitete,13665.0,1285584.0,550.0,5498.0,500.0,104150.0,1409947.0,2023,Western,Mitete,Western,Mitete,2023::western::mitete,matched,
+Western,Mongu Municipal Council,1644548.0,4196332.0,269994.0,1689328.0,2050095.0,0.0,9850297.0,2023,Western,Mongu,Western,Mongu,2023::western::mongu,matched,council suffix removed: Mongu Municipal Council -> Mongu
+Western,Mulobezi,15260.0,625566.0,8130.0,148206.0,39192.0,0.0,836354.0,2023,Western,Mulobezi,Western,Mulobezi,2023::western::mulobezi,matched,
+Western,Mwandi,6442.0,178955.0,8790.0,145331.0,22895.0,0.0,362413.0,2023,Western,Mwandi,Western,Mwandi,2023::western::mwandi,matched,
+Western,Nalolo,12983.0,65583.0,6900.0,309740.0,0.0,0.0,395206.0,2023,Western,Nalolo,Western,Nalolo,2023::western::nalolo,matched,
+Western,Nkeyema,16390.0,231852.0,6680.0,1022458.0,26564.0,0.0,1303944.0,2023,Western,Nkeyema,Western,Nkeyema,2023::western::nkeyema,matched,
+Western,Senanga,287309.0,694457.0,431327.0,132914.0,185421.0,529517.0,2260945.0,2023,Western,Senanga,Western,Senanga,2023::western::senanga,matched,
+Western,Sesheke,197993.0,3195911.0,95800.0,848673.0,234990.0,0.0,4573367.0,2023,Western,Sesheke,Western,Sesheke,2023::western::sesheke,matched,
+Western,Shangombo,19885.0,1557143.0,1064.0,699809.0,1600.0,0.0,2279501.0,2023,Western,Shangombo,Western,Shangombo,2023::western::shangombo,matched,
+Western,Sikongo,11598.0,624414.0,6140.0,19794.0,1200.0,139395.0,802541.0,2023,Western,Sikongo,Western,Sikongo,2023::western::sikongo,matched,
+Western,Sioma,16133.0,210500.0,5250.0,153659.0,4500.0,0.0,390042.0,2023,Western,Sioma,Western,Sioma,2023::western::sioma,matched,
+Central,Chibombo,131007.0,3860941.0,1119305.0,2926839.0,3661552.0,-4916.0,18084664.0,2024,Central,Chibombo,Central,Chibombo,2024::central::chibombo,matched,
+Central,Chisamba,69545.0,2326051.0,394884.0,829453.0,364239.0,88157.0,6138827.0,2024,Central,Chisamba,Central,Chisamba,2024::central::chisamba,matched,
+Central,Chitambo,4405.0,73529.0,34858.0,41002.0,55358.0,-3653.0,205499.0,2024,Central,Chitambo,Central,Chitambo,2024::central::chitambo,matched,
+Central,Itezhi-tezhi,54939.0,1130319.0,155411.0,1082632.0,313007.0,0.0,6825889.0,2024,Central,Itezhi-tezhi,Central,Itezhi-Tezhi,2024::central::itezhi tezhi,matched,score district normalized: Itezhi-Tezhi -> Itezhi-tezhi
+Central,Kabwe Municipal Council,493281.0,8465607.0,814916.0,2349426.0,6424932.0,-7999.0,34062938.0,2024,Central,Kabwe,Central,Kabwe,2024::central::kabwe,matched,council suffix removed: Kabwe Municipal Council -> Kabwe
+Central,Kapiri Mposhi,76535.0,13500257.0,466130.0,2460216.0,972270.0,18756.0,19948659.0,2024,Central,Kapiri Mposhi,Central,Kapiri Mposhi,2024::central::kapiri mposhi,matched,
+Central,Luano,28466.0,212235.0,73327.0,138050.0,140387.0,-74987.0,2474576.0,2024,Central,Luano,Central,Luano,2024::central::luano,matched,
+Central,Mkushi,88457.0,1301777.0,43200.0,4694326.0,658306.0,17819.0,6842939.0,2024,Central,Mkushi,Central,Mkushi,2024::central::mkushi,matched,
+Central,Mumbwa,60552.0,6317310.0,674646.0,3771696.0,1973344.0,8514.0,14838063.0,2024,Central,Mumbwa,Central,Mumbwa,2024::central::mumbwa,matched,
+Central,Ngabwe,8169.0,1566295.0,36000.0,153051.0,1418.0,40244.0,1805177.0,2024,Central,Ngabwe,Central,Ngabwe,2024::central::ngabwe,matched,
+Central,Serenje,77614.0,5282549.0,283570.0,1520496.0,705550.0,10654.0,8349605.0,2024,Central,Serenje,Central,Serenje,2024::central::serenje,matched,
+Central,Shibuyunji,62406.0,792295.0,55600.0,236461.0,160072.0,0.0,6774770.0,2024,Central,Shibuyunji,Central,Shibuyunji,2024::central::shibuyunji,matched,
+Copperbelt,Chililabombwe Municipal Council,139929.0,35725357.0,1097387.0,23725392.0,4220786.0,0.0,92528348.0,2024,Copperbelt,Chililabombwe,Copperbelt,Chililabombwe,2024::copperbelt::chililabombwe,matched,council suffix removed: Chililabombwe Municipal Council -> Chililabombwe
+Copperbelt,Chingola Municipal Council,158312.0,8554475.0,690806.0,3177161.0,4673349.0,0.0,94630089.0,2024,Copperbelt,Chingola,Copperbelt,Chingola,2024::copperbelt::chingola,matched,council suffix removed: Chingola Municipal Council -> Chingola
+Copperbelt,Kalulushi Municipal Council,222327.0,3862315.0,1778070.0,128972.0,1553297.0,0.0,105847539.0,2024,Copperbelt,Kalulushi,Copperbelt,Kalulushi,2024::copperbelt::kalulushi,matched,council suffix removed: Kalulushi Municipal Council -> Kalulushi
+Copperbelt,Kitwe City Council,421093.0,26987694.0,1276633.0,12745201.0,18198555.0,0.0,277757083.0,2024,Copperbelt,Kitwe,Copperbelt,Kitwe,2024::copperbelt::kitwe,matched,council suffix removed: Kitwe City Council -> Kitwe
+Copperbelt,Luanshya Municipal Council,130171.7,4246210.36,574198.3,1775250.68,2164261.7,22353.0,48779706.53,2024,Copperbelt,Luanshya,Copperbelt,Luanshya,2024::copperbelt::luanshya,matched,council suffix removed: Luanshya Municipal Council -> Luanshya
+Copperbelt,Lufwanyama,86921.0,2747345.0,498966.0,269427.0,615632.0,26723.0,21827691.0,2024,Copperbelt,Lufwanyama,Copperbelt,Lufwanyama,2024::copperbelt::lufwanyama,matched,
+Copperbelt,Masaiti,11349.0,389034.0,1938.0,2366089.0,193446.0,21626.0,16636796.0,2024,Copperbelt,Masaiti,Copperbelt,Masaiti,2024::copperbelt::masaiti,matched,
+Copperbelt,Mpongwe,13408.0,1561613.0,59991.0,3735670.0,322821.0,0.0,5999887.0,2024,Copperbelt,Mpongwe,Copperbelt,Mpongwe,2024::copperbelt::mpongwe,matched,
+Copperbelt,Mufulira Municipal Council,154389.0,10798292.0,346792.0,1680237.0,2622237.0,76332.0,62404360.0,2024,Copperbelt,Mufulira,Copperbelt,Mufulira,2024::copperbelt::mufulira,matched,council suffix removed: Mufulira Municipal Council -> Mufulira
+Copperbelt,Ndola City Council,204511.0,20526835.0,8932905.0,420868.0,16890946.0,3649.0,100999264.0,2024,Copperbelt,Ndola,Copperbelt,Ndola,2024::copperbelt::ndola,matched,council suffix removed: Ndola City Council -> Ndola
+Eastern,Chadiza,25669.0,647609.0,32214.0,2950570.0,262816.0,0.0,3960211.0,2024,Eastern,Chadiza,Eastern,Chadiza,2024::eastern::chadiza,matched,
+Eastern,Chama,46462.0,656700.0,25300.0,327435.0,118186.0,816827.0,2003515.0,2024,Muchinga,Chama,Muchiga,Chama,2024::muchinga::chama,matched,OSR province differs from score/admin geography: Eastern -> Muchinga; score province normalized: Muchiga -> Muchinga
+Eastern,Chasefu,18728.0,280117.0,1945.0,173782.0,10765.0,0.0,485337.0,2024,Eastern,Chasefu,Eastern,Chasefu,2024::eastern::chasefu,matched,
+Eastern,Chipangali,31125.0,103837.0,26675.0,1275192.0,87596.0,0.0,1524425.0,2024,Eastern,Chipangali,Eastern,Chipangali,2024::eastern::chipangali,matched,
+Eastern,Chipata City Council,218933.0,9056789.0,4141907.0,1724687.0,4975934.0,186130.0,30736011.0,2024,Eastern,Chipata,Eastern,Chipata,2024::eastern::chipata,matched,council suffix removed: Chipata City Council -> Chipata
+Eastern,Kasenengwa,20985.0,406083.0,123545.0,182841.0,335490.0,0.0,1068944.0,2024,Eastern,Kasenengwa,Eastern,Kasenengwa,2024::eastern::kasenengwa,matched,
+Eastern,Katete,27928.0,2140683.0,151960.0,619082.0,1065344.0,77349.0,5032332.0,2024,Eastern,Katete,Eastern,Katete,2024::eastern::katete,matched,
+Eastern,Lumezi,9678.0,378320.0,8900.0,164333.0,24977.0,71620.22,657828.22,2024,Eastern,Lumezi,Eastern,Lumezi,2024::eastern::lumezi,matched,
+Eastern,Lundazi,76653.0,2349082.0,146536.0,763055.0,395834.0,280871.0,4110759.0,2024,Eastern,Lundazi,Eastern,Lundazi,2024::eastern::lundazi,matched,
+Eastern,Lusangazi,9438.0,290911.0,15750.0,108112.0,24940.0,0.0,449151.0,2024,Eastern,Lusangazi,Eastern,Lusangazi,2024::eastern::lusangazi,matched,
+Eastern,Mambwe,30968.0,872130.0,33400.0,714013.0,274395.0,5659.0,5161633.0,2024,Eastern,Mambwe,Eastern,Mambwe,2024::eastern::mambwe,matched,
+Eastern,Nyimba,28672.0,2467561.0,46588.0,1242878.0,633861.0,78912.0,5207177.0,2024,Eastern,Nyimba,Eastern,Nyimba,2024::eastern::nyimba,matched,
+Eastern,Petauke,71375.0,2513729.0,54060.0,967314.0,1277054.0,82161.0,6727675.0,2024,Eastern,Petauke,Eastern,Petauke,2024::eastern::petauke,matched,
+Eastern,Sinda,17338.0,878827.0,306233.0,134452.0,108550.0,0.0,1489581.0,2024,Eastern,Sinda,Eastern,Sinda,2024::eastern::sinda,matched,
+Eastern,Vubwi,24588.0,517339.0,5435.0,169084.0,11630.0,19867.0,747943.0,2024,Eastern,Vubwi,Eastern,Vubwi,2024::eastern::vubwi,matched,
+Luapula,Chembe,19775.0,4170831.0,46226.0,919400.0,173741.0,0.0,5329973.0,2024,Luapula,Chembe,Luapula,Chembe,2024::luapula::chembe,matched,
+Luapula,Chienge,35951.0,616570.0,2924.0,877943.0,68731.0,287159.0,1889278.0,2024,Luapula,Chiengi,Luapula,Chiengi,2024::luapula::chiengi,matched,district spelling normalized: Chienge -> Chiengi
+Luapula,Chifunabuli,24276.0,742681.0,190296.0,129976.0,163475.0,0.0,1250704.0,2024,Luapula,Chifunabuli,Luapula,Chifunabuli,2024::luapula::chifunabuli,matched,
+Luapula,Chipili,11663.0,241184.0,2000.0,22352.0,2350.0,0.0,279549.0,2024,Luapula,Chipili,Luapula,Chipili,2024::luapula::chipili,matched,
+Luapula,Kawambwa,49318.0,2155552.0,287192.0,306379.0,516202.0,111536.0,3794314.0,2024,Luapula,Kawambwa,Luapula,Kawambwa,2024::luapula::kawambwa,matched,
+Luapula,Lunga,5498.0,17200.0,0.0,32405.0,0.0,15756.0,70859.0,2024,Luapula,Lunga,Luapula,Lunga,2024::luapula::lunga,matched,
+Luapula,Mansa Municipal Council,110088.0,4473933.0,161162.0,3063619.0,1854578.0,431321.0,13923254.0,2024,Luapula,Mansa,Luapula,Mansa,2024::luapula::mansa,matched,council suffix removed: Mansa Municipal Council -> Mansa
+Luapula,Milenge,23167.0,451029.0,2020.0,126013.0,8281.0,124504.0,735014.0,2024,Luapula,Milengi,Luapula,Milengi,2024::luapula::milengi,matched,district spelling normalized: Milenge -> Milengi
+Luapula,Mwansabombwe,73225.0,1106072.0,8066.0,704727.0,72700.0,0.0,1964790.0,2024,Luapula,Mwansabombwe,Luapula,Mwansabombwe,2024::luapula::mwansabombwe,matched,
+Luapula,Mwense,37183.0,1191362.0,20344.0,343402.0,192812.0,665323.0,5681919.0,2024,Luapula,Mwense,Luapula,Mwense,2024::luapula::mwense,matched,
+Luapula,Nchelenge,33265.0,2396840.0,30156.0,712736.0,85207.0,-47980.0,3218484.0,2024,Luapula,Nchelenge,Luapula,Nchelenge,2024::luapula::nchelenge,matched,
+Luapula,Samfya,30750.0,910494.0,38735.0,742712.0,439513.0,17660.0,2851388.0,2024,Luapula,Samfya,Luapula,Samfya,2024::luapula::samfya,matched,
+Lusaka,Chilanga,293033.0,3317893.0,3360497.0,3913397.0,1388821.0,0.0,17560245.0,2024,Lusaka,Chilanga,Lusaka,Chilanga,2024::lusaka::chilanga,matched,
+Lusaka,Chongwe,258359.0,7754160.0,715197.0,12057888.0,4538656.0,77829.0,58122671.0,2024,Lusaka,Chongwe,Lusaka,Chongwe,2024::lusaka::chongwe,matched,
+Lusaka,Kafue,215476.0,4057727.0,2316775.0,2785989.0,3224487.0,121376.0,24291213.0,2024,Lusaka,Kafue,Lusaka,Kafue,2024::lusaka::kafue,matched,
+Lusaka,Luangwa,22292.0,1058363.0,115432.0,1377443.0,117783.0,66760.0,2799363.0,2024,Lusaka,Luangwa,Lusaka,Luangwa,2024::lusaka::luangwa,matched,
+Lusaka,Lusaka City Council,3543268.0,101118185.0,5687962.0,53605233.0,79476872.0,8762631.0,392743158.0,2024,Lusaka,Lusaka,Lusaka,Lusaka,2024::lusaka::lusaka,matched,council suffix removed: Lusaka City Council -> Lusaka
+Lusaka,Rufunsa,20985.0,625613.0,86206.0,398954.0,233862.0,230203.0,1595823.0,2024,Lusaka,Rufunsa,Lusaka,Rufunsa,2024::lusaka::rufunsa,matched,
+Muchinga,Chinsali Municipal Council,91443.0,2297564.0,337531.0,524895.0,982888.0,135967.0,4760378.0,2024,Muchinga,Chinsali,Muchiga,Chinsali,2024::muchinga::chinsali,matched,council suffix removed: Chinsali Municipal Council -> Chinsali; score province normalized: Muchiga -> Muchinga
+Muchinga,Isoka,50500.0,2369356.0,8580.0,1027681.0,200773.0,70403.0,3882754.0,2024,Muchinga,Isoka,Muchiga,Isoka,2024::muchinga::isoka,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Kanchibiya,20804.0,737415.0,0.0,188805.0,14850.0,0.0,961874.0,2024,Muchinga,Kanchibiya,Muchiga,Kanchibiya,2024::muchinga::kanchibiya,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Lavushimanda,6853.0,286600.0,4292.0,187589.0,64899.0,0.0,550233.0,2024,Muchinga,Lavushimanda,Muchiga,Lavushimanda,2024::muchinga::lavushimanda,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Mafinga,31905.0,918265.0,2790.0,241578.0,83401.0,0.0,1277939.0,2024,Muchinga,Mafinga,Muchiga,Mafinga,2024::muchinga::mafinga,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Mpika,82699.0,4682138.0,81532.0,1148948.0,1280757.0,283548.0,11186931.0,2024,Muchinga,Mpika,Muchiga,Mpika,2024::muchinga::mpika,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Nakonde,30757.0,33606964.0,189266.0,1894983.0,1503407.0,137750.0,37363127.0,2024,Muchinga,Nakonde,Muchiga,Nakonde,2024::muchinga::nakonde,matched,score province normalized: Muchiga -> Muchinga
+Muchinga,Shiwang'andu,26255.0,774953.0,75180.0,275767.0,80800.0,0.0,1244592.0,2024,Muchinga,Shiwang'andu,Muchiga,Shiwang'Andu,2024::muchinga::shiwang andu,matched,score province normalized: Muchiga -> Muchinga; score district normalized: Shiwang'Andu -> Shiwang'andu
+North Western,Chavuma,22810.0,1046827.0,5331.0,283888.0,20924.0,0.0,1825689.0,2024,North-Western,Chavuma,North-Western,Chavuma,2024::north western::chavuma,matched,province normalized: North Western -> North-Western
+North Western,Ikelenge,18242.0,312592.0,88614.0,101720.0,12218.0,15262.0,548648.0,2024,North-Western,Ikelenge,North-Western,Ikelenge,2024::north western::ikelenge,matched,province normalized: North Western -> North-Western
+North Western,Kabompo,31337.0,911049.0,25631.0,1400202.0,175704.0,0.0,3156073.0,2024,North-Western,Kabompo,North-Western,Kabompo,2024::north western::kabompo,matched,province normalized: North Western -> North-Western
+North Western,Kalumbila,59265.0,1837887.0,351760.0,2080801.0,369235.0,0.0,120243821.0,2024,North-Western,Kalumbila,North-Western,Kalumbila,2024::north western::kalumbila,matched,province normalized: North Western -> North-Western
+North Western,Kasempa,3295.0,2490978.0,394774.0,519734.0,208277.0,1364542.0,6656597.0,2024,North-Western,Kasempa,North-Western,Kasempa,2024::north western::kasempa,matched,province normalized: North Western -> North-Western
+North Western,Manyinga,25053.0,529405.0,8667.0,1549468.0,16710.0,253513.0,2382816.0,2024,North-Western,Manyinga,North-Western,Manyinga,2024::north western::manyinga,matched,province normalized: North Western -> North-Western
+North Western,Mufumbwe,88189.0,804358.0,154400.0,541075.0,146965.0,-3817.0,1731170.0,2024,North-Western,Mufumbwe,North-Western,Mufumbwe,2024::north western::mufumbwe,matched,province normalized: North Western -> North-Western
+North Western,Mushindamo,19725.0,3009926.0,95171.0,39652.0,4295.0,0.0,3168769.0,2024,North-Western,Mushindano,North-Western,Mushindano,2024::north western::mushindano,matched,province normalized: North Western -> North-Western; district spelling normalized: Mushindamo -> Mushindano
+North Western,Mwinilunga,27348.0,1386947.0,620460.0,1192631.0,137101.0,124740.0,3489227.0,2024,North-Western,Mwinilunga,North-Western,Mwinilunga,2024::north western::mwinilunga,matched,province normalized: North Western -> North-Western
+North Western,Solwezi Municipal Council,272227.0,5236125.0,293966.0,2998005.0,3089074.0,0.0,83321992.0,2024,North-Western,Solwezi,North-Western,Solwezi,2024::north western::solwezi,matched,province normalized: North Western -> North-Western; council suffix removed: Solwezi Municipal Council -> Solwezi
+North Western,Zambezi,47655.0,503637.0,66756.0,465225.0,45163.0,0.0,1259513.0,2024,North-Western,Zambezi,North-Western,Zambezi,2024::north western::zambezi,matched,province normalized: North Western -> North-Western
+Northern,Chilubi,22890.0,512078.0,900.0,203119.0,5370.0,14535.0,758892.0,2024,Northern,Chilubi,Northern,Chilubi,2024::northern::chilubi,matched,
+Northern,Kaputa,25448.0,838554.0,36300.0,326226.0,66882.0,119121.0,1412531.0,2024,Northern,Kaputa,Northern,Kaputa,2024::northern::kaputa,matched,
+Northern,Kasama Municipal Council,131599.0,5430253.0,298433.0,2674210.0,1993399.0,0.0,13591563.0,2024,Northern,Kasama,Northern,Kasama,2024::northern::kasama,matched,council suffix removed: Kasama Municipal Council -> Kasama
+Northern,Lunte,15235.0,111466.0,3990.0,452653.0,6780.0,0.0,590124.0,2024,Northern,Lunte,Northern,Lunte,2024::northern::lunte,matched,
+Northern,Lupososhi,13409.0,211599.0,175334.0,13881.0,240.0,0.0,414463.0,2024,Northern,Lupososhi,Northern,Lupososhi,2024::northern::lupososhi,matched,
+Northern,Luwingu,37968.0,843829.0,69915.0,411529.0,88258.0,0.0,1549673.0,2024,Northern,Luwingu,Northern,Luwingu,2024::northern::luwingu,matched,
+Northern,Mbala Municipal Council,47331.5,2181104.7,4050.0,393498.0,316508.97,2256.33,4164828.95,2024,Northern,Mbala,Northern,Mbala,2024::northern::mbala,matched,council suffix removed: Mbala Municipal Council -> Mbala
+Northern,Mporokoso,27044.0,305709.0,20100.0,199841.0,61930.0,0.0,640989.0,2024,Northern,Mporokoso,Northern,Mporokoso,2024::northern::mporokoso,matched,
+Northern,Mpulungu,33846.0,1337345.0,81125.0,897449.86,190896.0,0.0,4241233.09,2024,Northern,Mpulungu,Northern,Mpulungu,2024::northern::mpulungu,matched,
+Northern,Mungwi,40351.0,1149140.0,6594.0,206759.0,42890.0,78976.0,1560378.0,2024,Northern,Mungwi,Northern,Mungwi,2024::northern::mungwi,matched,
+Northern,Nsama,0.0,181145.0,1370.0,544273.0,31605.0,25841.0,791134.0,2024,Northern,Nsama,Northern,Nsama,2024::northern::nsama,matched,
+Northern,Senga Hill,10318.0,905077.0,138468.0,125.0,2700.0,55969.0,1122657.0,2024,Northern,Senga Hill,Northern,Senga Hill,2024::northern::senga hill,matched,
+Southern,Chikankata,38774.0,967258.0,246997.0,387275.0,41538.0,0.0,14761267.0,2024,Southern,Chikankanta,Southern,Chikankanta,2024::southern::chikankanta,matched,district spelling normalized: Chikankata -> Chikankanta
+Southern,Chirundu,42190.0,20235610.0,371877.0,186848.0,2073393.0,0.0,23204297.0,2024,Lusaka,Chirundu,Lusaka,Chirundu,2024::lusaka::chirundu,matched,OSR province differs from score/admin geography: Southern -> Lusaka
+Southern,Choma Municipal Council,141693.0,3973583.0,540128.0,2491512.0,2046669.0,-470841.0,11015859.0,2024,Southern,Choma,Southern,Choma,2024::southern::choma,matched,council suffix removed: Choma Municipal Council -> Choma
+Southern,Gwembe,25912.0,684104.0,114230.0,692257.0,41460.0,201253.0,1825741.0,2024,Southern,Gwembe,Southern,Gwembe,2024::southern::gwembe,matched,
+Southern,Kalomo,51832.0,964311.0,42080.0,406625.0,500399.0,0.0,2627270.0,2024,Southern,Kalomo,Southern,Kalomo,2024::southern::kalomo,matched,
+Southern,Kazungula,46004.0,13807814.0,82410.0,1196356.0,238435.0,-9173.0,16123256.0,2024,Southern,Kazungula,Southern,Kazungula,2024::southern::kazungula,matched,
+Southern,Livingstone City Council,240714.1,11842550.0,867808.0,4215065.0,7135251.0,0.0,61323214.7,2024,Southern,Livingstone,Southern,Livingstone,2024::southern::livingstone,matched,council suffix removed: Livingstone City Council -> Livingstone
+Southern,Mazabuka Municipal Council,64335.0,4114572.0,1575612.0,191058.0,1659866.0,6947.0,12755437.0,2024,Southern,Mazabuka,Southern,Mazabuka,2024::southern::mazabuka,matched,council suffix removed: Mazabuka Municipal Council -> Mazabuka
+Southern,Monze,72491.0,2267875.0,342454.0,3152148.0,743425.0,46483.0,7723198.0,2024,Southern,Monze,Southern,Monze,2024::southern::monze,matched,
+Southern,Namwala,120296.0,1528163.0,61150.0,2868100.0,374152.0,26533.0,5060643.0,2024,Southern,Namwala,Southern,Namwala,2024::southern::namwala,matched,
+Southern,Pemba,26460.0,147647.0,106050.0,550761.0,109474.0,9987.0,950379.0,2024,Southern,Pemba,Southern,Pemba,2024::southern::pemba,matched,
+Southern,Siavonga,49231.0,790434.0,144205.0,11023556.0,399265.0,172133.0,20754017.0,2024,Southern,Siavonga,Southern,Siavonga,2024::southern::siavonga,matched,
+Southern,Sinazongwe,55954.0,3505387.0,140810.0,1926445.0,106710.0,15558.0,10788461.0,2024,Southern,Sinazongwe,Southern,Sinazongwe,2024::southern::sinazongwe,matched,
+Southern,Zimba,0.0,1142745.0,73783.0,597781.0,258656.0,79825.0,2309354.0,2024,Southern,Zimba,Southern,Zimba,2024::southern::zimba,matched,
+Western,Kalabo,33525.0,218295.0,23847.0,383937.0,90837.0,295332.0,1045773.0,2024,Western,Kalabo,Western,Kalabo,2024::western::kalabo,matched,
+Western,Kaoma,51091.0,1184048.0,177307.0,1610058.0,345670.0,0.0,3955194.0,2024,Western,Kaoma,Western,Kaoma,2024::western::kaoma,matched,
+Western,Limulunga,18523.0,655413.0,54724.0,712964.0,72608.0,45340.0,1559572.0,2024,Western,Limulunga,Western,Limulunga,2024::western::limulunga,matched,
+Western,Luampa,14332.0,202748.0,127013.0,310090.0,1990.0,0.0,656173.0,2024,Western,Luampa,Western,Luampa,2024::western::luampa,matched,
+Western,Lukulu,18720.0,620888.0,24200.0,492818.0,16810.0,26017.0,1199453.0,2024,Western,Lukulu,Western,Lukulu,2024::western::lukulu,matched,
+Western,Mitete,13553.0,87000.0,50.0,12000.0,0.0,53547.0,166150.0,2024,Western,Mitete,Western,Mitete,2024::western::mitete,matched,
+Western,Mongu Municipal Council,103437.0,3136017.0,129383.0,2095496.0,1718588.0,0.0,8446391.0,2024,Western,Mongu,Western,Mongu,2024::western::mongu,matched,council suffix removed: Mongu Municipal Council -> Mongu
+Western,Mulobezi,15630.0,595644.44,2538.0,73523.0,45812.0,49010.0,782157.44,2024,Western,Mulobezi,Western,Mulobezi,2024::western::mulobezi,matched,
+Western,Mwandi,14090.0,346635.0,8089.0,135832.0,46180.0,0.0,550826.0,2024,Western,Mwandi,Western,Mwandi,2024::western::mwandi,matched,
+Western,Nalolo,18308.0,221396.0,2650.0,247896.0,600.0,0.0,490850.0,2024,Western,Nalolo,Western,Nalolo,2024::western::nalolo,matched,
+Western,Nkeyema,19553.0,716523.0,11100.0,118102.0,46599.0,5593.0,1156718.0,2024,Western,Nkeyema,Western,Nkeyema,2024::western::nkeyema,matched,
+Western,Senanga,47409.0,903974.0,456979.0,201562.0,158030.0,28088.0,1836891.0,2024,Western,Senanga,Western,Senanga,2024::western::senanga,matched,
+Western,Sesheke,37088.0,5470959.0,175740.0,1089689.0,270530.0,36000.0,7234276.0,2024,Western,Sesheke,Western,Sesheke,2024::western::sesheke,matched,
+Western,Shang'ombo,14177.0,504686.0,19582.0,1568293.0,12136.0,0.0,2118874.0,2024,Western,Shangombo,Western,Shangombo,2024::western::shangombo,matched,district spelling normalized: Shang'ombo -> Shangombo
+Western,Sikongo,12158.0,93840.0,3110.0,76537.0,1200.0,0.0,186845.0,2024,Western,Sikongo,Western,Sikongo,2024::western::sikongo,matched,
+Western,Sioma,17730.0,590391.0,4050.0,401686.0,7150.0,0.0,1021007.0,2024,Western,Sioma,Western,Sioma,2024::western::sioma,matched,
