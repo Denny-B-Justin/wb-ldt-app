@@ -5,6 +5,19 @@
 
 ---
 
+## Version and Deadline Mapping
+
+| Version | Deadline | Backlog focus |
+| --- | --- | --- |
+| `v1.5` | Jul 17, 2026 | Epics 1-3 plus command center, export, responsive, and loading-state hardening. |
+| `v1.6` | Jul 31, 2026 | Epics 4-7: opportunity finder, concept note starter, evidence graph, and AI audit drawer. |
+| `v1.7` | Aug 14, 2026 | Epics 8-10: document workbench, country onboarding factory, and PIM registry beta. |
+| `v1.8` | Aug 28, 2026 | Epics 11-14: climate screen, geospatial studio, scenario builder, and counterpart mode. |
+| `v1.9` | Sep 11, 2026 | Epic 15 plus delivery monitoring, transparency, field evidence, and procurement bridge foundations. |
+| `v2` | Oct 9, 2026 | Epic 16: full backend and frontend migration to the World Bank's MEGA platform. |
+
+---
+
 ## Epic 1: Release Metadata Source of Truth
 
 ### User story
@@ -368,3 +381,27 @@ As an implementation/PFM user, I want future links from candidate projects to fi
 - Schema supports tender/contract links.
 - OC4IDS mapping document exists.
 - Feature remains disabled until auth and official data integrations exist.
+
+---
+
+## Epic 16: World Bank MEGA Platform Migration
+
+### User story
+
+As a World Bank product and engineering team, I want the full LDT backend and frontend migrated to MEGA so the product can operate inside the Bank's target platform while preserving country workflows, auditability, and governance controls.
+
+### Requirements
+
+- Map current frontend routes, layout, navigation, theming, analytics views, AI stages, exports, and country workspaces to MEGA-compatible equivalents.
+- Map API routes, Supabase/data access, generated analytics assets, document parsing workflows, AI service calls, secrets, and deployment assumptions to MEGA services.
+- Define route parity, data parity, export parity, AI audit parity, and rollback tests.
+- Prepare security, governance, observability, support, and stakeholder acceptance checklists.
+- Schedule production cutover for October 2026 after at least one migration rehearsal.
+
+### Acceptance criteria
+
+- MEGA fit/gap checklist identifies blockers, owners, and mitigation paths.
+- Backend and frontend parity checks pass for at least one country workspace before cutover.
+- Evidence lineage, source fingerprints, AI audit records, and human review statuses survive migration.
+- Rollback plan is documented and rehearsed.
+- Security review and stakeholder acceptance are complete before production cutover.

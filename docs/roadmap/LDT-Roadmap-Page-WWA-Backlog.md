@@ -3,6 +3,7 @@
 **Purpose:** Sprint-sized backlog for exposing the roadmap inside the public LDT app.
 **Source:** `docs/roadmap/LDT-Version-Roadmap.md` and related roadmap supplements.
 **Design reference:** In-app Roadmap page using an accessible public-sector SaaS/white-paper diagram style.
+**Schedule model:** `v1.5`-`v1.9` close at two-week sprint deadlines from July 17, 2026 through September 11, 2026; `v2` targets World Bank MEGA migration on October 9, 2026.
 
 ---
 
@@ -22,13 +23,27 @@
 
 **Why:** The roadmap spans multiple releases, so teams need a scannable mental model that shows how trust, evidence, scaling, geospatial decision support, and transparency build on each other.
 
-**What:** Convert the V1 through V5+ roadmap into a visual sequence with goals, epics, and release intent. The design should feel like an executive white-paper diagram while remaining responsive and readable on mobile.
+**What:** Convert the `v1.5` through `v2` roadmap into a visual sequence with goals, epics, release intent, sprint windows, and deadline dates. The design should feel like an executive white-paper diagram while remaining responsive and readable on mobile.
 
 **Acceptance Criteria:**
-- V1, V2, V3, V4, and V5+ are all represented with explicit goals and core epics.
+- `v1.5`, `v1.6`, `v1.7`, `v1.8`, `v1.9`, and `v2` are all represented with explicit goals and core epics.
+- Each version shows a sprint window and deadline at the end of a two-week sprint.
+- `v2` clearly states the October 2026 goal to migrate the full backend and frontend to the World Bank's MEGA platform.
 - The visual sequence works at 375px, 768px, 1024px, and 1440px widths.
 - Information is not conveyed by color alone.
 - Text wraps cleanly without horizontal scroll.
+
+## Item 2a: Fix Primary CTA Dark-Mode Readability
+
+**Why:** The Roadmap page primary CTA became unreadable in dark mode because the button background and text both resolved to near-white values.
+
+**What:** Update the "View source materials" CTA to use an accessible semantic color pair in both light and dark themes, while preserving keyboard focus and hover states.
+
+**Acceptance Criteria:**
+- CTA text is readable in the deployed dark theme.
+- CTA maintains a visible focus outline.
+- CTA has a minimum 44px touch target.
+- Hover styling does not reduce contrast.
 
 ## Item 3: Map Frontend, Backend, and Governance Workstreams
 
@@ -40,6 +55,7 @@
 - Each workstream describes how it evolves across the roadmap.
 - Backend/data capabilities and frontend/product capabilities are both visible.
 - AI governance is presented as a required layer, not a later add-on.
+- MEGA platform migration is visible in the frontend, backend, governance, and operating-model workstreams.
 - The view is clear enough to seed later GitHub issues or implementation plans.
 
 ## Item 4: Expose Release Gates and AI Guardrails

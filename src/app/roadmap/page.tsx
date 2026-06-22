@@ -4,6 +4,7 @@ import {
   ArrowRight,
   BadgeCheck,
   BrainCircuit,
+  CalendarDays,
   CheckCircle2,
   CircleDot,
   ClipboardCheck,
@@ -34,6 +35,9 @@ type RoadmapPhase = {
   version: string;
   name: string;
   horizon: string;
+  sprint: string;
+  window: string;
+  deadline: string;
   goal: string;
   icon: RoadmapIcon;
   tone: {
@@ -53,16 +57,19 @@ type Workstream = {
 };
 
 const northStarMetrics = [
-  { value: "5", label: "Release horizons" },
+  { value: "6", label: "Release milestones" },
   { value: "4", label: "Delivery workstreams" },
   { value: "8", label: "Release gates" },
 ] as const;
 
 const roadmapPhases = [
   {
-    version: "V1",
+    version: "v1.5",
     name: "Trust Foundation",
-    horizon: "Current product hardening",
+    horizon: "Product hardening",
+    sprint: "Sprint 1",
+    window: "Jul 6 - Jul 17, 2026",
+    deadline: "Jul 17, 2026",
     goal:
       "Make the current LDT reliable, consistent, and trustable before adding heavier AI or public investment workflows.",
     icon: ShieldCheck,
@@ -79,9 +86,12 @@ const roadmapPhases = [
     gate: "All public pages, exports, and AI stages use the same release metadata and caveats.",
   },
   {
-    version: "V2",
+    version: "v1.6",
     name: "Evidence to Brief",
     horizon: "Auditable planning outputs",
+    sprint: "Sprint 2",
+    window: "Jul 20 - Jul 31, 2026",
+    deadline: "Jul 31, 2026",
     goal:
       "Convert diagnostics into evidence-backed planning briefs, opportunity families, and concept-note starters.",
     icon: FileText,
@@ -98,9 +108,12 @@ const roadmapPhases = [
     gate: "Every recommendation is traceable to evidence links, caveats, and a human review status.",
   },
   {
-    version: "V3",
+    version: "v1.7",
     name: "Scaling Platform",
     horizon: "Country factory and registry beta",
+    sprint: "Sprint 3",
+    window: "Aug 3 - Aug 14, 2026",
+    deadline: "Aug 14, 2026",
     goal:
       "Make country onboarding repeatable and introduce a lightweight public investment lifecycle view.",
     icon: Database,
@@ -117,9 +130,12 @@ const roadmapPhases = [
     gate: "A new country can be staged from manifests, data packages, source registries, and preview releases.",
   },
   {
-    version: "V4",
+    version: "v1.8",
     name: "Decision Studio",
     horizon: "Spatial, climate, scenario, counterpart layer",
+    sprint: "Sprint 4",
+    window: "Aug 17 - Aug 28, 2026",
+    deadline: "Aug 28, 2026",
     goal:
       "Add transparent spatial prioritization, climate-risk screening, scenario analysis, and workshop-ready outputs.",
     icon: Map,
@@ -136,9 +152,12 @@ const roadmapPhases = [
     gate: "Scenario outputs show the weights, evidence, assumptions, map, table, caveats, and sensitivity.",
   },
   {
-    version: "V5+",
+    version: "v1.9",
     name: "Delivery Loop",
     horizon: "Monitoring, transparency, and learning",
+    sprint: "Sprint 5",
+    window: "Aug 31 - Sep 11, 2026",
+    deadline: "Sep 11, 2026",
     goal:
       "Link upstream planning to delivery monitoring, procurement transparency, asset records, and ex-post learning.",
     icon: Radar,
@@ -154,6 +173,28 @@ const roadmapPhases = [
     ],
     gate: "Project delivery evidence can inform public transparency and future investment decisions without hiding the rule logic.",
   },
+  {
+    version: "v2",
+    name: "MEGA Platform Migration",
+    horizon: "World Bank platform migration",
+    sprint: "Sprint 7",
+    window: "Sep 28 - Oct 9, 2026",
+    deadline: "Oct 9, 2026",
+    goal:
+      "Migrate the entire LDT backend and frontend to the World Bank's MEGA platform while preserving evidence lineage, country routes, exports, and auditability.",
+    icon: Network,
+    tone: {
+      marker: "border-cyan-500 bg-cyan-700 text-white",
+      icon: "bg-cyan-600/10 text-cyan-700 dark:text-cyan-200",
+      rail: "from-cyan-500 to-blue-500",
+    },
+    epics: [
+      "MEGA frontend shell migration and route parity",
+      "Backend service, data, auth, and deployment migration",
+      "Cutover rehearsal, rollback plan, and stakeholder acceptance",
+    ],
+    gate: "MEGA production cutover is rehearsed, reversible, security-reviewed, and validated against existing country workflows.",
+  },
 ] satisfies RoadmapPhase[];
 
 const workstreams = [
@@ -167,6 +208,7 @@ const workstreams = [
       "Planning Brief, Audit Drawer, Opportunity Finder, review status controls",
       "Document Workbench, Trust Center, PIM Registry, admin observability",
       "Scenario Builder, Counterpart Mode, geospatial prioritization workspace",
+      "MEGA-compatible frontend shell, navigation, theming, and route parity",
     ],
   },
   {
@@ -179,6 +221,7 @@ const workstreams = [
       "Evidence graph nodes and edges, opportunity triggers, export lineage",
       "Country manifests, document states, registry schema, OC4IDS-ready fields",
       "Climate/geospatial layers, scenario packages, API/download contracts",
+      "MEGA backend services, data migration, auth, deployment, and rollback plan",
     ],
   },
   {
@@ -191,6 +234,7 @@ const workstreams = [
       "Prompt versions, source fingerprints, audit records, human review status",
       "Readiness gates for translations, OCR, validation, incident handling",
       "AI summarizes tradeoffs only after deterministic outputs are shown",
+      "MEGA migration preserves audit records, source fingerprints, and review states",
     ],
   },
   {
@@ -203,6 +247,7 @@ const workstreams = [
       "Analyst-reviewed opportunities and concept-note starter exports",
       "Country onboarding factory and document operations queue",
       "Workshop packs, data products, field monitoring, public learning loop",
+      "MEGA cutover readiness, stakeholder signoff, support model, and training",
     ],
   },
 ] satisfies Workstream[];
@@ -247,10 +292,10 @@ const guardrails = [
 
 const executionBacklog = [
   "Publish a first-class roadmap destination.",
-  "Visualize the product expansion sequence.",
+  "Visualize the dated v1.5-v2 product sequence.",
   "Map frontend, backend, and governance workstreams.",
   "Expose release gates and AI guardrails.",
-  "Keep the roadmap page maintainable for future Deep Research inputs.",
+  "Add MEGA migration as the October 2026 v2 target.",
 ] as const;
 
 function SectionIntro({
@@ -289,12 +334,12 @@ function RoadmapBlueprint() {
             Operating thesis
           </p>
           <h2 className="mt-1 text-2xl font-semibold text-[var(--foreground)]">
-            Evidence to investment loop
+            Evidence to MEGA migration loop
           </h2>
         </div>
         <span className="inline-flex min-h-10 w-fit items-center gap-2 rounded-lg border border-[var(--border-soft)] bg-[var(--accent-soft)] px-3 text-sm font-semibold text-[var(--foreground)]">
           <Network aria-hidden="true" className="size-4" />
-          PIM-ready
+          Oct 2026 target
         </span>
       </div>
 
@@ -340,6 +385,15 @@ function RoadmapBlueprint() {
                     <h3 className="mt-1 text-base font-semibold text-[var(--foreground)]">
                       {phase.name}
                     </h3>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <span className="inline-flex items-center rounded-lg border border-[var(--border-soft)] bg-[var(--surface-muted)] px-2 py-1 font-mono text-xs font-semibold text-[var(--foreground)]">
+                        {phase.sprint}
+                      </span>
+                      <span className="inline-flex items-center gap-1 rounded-lg border border-[var(--border-soft)] bg-[var(--accent-soft)] px-2 py-1 text-xs font-semibold text-[var(--foreground)]">
+                        <CalendarDays aria-hidden="true" className="size-3.5" />
+                        {phase.deadline}
+                      </span>
+                    </div>
                     <p className="mt-2 text-sm leading-6 text-[var(--muted-foreground)]">
                       {phase.goal}
                     </p>
@@ -362,11 +416,14 @@ function PhaseCard({ phase }: { phase: RoadmapPhase }) {
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-sm font-semibold uppercase text-[var(--muted-foreground)]">
-            {phase.version}
+            {phase.version} deadline
           </p>
-          <h3 className="mt-2 text-xl font-semibold leading-7 text-[var(--foreground)]">
-            {phase.name}
+          <h3 className="mt-2 font-mono text-2xl font-semibold leading-7 text-[var(--foreground)]">
+            {phase.deadline}
           </h3>
+          <p className="mt-2 text-sm font-semibold text-[var(--muted-foreground)]">
+            {phase.name}
+          </p>
         </div>
         <span
           className={cn(
@@ -381,6 +438,14 @@ function PhaseCard({ phase }: { phase: RoadmapPhase }) {
       <p className="mt-4 text-sm leading-7 text-[var(--muted-foreground)]">
         {phase.goal}
       </p>
+      <div className="mt-4 rounded-lg border border-[var(--border-soft)] bg-[var(--surface-muted)] p-3">
+        <p className="text-xs font-semibold uppercase text-[var(--muted-foreground)]">
+          {phase.sprint}
+        </p>
+        <p className="mt-1 text-sm font-semibold text-[var(--foreground)]">
+          {phase.window}
+        </p>
+      </div>
 
       <ul className="mt-5 space-y-3" role="list">
         {phase.epics.map((epic) => (
@@ -400,6 +465,77 @@ function PhaseCard({ phase }: { phase: RoadmapPhase }) {
         </p>
       </div>
     </article>
+  );
+}
+
+function TimelineVisual() {
+  return (
+    <div
+      className="mt-8 rounded-lg border border-[var(--border-soft)] bg-[var(--surface-strong)] p-4 shadow-[0_14px_34px_rgba(2,20,32,0.07)] sm:p-5"
+      aria-label="Two week sprint timeline from July 2026 to October 2026"
+    >
+      <div className="flex flex-col gap-3 border-b border-[var(--border-soft)] pb-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="text-sm font-semibold uppercase text-[var(--muted-foreground)]">
+            Two-week sprint cadence
+          </p>
+          <h3 className="mt-1 text-2xl font-semibold text-[var(--foreground)]">
+            July to October 2026 delivery timeline
+          </h3>
+        </div>
+        <p className="max-w-xl text-sm leading-7 text-[var(--muted-foreground)]">
+          Deadlines land at sprint close, starting Friday, July 17, 2026. The
+          v2 milestone targets MEGA platform migration in October 2026.
+        </p>
+      </div>
+
+      <ol className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-6" role="list">
+        {roadmapPhases.map((phase, index) => (
+          <li key={phase.version} className="relative">
+            <article className="flex h-full flex-col rounded-lg border border-[var(--border-soft)] bg-white/75 p-4 dark:bg-white/[0.04]">
+              <div className="flex items-center justify-between gap-3">
+                <span
+                  className={cn(
+                    "inline-flex min-h-9 items-center rounded-lg border px-3 font-mono text-sm font-bold",
+                    phase.tone.marker,
+                  )}
+                >
+                  {phase.version}
+                </span>
+                <span className="font-mono text-xs font-semibold text-[var(--muted-foreground)]">
+                  {phase.sprint}
+                </span>
+              </div>
+              <span
+                className={cn(
+                  "mt-4 h-1 rounded-full bg-gradient-to-r",
+                  phase.tone.rail,
+                )}
+                aria-hidden="true"
+              />
+              <p className="mt-4 text-xs font-semibold uppercase text-[var(--muted-foreground)]">
+                Deadline
+              </p>
+              <h4 className="mt-1 font-mono text-lg font-semibold text-[var(--foreground)]">
+                {phase.deadline}
+              </h4>
+              <p className="mt-3 text-sm font-semibold leading-6 text-[var(--foreground)]">
+                {phase.name}
+              </p>
+              <p className="mt-2 flex-1 text-sm leading-6 text-[var(--muted-foreground)]">
+                {phase.window}
+              </p>
+            </article>
+            {index < roadmapPhases.length - 1 ? (
+              <ArrowRight
+                aria-hidden="true"
+                className="absolute -right-2 top-1/2 z-10 hidden size-4 -translate-y-1/2 text-[var(--muted-foreground)] xl:block"
+              />
+            ) : null}
+          </li>
+        ))}
+      </ol>
+    </div>
   );
 }
 
@@ -448,18 +584,18 @@ export default function RoadmapPage() {
               Product roadmap
             </p>
             <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-[var(--foreground)] sm:text-5xl lg:text-6xl">
-              From local analytics to a PIM-ready evidence platform.
+              From local analytics to MEGA-ready evidence infrastructure.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--muted-foreground)] sm:text-lg">
-              The LDT roadmap sequences trust foundations, auditable AI outputs,
-              country scaling, spatial scenario planning, and delivery transparency
-              into one evidence-to-investment product arc.
+              The LDT roadmap sequences v1.5 through v1.9 across two-week
+              sprint deadlines, then targets v2 migration of the full backend
+              and frontend to the World Bank&apos;s MEGA platform in October 2026.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/resources"
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[var(--foreground)] px-5 text-sm font-semibold text-white transition duration-200 hover:bg-[var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] motion-reduce:transition-none"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-5 text-sm font-semibold text-[var(--primary-foreground)] transition duration-200 hover:bg-[var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] motion-reduce:transition-none dark:bg-white dark:text-[var(--gpb-chrome-bg)] dark:hover:bg-[var(--gpb-chrome-link)]"
               >
                 View source materials
                 <ArrowRight aria-hidden="true" className="size-4" />
@@ -498,11 +634,13 @@ export default function RoadmapPage() {
         <div className="mx-auto w-full max-w-7xl px-6 py-12 sm:px-8 lg:px-12">
           <SectionIntro
             eyebrow="Release horizons"
-            title="Each version unlocks the next product capability."
-            body="The roadmap is intentionally layered: first make the current app trustworthy, then add evidence-backed drafting, then scale countries and registry workflows, then move into scenarios, and only then close the loop with delivery transparency."
+            title="Each dated version unlocks the next product capability."
+            body="The roadmap is intentionally layered: first make the current app trustworthy, then add evidence-backed drafting, scale country and registry workflows, move into scenarios and monitoring, and finally migrate the full product to MEGA."
           />
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          <TimelineVisual />
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {roadmapPhases.map((phase) => (
               <PhaseCard key={phase.version} phase={phase} />
             ))}

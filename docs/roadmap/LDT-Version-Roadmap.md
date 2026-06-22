@@ -1,18 +1,35 @@
 # LDT Supplement: Version Roadmap and Add-on Sequencing
 
-**Purpose:** Implementation sequencing guide for Codex and engineering planning.  
+**Purpose:** Implementation sequencing guide for Codex and engineering planning.
 **Applies to:** Expanded LDT PRD, 2026-06-22.
+**Schedule update:** Roadmap versions now run from `v1.5` to `v1.9`, followed by `v2` MEGA migration.
 
 ---
 
 ## North Star
 
-Move LDT from public local-development analytics to a PIM-ready evidence-to-investment platform while keeping decision authority with humans and official government systems.
+Move LDT from public local-development analytics to a PIM-ready evidence-to-investment platform while keeping decision authority with humans and official government systems. The `v2` goal is to migrate the full LDT backend and frontend to the World Bank's MEGA platform in October 2026.
 
 ---
 
-## Version 1: Product Hardening and Trust Foundation
+## Sprint Timeline
 
+Two-week sprints start in July 2026. Each roadmap version has a deadline at the end of a sprint.
+
+| Version | Milestone | Sprint window | Deadline | Primary outcome |
+| --- | --- | --- | --- | --- |
+| `v1.5` | Product Hardening and Trust Foundation | Jul 6-Jul 17, 2026 | Jul 17, 2026 | Current app becomes reliable, consistent, and trustable. |
+| `v1.6` | Evidence-to-Brief and Investment Opportunity Finder | Jul 20-Jul 31, 2026 | Jul 31, 2026 | Diagnostics become auditable planning outputs. |
+| `v1.7` | Country Scaling Platform and PIM Registry Beta | Aug 3-Aug 14, 2026 | Aug 14, 2026 | Country onboarding and lightweight registry workflows become repeatable. |
+| `v1.8` | Geospatial, Climate, Scenario, and Counterpart Layer | Aug 17-Aug 28, 2026 | Aug 28, 2026 | Spatial prioritization, climate screening, and scenario support become visible. |
+| `v1.9` | Delivery Monitoring and Transparency | Aug 31-Sep 11, 2026 | Sep 11, 2026 | Upstream planning starts linking to monitoring, transparency, and learning loops. |
+| `v2` | World Bank MEGA Platform Migration | Sep 28-Oct 9, 2026 | Oct 9, 2026 | Full backend and frontend migrate to MEGA with rollback and parity validation. |
+
+---
+
+## v1.5: Product Hardening and Trust Foundation
+
+**Deadline:** July 17, 2026.
 **Goal:** Make the current application reliable, consistent, and trustable before adding more AI or PIM workflow.
 
 ### Epics
@@ -28,12 +45,13 @@ Move LDT from public local-development analytics to a PIM-ready evidence-to-inve
 
 ### Suggested Codex prompt
 
-> Implement the V1 trust foundation for LDT. Create a typed release metadata service, replace hard-coded release counts, add a Country Trust Card component, add evidence gap badges, and make exports include release ID, data year, methodology version, and caveats. Keep all changes feature-flagged where possible.
+> Implement the v1.5 trust foundation for LDT. Create a typed release metadata service, replace hard-coded release counts, add a Country Trust Card component, add evidence gap badges, and make exports include release ID, data year, methodology version, and caveats. Keep all changes feature-flagged where possible.
 
 ---
 
-## Version 2: Evidence-to-Brief and Investment Opportunity Finder
+## v1.6: Evidence-to-Brief and Investment Opportunity Finder
 
+**Deadline:** July 31, 2026.
 **Goal:** Convert diagnostics into auditable planning outputs and upstream investment opportunity families.
 
 ### Epics
@@ -43,18 +61,19 @@ Move LDT from public local-development analytics to a PIM-ready evidence-to-inve
 | AI Planning Brief Report | Convert staged AI outputs into report view with sections, evidence gaps, citations, and export. | Users export Markdown/PDF-ready brief. |
 | AI Audit Drawer | Show model, prompt version, source fingerprint, retrieval chunks, cost, and generation time. | Every AI output has inspectable audit metadata. |
 | Investment Opportunity Finder | Generate opportunity families from deterministic evidence triggers and AI-assisted rationale. | At least 3 opportunity families for AI-ready local units where evidence supports them. |
-| Evidence Graph MVP | Link local unit → indicator → source → plan passage → opportunity → recommendation. | Every recommendation has evidence links. |
+| Evidence Graph MVP | Link local unit -> indicator -> source -> plan passage -> opportunity -> recommendation. | Every recommendation has evidence links. |
 | Concept Note Starter MVP | Generate pre-appraisal concept-note starter with caveats and source appendix. | Users can export concept-note starter as Markdown. |
 | Recommendation review flow | Accept/edit/reject/escalate recommendations. | Every recommendation has human review status. |
 
 ### Suggested Codex prompt
 
-> Implement the V2 evidence-to-brief workflow. Add an Investment Opportunity Finder with deterministic rules, an Evidence Graph MVP, an auditable AI Planning Brief report, and a Concept Note Starter export. AI can summarize rationale only from existing evidence links. Include human review statuses and block unsupported recommendations.
+> Implement the v1.6 evidence-to-brief workflow. Add an Investment Opportunity Finder with deterministic rules, an Evidence Graph MVP, an auditable AI Planning Brief report, and a Concept Note Starter export. AI can summarize rationale only from existing evidence links. Include human review statuses and block unsupported recommendations.
 
 ---
 
-## Version 3: Country Scaling Platform and PIM Registry Beta
+## v1.7: Country Scaling Platform and PIM Registry Beta
 
+**Deadline:** August 14, 2026.
 **Goal:** Make country onboarding repeatable and introduce a lightweight PIM lifecycle view.
 
 ### Epics
@@ -70,12 +89,13 @@ Move LDT from public local-development analytics to a PIM-ready evidence-to-inve
 
 ### Suggested Codex prompt
 
-> Implement the V3 country scaling platform. Add country manifests, validation reports, preview release candidates, document-readiness operations, admin observability, and a PIM Registry Beta. Keep official PIM/budget/procurement integrations out of scope but design schemas for future mapping.
+> Implement the v1.7 country scaling platform. Add country manifests, validation reports, preview release candidates, document-readiness operations, admin observability, and a PIM Registry Beta. Keep official PIM/budget/procurement integrations out of scope but design schemas for future mapping.
 
 ---
 
-## Version 4: Geospatial, Climate, Scenario, and Counterpart Layer
+## v1.8: Geospatial, Climate, Scenario, and Counterpart Layer
 
+**Deadline:** August 28, 2026.
 **Goal:** Add transparent spatial prioritization, climate-risk screening, scenario analysis, and workshop usability.
 
 ### Epics
@@ -90,12 +110,13 @@ Move LDT from public local-development analytics to a PIM-ready evidence-to-inve
 
 ### Suggested Codex prompt
 
-> Implement V4 decision-support expansions: Geospatial Prioritization Studio, Climate and Hazard Screen, Scenario Builder, Counterpart Mode, and API/data exports. Keep ranking logic deterministic and inspectable. AI may summarize tradeoffs only after showing weights, evidence, and caveats.
+> Implement v1.8 decision-support expansions: Geospatial Prioritization Studio, Climate and Hazard Screen, Scenario Builder, Counterpart Mode, and API/data exports. Keep ranking logic deterministic and inspectable. AI may summarize tradeoffs only after showing weights, evidence, and caveats.
 
 ---
 
-## Version 5+: Delivery Monitoring and Transparency
+## v1.9: Delivery Monitoring and Transparency
 
+**Deadline:** September 11, 2026.
 **Goal:** Link upstream planning to delivery monitoring, procurement transparency, and ex-post learning.
 
 ### Future epics
@@ -108,9 +129,34 @@ Move LDT from public local-development analytics to a PIM-ready evidence-to-inve
 - Cost/delay/anomaly flags with transparent rules.
 - Ex-post evaluation and lesson-learning module.
 
+### Suggested Codex prompt
+
+> Implement v1.9 delivery monitoring foundations. Add field-evidence import concepts, geotagged monitoring data model stubs, procurement/open contracting bridge design, asset registry link design, and public transparency portal scaffolding. Keep anomaly flags deterministic and source-backed.
+
 ---
 
-## Release gates
+## v2: World Bank MEGA Platform Migration
+
+**Deadline:** October 9, 2026.
+**Goal:** Migrate the entire LDT backend and frontend to the World Bank's MEGA platform while preserving user-facing route parity, evidence lineage, exports, security posture, and AI auditability.
+
+### Epics
+
+| Epic | Description | Done when |
+| --- | --- | --- |
+| MEGA architecture fit/gap | Map the current Next.js frontend, API routes, Supabase/data services, AI routes, storage, auth assumptions, and deployment topology to MEGA. | Migration plan identifies parity gaps, blockers, owners, and rollback requirements. |
+| Frontend shell migration | Port global layout, navigation, theming, country routes, analytics entry points, and roadmap/release pages into the MEGA-compatible frontend shell. | Users can reach equivalent public routes in the MEGA environment. |
+| Backend and data migration | Move or adapt data access, release metadata, AI service calls, document parsing workflows, exports, and generated analytics assets. | Core country workflows pass parity checks against the pre-MEGA app. |
+| Security and governance review | Align authentication, authorization, secrets, audit logging, AI guardrails, and data retention with MEGA and World Bank requirements. | Security review signs off before production cutover. |
+| Cutover rehearsal and rollback | Run migration rehearsal, smoke tests, user acceptance review, monitoring, and rollback procedure. | Production cutover is rehearsed, observable, reversible, and approved. |
+
+### Suggested Codex prompt
+
+> Implement the v2 MEGA migration plan for LDT. Create an architecture fit/gap checklist, define route and workflow parity tests, port the frontend shell and backend service contracts to MEGA-compatible patterns, and prepare cutover, rollback, security review, and acceptance criteria. Preserve evidence lineage and AI audit metadata during migration.
+
+---
+
+## Release Gates
 
 Each release must pass:
 

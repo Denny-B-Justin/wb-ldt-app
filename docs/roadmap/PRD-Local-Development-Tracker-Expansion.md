@@ -1,9 +1,9 @@
 # PRD: Local Development Tracker Expansion
 
-**Product:** Local Development Tracker (LDT)  
-**App URL:** https://wb-ldt-app.vercel.app/  
-**Document status:** Expanded PRD for Codex implementation  
-**Prepared:** 2026-06-22  
+**Product:** Local Development Tracker (LDT)
+**App URL:** https://wb-ldt-app.vercel.app/
+**Document status:** Expanded PRD for Codex implementation
+**Prepared:** 2026-06-22
 **Primary implementation posture:** Evidence-first, PIM-ready decision support; not an official project approval, appraisal, budgeting, procurement, or asset-management system.
 
 ---
@@ -1051,9 +1051,10 @@ AI may not:
 
 ## 16. Release Roadmap
 
-### Version 1: Product Hardening and Trust Foundation
+### v1.5: Product Hardening and Trust Foundation
 
-**Expected size:** 2 to 4 weeks.
+**Sprint window:** Jul 6-Jul 17, 2026.
+**Deadline:** Jul 17, 2026.
 
 **Scope**
 
@@ -1076,9 +1077,10 @@ AI may not:
 - PIM registry.
 - Field monitoring.
 
-### Version 2: Evidence-to-Brief and Investment Opportunity Finder
+### v1.6: Evidence-to-Brief and Investment Opportunity Finder
 
-**Expected size:** 4 to 8 weeks.
+**Sprint window:** Jul 20-Jul 31, 2026.
+**Deadline:** Jul 31, 2026.
 
 **Scope**
 
@@ -1101,9 +1103,10 @@ AI may not:
 - Procurement integration.
 - Asset registry.
 
-### Version 3: Country Scaling Platform and PIM Registry Beta
+### v1.7: Country Scaling Platform and PIM Registry Beta
 
-**Expected size:** 8 to 12 weeks.
+**Sprint window:** Aug 3-Aug 14, 2026.
+**Deadline:** Aug 14, 2026.
 
 **Scope**
 
@@ -1119,9 +1122,10 @@ AI may not:
 - Document Intelligence Workbench.
 - Trust Center.
 
-### Version 4: Geospatial, Climate, Scenario, and Integration Layer
+### v1.8: Geospatial, Climate, Scenario, and Integration Layer
 
-**Expected size:** 12+ weeks; split into smaller epics.
+**Sprint window:** Aug 17-Aug 28, 2026.
+**Deadline:** Aug 28, 2026.
 
 **Scope**
 
@@ -1134,7 +1138,10 @@ AI may not:
 - Field Verification/GEMS-style integration design.
 - Procurement/Open Contracting bridge design.
 
-### Version 5+: Delivery Monitoring and Public Transparency
+### v1.9: Delivery Monitoring and Public Transparency
+
+**Sprint window:** Aug 31-Sep 11, 2026.
+**Deadline:** Sep 11, 2026.
 
 **Scope**
 
@@ -1146,33 +1153,51 @@ AI may not:
 - Asset registry links.
 - Ex-post evaluation and lesson-learning module.
 
+### v2: World Bank MEGA Platform Migration
+
+**Sprint window:** Sep 28-Oct 9, 2026.
+**Deadline:** Oct 9, 2026.
+
+**Goal**
+
+Migrate the entire LDT backend and frontend to the World Bank's MEGA platform while preserving route parity, country workflows, exports, evidence lineage, AI audit metadata, security controls, and rollback readiness.
+
+**Scope**
+
+- MEGA architecture fit/gap assessment.
+- Frontend shell, navigation, theming, and route migration.
+- Backend service, data access, generated asset, AI route, export, and document workflow migration.
+- Authentication, authorization, secrets, audit logging, and deployment alignment.
+- Cutover rehearsal, rollback procedure, observability, support plan, and stakeholder acceptance.
+
 ---
 
 ## 17. Priority Backlog
 
 | Priority | Epic | Main users | Phase |
 | ---: | --- | --- | --- |
-| 1 | Release metadata single source of truth | All users | V1 |
-| 2 | Country Trust Card | Analysts, counterparts | V1 |
-| 3 | Evidence gap badges | All users | V1 |
-| 4 | Improved command center | All users | V1 |
-| 5 | Markdown export | Analysts | V1 |
-| 6 | Investment Opportunity Finder | PIM/governance specialists | V2 |
-| 7 | AI Planning Brief report | Analysts, counterparts | V2 |
-| 8 | Evidence Graph MVP | Analysts, AI reviewers | V2 |
-| 9 | Concept Note Starter | PIM/governance specialists | V2 |
-| 10 | AI audit drawer | Data/AI leads | V2 |
-| 11 | Document Intelligence Workbench | Data/ops teams | V2–V3 |
-| 12 | Country Onboarding Factory | Data/ops teams | V3 |
-| 13 | PIM Registry Beta | Ministries, WBG teams | V3 |
-| 14 | Trust Center | All users | V3 |
-| 15 | Geospatial Prioritization Studio | Planners, GIS users | V4 |
-| 16 | Climate and Hazard Screen | Climate/PIM teams | V4 |
-| 17 | Scenario Builder | Decision makers | V4 |
-| 18 | Counterpart Mode | Government users | V4 |
-| 19 | API/data product | Technical teams | V4 |
-| 20 | Field verification integration | Implementation teams | V5+ |
-| 21 | Procurement/open contracting bridge | PFM/procurement teams | V5+ |
+| 1 | Release metadata single source of truth | All users | v1.5 |
+| 2 | Country Trust Card | Analysts, counterparts | v1.5 |
+| 3 | Evidence gap badges | All users | v1.5 |
+| 4 | Improved command center | All users | v1.5 |
+| 5 | Markdown export | Analysts | v1.5 |
+| 6 | Investment Opportunity Finder | PIM/governance specialists | v1.6 |
+| 7 | AI Planning Brief report | Analysts, counterparts | v1.6 |
+| 8 | Evidence Graph MVP | Analysts, AI reviewers | v1.6 |
+| 9 | Concept Note Starter | PIM/governance specialists | v1.6 |
+| 10 | AI audit drawer | Data/AI leads | v1.6 |
+| 11 | Document Intelligence Workbench | Data/ops teams | v1.7 |
+| 12 | Country Onboarding Factory | Data/ops teams | v1.7 |
+| 13 | PIM Registry Beta | Ministries, WBG teams | v1.7 |
+| 14 | Trust Center | All users | v1.7 |
+| 15 | Geospatial Prioritization Studio | Planners, GIS users | v1.8 |
+| 16 | Climate and Hazard Screen | Climate/PIM teams | v1.8 |
+| 17 | Scenario Builder | Decision makers | v1.8 |
+| 18 | Counterpart Mode | Government users | v1.8 |
+| 19 | API/data product | Technical teams | v1.8 |
+| 20 | Field verification integration | Implementation teams | v1.9 |
+| 21 | Procurement/open contracting bridge | PFM/procurement teams | v1.9 |
+| 22 | MEGA platform migration | Product, engineering, WBG platform teams | v2 |
 
 ---
 
@@ -1263,7 +1288,7 @@ AI may not:
 - Use typed schemas for country manifests, validation reports, opportunities, and AI runs.
 - Add unit tests for evidence gating and source requirements.
 - Add integration tests for release metadata consistency.
-- Use feature flags for V2+ modules.
+- Use feature flags for v2 and later modules.
 
 ### 20.3 Suggested feature flags
 

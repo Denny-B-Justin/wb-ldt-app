@@ -8,7 +8,7 @@ This pack expands the uploaded LDT PRD with the brainstorming outputs and public
    Expanded full PRD with all proposed capabilities, roadmap, architecture, risks, and success metrics.
 
 2. `LDT-Version-Roadmap.md`  
-   Version-by-version sequencing from product hardening through future field/procurement integrations.
+   Version-by-version sequencing from `v1.5` product hardening through `v2` MEGA platform migration.
 
 3. `LDT-Feature-Backlog-and-Acceptance-Criteria.md`  
    Codex-ready backlog with user stories, requirements, and acceptance criteria.
@@ -28,11 +28,11 @@ This pack expands the uploaded LDT PRD with the brainstorming outputs and public
 ## Recommended use order
 
 1. Start with the expanded PRD.
-2. Implement Version 1 from the roadmap.
+2. Implement `v1.5` from the roadmap.
 3. Use the backlog file to create issues/tasks.
 4. Use the architecture file before schema or API work.
 5. Use the AI governance file before any new LLM feature.
-6. Use integrations file only for Version 4+ design unless an integration is explicitly pulled forward.
+6. Use integrations file only for `v1.8` and later design unless an integration is explicitly pulled forward.
 
 ## First build target
 
