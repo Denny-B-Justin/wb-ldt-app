@@ -29,6 +29,7 @@
 - `v1.5`, `v1.6`, `v1.7`, `v1.8`, `v1.9`, and `v2` are all represented with explicit goals and core epics.
 - Each version shows a sprint window and deadline at the end of a two-week sprint.
 - `v2` clearly states the October 2026 goal to migrate the full backend and frontend to the World Bank's MEGA platform.
+- `v1.5` clearly includes the AI Brief Cache and Run Store as part of the trust foundation.
 - The visual sequence works at 375px, 768px, 1024px, and 1440px widths.
 - Information is not conveyed by color alone.
 - Text wraps cleanly without horizontal scroll.
@@ -49,12 +50,13 @@
 
 **Why:** The roadmap must support better tasking and execution across product surfaces, data/backend foundations, and AI governance.
 
-**What:** Add a workstream view that maps the roadmap into experience, data/backend, AI/evidence governance, and operating model layers.
+**What:** Add a workstream view that maps the roadmap into experience, data/backend, AI/evidence governance, and operating model layers. The v1.5 layer should show that every LLM-backed AI brief step is persisted and replayed from a cache/run store before later AI brief expansion.
 
 **Acceptance Criteria:**
 - Each workstream describes how it evolves across the roadmap.
 - Backend/data capabilities and frontend/product capabilities are both visible.
 - AI governance is presented as a required layer, not a later add-on.
+- AI cache provenance is visible as both a frontend state and backend data-model responsibility.
 - MEGA platform migration is visible in the frontend, backend, governance, and operating-model workstreams.
 - The view is clear enough to seed later GitHub issues or implementation plans.
 

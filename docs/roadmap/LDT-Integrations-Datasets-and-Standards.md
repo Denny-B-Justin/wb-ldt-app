@@ -153,7 +153,7 @@ Recommended sequence:
 ### Internal endpoints
 
 - Validation reports.
-- AI runs.
+- AI run/cache records.
 - Document chunks.
 - Opportunity review status.
 - Concept note drafts.

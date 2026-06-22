@@ -9,7 +9,7 @@
 
 | Version | Deadline | Backlog focus |
 | --- | --- | --- |
-| `v1.5` | Jul 17, 2026 | Epics 1-3 plus command center, export, responsive, and loading-state hardening. |
+| `v1.5` | Jul 17, 2026 | Epics 1-3 plus AI Brief Cache and Run Store, command center, export, responsive, and loading-state hardening. |
 | `v1.6` | Jul 31, 2026 | Epics 4-7: opportunity finder, concept note starter, evidence graph, and AI audit drawer. |
 | `v1.7` | Aug 14, 2026 | Epics 8-10: document workbench, country onboarding factory, and PIM registry beta. |
 | `v1.8` | Aug 28, 2026 | Epics 11-14: climate screen, geospatial studio, scenario builder, and counterpart mode. |
@@ -29,7 +29,7 @@ As a user, I want all pages and exports to show the same country, release, year,
 - Add typed release metadata model.
 - Build server-side release metadata provider.
 - Replace hard-coded counts in home/country pages.
-- Include metadata in exports and AI runs.
+- Include metadata in exports, AI cache keys, and AI run records.
 - Add consistency test.
 
 ### Acceptance criteria
@@ -88,6 +88,48 @@ As a decision-support user, I need to see where evidence is missing or weak dire
 - Tooltips explain the caveat.
 - Badges are included in exports.
 - AI stages read badge state before generation.
+
+---
+
+## Epic 3a: AI Brief Cache and Run Store
+
+### User story
+
+As an analyst, I want AI brief steps for the same locality and evidence state to reload saved outputs instead of regenerating new answers so that repeated brief runs are reproducible, comparable, and auditable.
+
+### Requirements
+
+- Create a persistent `ai_generation_runs` or expanded `ai_runs` table.
+- Record one row for every LLM-backed AI brief step, including successful and failed attempts.
+- Generate deterministic cache keys from stage, country, release, locality or comparison set, prompt version, model settings, source fingerprint, and normalized input hash.
+- Add a read-through cache wrapper used by all AI brief routes before calling the LLM.
+- Store structured output, Markdown output where relevant, citations, retrieval IDs, evidence gaps, caveats, token usage, cost, status, and timestamps.
+- Return cache provenance to the frontend: generated now, loaded from cache, stale, or failed.
+- Add an explicit regenerate path that creates a new run record without overwriting the old output.
+- Include run IDs, cache status, source fingerprints, and prompt versions in AI brief exports.
+
+### Acceptance criteria
+
+- Re-running the same AI brief stage for the same locality, release, prompt version, model settings, inputs, and evidence fingerprint returns the saved output without a new LLM call.
+- Changing source evidence, selected indicators, locality, prompt version, model settings, or release metadata produces a cache miss and a new run.
+- Failed LLM attempts are saved with error state and do not poison future cache hits.
+- Frontend AI stage cards show whether an output was generated now or loaded from cache.
+- A manual regenerate action records a new run while preserving prior runs.
+- Automated tests cover cache key determinism, source-fingerprint invalidation, cache hits, cache misses, and failed-run handling.
+
+### Task breakdown
+
+| Task | Description | Acceptance criteria |
+| --- | --- | --- |
+| Define cache contract | Document AI brief stages, cache key fields, prompt version naming, model parameters, and invalidation rules. | Each existing AI brief route maps to a stable stage name and output schema. |
+| Add persistence migration | Create or expand AI run persistence with cache key, source fingerprint, input hash, output payload, status, timestamps, token usage, and cost fields. | Successful and failed runs can be queried by cache key and run ID. |
+| Build fingerprint utilities | Normalize inputs and hash evidence sources, retrieval IDs, indicator values, prompt version, and model settings. | Identical inputs produce identical hashes; evidence changes produce a different source fingerprint. |
+| Implement read-through wrapper | Add a shared backend helper that checks cache, records running/failed/success states, validates output, and returns provenance. | One vertical-slice AI route can run generated-first and cached-second. |
+| Convert AI brief routes | Apply the wrapper to all LLM-backed AI brief actions. | No AI brief route calls the LLM without writing or checking a run record. |
+| Add UI provenance | Show generated/cached/stale/error state on AI stage cards and expose run metadata needed for export. | Users can identify cached outputs without opening developer tooling. |
+| Add regenerate control | Let authorized users bypass cache intentionally. | Regeneration creates a new run and leaves the previous cached artifact intact. |
+| Add export metadata | Include run IDs, prompt versions, cache status, source fingerprints, and caveats in AI brief Markdown exports. | Exported briefs can be traced back to persisted AI run records. |
+| Add tests and QA scenario | Cover deterministic replay for at least one locality and one changed-evidence invalidation case. | The same locality returns the same output on repeat, then regenerates only after an invalidating change. |
 
 ---
 
@@ -222,7 +264,7 @@ As a data/AI lead, I want to inspect every AI output for reproducibility and ris
 
 - Audit drawer opens from each AI section.
 - Public users see simplified source info; internal users see full metadata.
-- AI cache records use same IDs.
+- AI cache records from the v1.5 run store use the same IDs.
 
 ---
 

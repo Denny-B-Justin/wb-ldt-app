@@ -152,7 +152,7 @@ LDT supports WBG/MDB advisory work on local development, GovTech, public investm
 | KR10: Concept-note usefulness | At least 75% of analysts in testing say the concept-note starter reduces preparation time for upstream PIM discussions. |
 | KR11: Climate screening coverage | 100% of candidate investment opportunities have a basic hazard screen where geospatial hazard data is available. |
 | KR12: Release consistency | 100% of public pages, exports, and AI outputs draw country/year/local-unit counts from the same release metadata table. |
-| KR13: AI auditability | 100% of AI outputs store model, prompt version, retrieval source IDs, source fingerprint, generation time, and user/session context. |
+| KR13: AI auditability | 100% of AI outputs store run ID, cache status, model, prompt version, retrieval source IDs, source fingerprint, generation time, and user/session context. |
 | KR14: Human review | 100% of investment recommendations have status: draft, analyst reviewed, counterpart discussed, rejected, or escalated to concept note. |
 
 ---
@@ -348,7 +348,7 @@ Create a release metadata service used by home page, country pages, methodology 
 
 - No public count is hard-coded outside the release metadata service.
 - Exports include release ID, release date, methodology version, and data year.
-- AI outputs include release ID and source fingerprint.
+- AI outputs include release ID, AI run ID, cache status, input hash, and source fingerprint.
 
 ### Feature 3: Country Trust Card and Trust Center
 
@@ -661,7 +661,7 @@ Add a natural-language interface scoped to verified LDT data and documents.
 - Confidence reflects evidence coverage, not model certainty.
 - “No source, no answer.”
 - Human review required for investment recommendations.
-- All runs stored with prompt version, model, retrieval IDs, source fingerprint, and generation time.
+- All runs are stored with cache key, prompt version, model settings, retrieval IDs, input hash, source fingerprint, cache status, and generation time.
 
 **Acceptance criteria**
 
@@ -919,7 +919,7 @@ flowchart LR
 | `pim_registry_items` | Candidate projects and lifecycle status. |
 | `hazard_screens` | Climate/hazard exposure status and caveats. |
 | `scenario_packages` | Prioritization scenarios and investment packages. |
-| `ai_runs` | Model, prompt version, retrieval IDs, costs, and audit metadata. |
+| `ai_runs` | Cache keys, model, prompt version, retrieval IDs, outputs, costs, status, and audit metadata for every LLM-backed step. |
 | `ai_output_reviews` | Human review status and comments. |
 | `field_evidence` | Future geotagged monitoring records. |
 | `procurement_links` | Future tender/contract links. |
@@ -969,15 +969,24 @@ create table opportunity_evidence_links (
 ```sql
 create table ai_runs (
   id uuid primary key default gen_random_uuid(),
+  cache_key text not null,
   country_code text not null,
   release_id uuid,
   local_unit_id text,
   stage text not null,
   model text not null,
+  model_params jsonb default '{}'::jsonb,
   prompt_version text not null,
   source_fingerprint text not null,
+  input_hash text not null,
   retrieval_ids jsonb default '[]'::jsonb,
+  request_payload jsonb default '{}'::jsonb,
   input_summary jsonb,
+  output_json jsonb,
+  output_markdown text,
+  citations jsonb default '[]'::jsonb,
+  evidence_gaps jsonb default '[]'::jsonb,
+  caveats jsonb default '[]'::jsonb,
   output_id text,
   token_input integer,
   token_output integer,
@@ -985,7 +994,8 @@ create table ai_runs (
   status text not null,
   error_message text,
   created_by text,
-  created_at timestamptz default now()
+  created_at timestamptz default now(),
+  completed_at timestamptz
 );
 ```
 
@@ -1023,6 +1033,7 @@ AI may not:
 | --- | --- |
 | Retrieval grounding | AI stages use structured data and document chunks. |
 | Citation required | No citation/source, no factual claim. |
+| Read-through cache | Repeated AI brief runs reuse saved outputs when inputs, prompt version, model settings, release, and source fingerprint match. |
 | Source fingerprint | AI run stores source fingerprint for reproducibility. |
 | Prompt version | AI run stores prompt version. |
 | Evidence gaps | Output displays missing or weak evidence. |
@@ -1064,9 +1075,12 @@ AI may not:
 - Improve loading and empty states.
 - Improve mobile and tablet layout.
 - Make Supabase/local fallback behavior explicit.
+- Add AI Brief Cache and Run Store for each LLM-backed AI brief stage.
+- Add deterministic cache keys, source fingerprints, input hashes, run statuses, and replay behavior.
+- Add AI stage UI provenance for generated, cached, stale, and failed outputs.
 - Add country manifest draft.
 - Add validation report format.
-- Add basic export for comparison tables and AI brief Markdown.
+- Add basic export for comparison tables and AI brief Markdown with AI run IDs, cache status, source fingerprints, prompt versions, and caveats.
 - Add evidence gap badges.
 
 **Out of scope**
@@ -1074,6 +1088,7 @@ AI may not:
 - Full admin editing.
 - Full translation pipeline.
 - New country onboarding automation.
+- Full AI Audit Drawer and internal audit console.
 - PIM registry.
 - Field monitoring.
 
@@ -1181,6 +1196,7 @@ Migrate the entire LDT backend and frontend to the World Bank's MEGA platform wh
 | 3 | Evidence gap badges | All users | v1.5 |
 | 4 | Improved command center | All users | v1.5 |
 | 5 | Markdown export | Analysts | v1.5 |
+| 5a | AI Brief Cache and Run Store | Analysts, data/AI leads | v1.5 |
 | 6 | Investment Opportunity Finder | PIM/governance specialists | v1.6 |
 | 7 | AI Planning Brief report | Analysts, counterparts | v1.6 |
 | 8 | Evidence Graph MVP | Analysts, AI reviewers | v1.6 |

@@ -39,7 +39,8 @@ This pack expands the uploaded LDT PRD with the brainstorming outputs and public
 The first Codex implementation should focus on:
 
 - Release metadata source of truth.
+- AI Brief Cache and Run Store for every LLM-backed brief step.
 - Country Trust Card.
 - Evidence gap badges.
-- AI audit drawer schema/display if AI surfaces remain active.
+- AI run provenance in exports and stage cards; full AI Audit Drawer can remain in `v1.6`.
 - Investment Opportunity Finder only after evidence gating is ready.

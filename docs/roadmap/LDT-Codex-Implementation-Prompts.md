@@ -44,6 +44,31 @@ Add evidence gap badges for missing data, sparse coverage, boundary mismatch, so
 
 ---
 
+## Prompt 2a: AI Brief Cache and Run Store
+
+Implement the v1.5 AI Brief Cache and Run Store for every LLM-backed AI brief step.
+
+Tasks:
+
+1. Define stable AI stage names for the current brief routes.
+2. Create or expand an `ai_runs` table with cache key, source fingerprint, input hash, prompt version, model settings, retrieval IDs, output payloads, citations, caveats, status, token usage, cost, and timestamps.
+3. Add utilities for deterministic cache-key generation and source-fingerprint invalidation.
+4. Add a shared read-through cache wrapper that checks for a successful cached run before calling the LLM.
+5. Convert each LLM-backed AI brief route to use the wrapper.
+6. Return provenance to the frontend: generated now, loaded from cache, stale, or failed.
+7. Add an explicit regenerate path that bypasses cache and creates a new run record.
+8. Include AI run IDs, cache status, prompt version, model, source fingerprints, retrieval IDs, and caveats in Markdown exports.
+9. Add tests for cache hits, cache misses, failed runs, prompt-version invalidation, and source-fingerprint invalidation.
+
+Constraints:
+
+- Do not overwrite prior AI outputs.
+- Failed, stale, or superseded runs must not be returned as cache hits.
+- Public users should not be able to trigger uncontrolled regeneration.
+- The same locality and unchanged evidence state should reload the same saved output by default.
+
+---
+
 ## Prompt 3: AI Audit Drawer
 
 Implement an AI Audit Drawer for every AI output.

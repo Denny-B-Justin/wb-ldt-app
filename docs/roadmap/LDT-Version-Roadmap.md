@@ -18,7 +18,7 @@ Two-week sprints start in July 2026. Each roadmap version has a deadline at the 
 
 | Version | Milestone | Sprint window | Deadline | Primary outcome |
 | --- | --- | --- | --- | --- |
-| `v1.5` | Product Hardening and Trust Foundation | Jul 6-Jul 17, 2026 | Jul 17, 2026 | Current app becomes reliable, consistent, and trustable. |
+| `v1.5` | Product Hardening and Trust Foundation | Jul 6-Jul 17, 2026 | Jul 17, 2026 | Current app becomes reliable, consistent, trustable, and able to replay saved AI brief outputs. |
 | `v1.6` | Evidence-to-Brief and Investment Opportunity Finder | Jul 20-Jul 31, 2026 | Jul 31, 2026 | Diagnostics become auditable planning outputs. |
 | `v1.7` | Country Scaling Platform and PIM Registry Beta | Aug 3-Aug 14, 2026 | Aug 14, 2026 | Country onboarding and lightweight registry workflows become repeatable. |
 | `v1.8` | Geospatial, Climate, Scenario, and Counterpart Layer | Aug 17-Aug 28, 2026 | Aug 28, 2026 | Spatial prioritization, climate screening, and scenario support become visible. |
@@ -30,22 +30,23 @@ Two-week sprints start in July 2026. Each roadmap version has a deadline at the 
 ## v1.5: Product Hardening and Trust Foundation
 
 **Deadline:** July 17, 2026.
-**Goal:** Make the current application reliable, consistent, and trustable before adding more AI or PIM workflow.
+**Goal:** Make the current application reliable, consistent, and trustable before adding more AI or PIM workflow, including a cache/run-store foundation for every LLM-backed AI brief step.
 
 ### Epics
 
 | Epic | Description | Done when |
 | --- | --- | --- |
 | Release metadata source of truth | Replace hard-coded country/local-unit/year counts with one release metadata service. | Home, country pages, methodology, release notes, analytics, exports, and AI output all use same metadata. |
+| AI Brief Cache and Run Store | Persist every LLM-backed brief step with cache key, prompt version, model settings, source fingerprint, input hash, output, citations, caveats, and status. | Re-running the same locality and evidence state reloads the saved output by default instead of calling the LLM again. |
 | Country Trust Card | Display country data coverage, boundary quality, plan readiness, source freshness, AI readiness, and caveats. | Every country command center shows a Trust Card. |
 | Evidence gap badges | Show missing/sparse/blocked evidence beside charts, maps, and AI stages. | Users can see caveats at point of use. |
 | Command center polish | Consolidate tasks: compare, map/drivers, planning brief, document readiness, trust center. | Users reach main tasks in one click. |
-| Export MVP | Export comparison CSV and AI brief Markdown. | Exports include release ID, data year, methodology version, and caveats. |
+| Export MVP | Export comparison CSV and AI brief Markdown. | Exports include release ID, data year, methodology version, AI run IDs, cache status, source fingerprints, and caveats. |
 | Responsive and loading states | Improve 375/768/1024/1440 layouts and add skeletons. | No broken core layouts. |
 
 ### Suggested Codex prompt
 
-> Implement the v1.5 trust foundation for LDT. Create a typed release metadata service, replace hard-coded release counts, add a Country Trust Card component, add evidence gap badges, and make exports include release ID, data year, methodology version, and caveats. Keep all changes feature-flagged where possible.
+> Implement the v1.5 trust foundation for LDT. Create a typed release metadata service, replace hard-coded release counts, add an AI Brief Cache and Run Store for every LLM-backed brief step, add a Country Trust Card component, add evidence gap badges, and make exports include release ID, data year, methodology version, AI run IDs, cache status, source fingerprints, and caveats. Keep all changes feature-flagged where possible.
 
 ---
 
@@ -59,7 +60,7 @@ Two-week sprints start in July 2026. Each roadmap version has a deadline at the 
 | Epic | Description | Done when |
 | --- | --- | --- |
 | AI Planning Brief Report | Convert staged AI outputs into report view with sections, evidence gaps, citations, and export. | Users export Markdown/PDF-ready brief. |
-| AI Audit Drawer | Show model, prompt version, source fingerprint, retrieval chunks, cost, and generation time. | Every AI output has inspectable audit metadata. |
+| AI Audit Drawer | Show run ID, cache status, model, prompt version, source fingerprint, retrieval chunks, cost, and generation time from v1.5 run records. | Every AI output has inspectable audit metadata. |
 | Investment Opportunity Finder | Generate opportunity families from deterministic evidence triggers and AI-assisted rationale. | At least 3 opportunity families for AI-ready local units where evidence supports them. |
 | Evidence Graph MVP | Link local unit -> indicator -> source -> plan passage -> opportunity -> recommendation. | Every recommendation has evidence links. |
 | Concept Note Starter MVP | Generate pre-appraisal concept-note starter with caveats and source appendix. | Users can export concept-note starter as Markdown. |

@@ -11,7 +11,7 @@
 2. Frontend uses a typed data provider layer, not ad hoc Supabase calls from every component.
 3. Release metadata is a first-class entity.
 4. Evidence links are stored as IDs, not only as rendered text.
-5. AI outputs are reproducible from release ID, prompt version, model, retrieval IDs, and source fingerprint.
+5. AI outputs are reproducible from release ID, prompt version, model settings, cache key, retrieval IDs, input hash, and source fingerprint.
 6. Public routes are read-only unless authentication is introduced.
 7. Feature flags control V2+ surfaces.
 8. PIM/procurement/field monitoring schemas should be future-compatible but not active until integrations exist.
@@ -69,6 +69,7 @@ src/
       evidenceGraph.ts
       aiRun.ts
     ai/
+      aiCache.ts
       retrieval.ts
       promptVersions.ts
       sourceFingerprint.ts
@@ -218,6 +219,50 @@ create table evidence_edges (
 );
 ```
 
+### 3.7 `ai_runs`
+
+Use this as the v1.5 AI Brief Cache and Run Store. Each LLM-backed brief stage writes one run record before and after generation. Future requests use the latest successful record for the same deterministic cache key unless evidence, release metadata, selected inputs, prompt version, or model settings changed.
+
+```sql
+create table ai_runs (
+  id uuid primary key default gen_random_uuid(),
+  cache_key text not null,
+  country_code text not null,
+  release_id uuid references country_releases(id),
+  local_unit_id text,
+  comparison_set jsonb default '[]'::jsonb,
+  stage text not null,
+  model text not null,
+  model_params jsonb default '{}'::jsonb,
+  prompt_version text not null,
+  source_fingerprint text not null,
+  input_hash text not null,
+  retrieval_ids jsonb default '[]'::jsonb,
+  request_payload jsonb default '{}'::jsonb,
+  input_summary jsonb,
+  output_json jsonb,
+  output_markdown text,
+  citations jsonb default '[]'::jsonb,
+  evidence_gaps jsonb default '[]'::jsonb,
+  caveats jsonb default '[]'::jsonb,
+  token_input integer,
+  token_output integer,
+  estimated_cost numeric,
+  status text not null check (status in ('running','success','failed','stale','superseded')),
+  error_code text,
+  error_message text,
+  created_by text,
+  created_at timestamptz default now(),
+  completed_at timestamptz
+);
+
+create index ai_runs_cache_lookup_idx
+  on ai_runs (cache_key, status, completed_at desc);
+
+create index ai_runs_locality_stage_idx
+  on ai_runs (country_code, release_id, local_unit_id, stage, created_at desc);
+```
+
 ---
 
 ## 4. API Route Sketch
@@ -233,6 +278,7 @@ create table evidence_edges (
 | `/api/opportunities/:id/review` | POST | Review status | Internal |
 | `/api/concept-notes/generate` | POST | Generate concept-note starter | Internal |
 | `/api/ai/runs/:id` | GET | AI audit metadata | Internal/simplified public |
+| `/api/ai/runs/:id/regenerate` | POST | Explicitly bypass cache and create a new AI run | Internal |
 | `/api/exports/brief` | POST | Export Markdown/PDF | Internal/public depending data |
 | `/api/hazards/screen` | POST | Hazard screen | Internal |
 
@@ -307,6 +353,7 @@ export interface InvestmentOpportunity {
 - Manifest validation.
 - Evidence gap badge mapping.
 - Opportunity trigger rules.
+- AI cache key and input hash generation.
 - Source fingerprint generation.
 - AI output evidence gating.
 
@@ -314,6 +361,8 @@ export interface InvestmentOpportunity {
 
 - Home/country pages use release metadata provider.
 - AI generation blocked when evidence requirements fail.
+- Repeated AI brief runs return cached output when cache key and source fingerprint match.
+- Changed evidence or prompt version invalidates cached AI brief output.
 - Concept note export includes source appendix.
 - Document readiness filters work.
 - Opportunity review status persists.

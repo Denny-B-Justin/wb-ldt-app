@@ -17,7 +17,9 @@ AI may summarize, extract, compare, draft, classify, and explain. AI may not app
 
 Every AI output must show:
 
+- AI run ID.
 - Stage name.
+- Cache status: generated now, loaded from cache, stale, or failed.
 - Model.
 - Prompt version.
 - Release ID.
@@ -95,13 +97,17 @@ Minimum fields:
 ```json
 {
   "aiRunId": "uuid",
+  "cacheKey": "sha256",
+  "cacheStatus": "generated-now",
   "stage": "investment-opportunity-rationale",
   "countryCode": "SRB",
   "releaseId": "uuid",
   "localUnitId": "string",
   "model": "string",
+  "modelParams": {},
   "promptVersion": "v2.1.0",
   "sourceFingerprint": "sha256",
+  "inputHash": "sha256",
   "retrievalIds": ["document_chunk_id", "indicator_id"],
   "inputSummary": {},
   "outputId": "uuid",
@@ -115,7 +121,43 @@ Minimum fields:
 
 ---
 
-## 7. Red-Team Test Cases
+## 7. AI Brief Cache and Run Store
+
+The v1.5 trust foundation must persist every LLM-backed AI brief step before v1.6 expands brief-generation capabilities.
+
+### Cache key inputs
+
+The cache key must be derived from:
+
+- Stage name.
+- Country code.
+- Release ID.
+- Local unit ID or comparison set.
+- Prompt version.
+- Model and model parameters.
+- Source fingerprint.
+- Normalized input hash.
+
+### Reuse rules
+
+- If cache key and source fingerprint match a successful prior run, reload the saved output by default.
+- If evidence, selected indicators, release metadata, locality, prompt version, model, or model parameters change, treat the request as a cache miss.
+- Failed, stale, or superseded runs must not be returned as cache hits.
+- Manual regeneration must create a new run record and preserve the previous artifact.
+- AI brief exports must include run IDs, cache status, prompt version, model, source fingerprint, retrieval IDs, evidence gaps, and caveats.
+
+### Frontend labels
+
+AI stage cards should distinguish:
+
+- Generated now.
+- Loaded from cache.
+- Evidence changed; refresh available.
+- Generation failed.
+
+---
+
+## 8. Red-Team Test Cases
 
 ### Hallucinated source
 
@@ -149,7 +191,7 @@ Expected behavior: Refuse unless an approved official source exists.
 
 ---
 
-## 8. Human Review Workflow
+## 9. Human Review Workflow
 
 AI output statuses:
 
@@ -170,7 +212,7 @@ Rules:
 
 ---
 
-## 9. Public-Sector AI Governance Checklist
+## 10. Public-Sector AI Governance Checklist
 
 Before enabling AI in production for a country:
 
@@ -188,7 +230,7 @@ Before enabling AI in production for a country:
 
 ---
 
-## 10. Incident Handling
+## 11. Incident Handling
 
 AI incident examples:
 

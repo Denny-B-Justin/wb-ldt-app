@@ -71,7 +71,7 @@ const roadmapPhases = [
     window: "Jul 6 - Jul 17, 2026",
     deadline: "Jul 17, 2026",
     goal:
-      "Make the current LDT reliable, consistent, and trustable before adding heavier AI or public investment workflows.",
+      "Make the current LDT reliable, consistent, and trustable, with AI brief outputs saved and replayed before heavier public investment workflows.",
     icon: ShieldCheck,
     tone: {
       marker: "border-sky-500 bg-sky-600 text-white",
@@ -80,10 +80,11 @@ const roadmapPhases = [
     },
     epics: [
       "Release metadata source of truth",
+      "AI Brief Cache and Run Store",
       "Country Trust Card and evidence gap badges",
       "Command center polish, export MVP, responsive states",
     ],
-    gate: "All public pages, exports, and AI stages use the same release metadata and caveats.",
+    gate: "All public pages, exports, and AI stages use the same release metadata, caveats, source fingerprints, and cached run records.",
   },
   {
     version: "v1.6",
@@ -204,7 +205,7 @@ const workstreams = [
       "The user-facing route from command center to brief, scenario studio, and transparency surfaces.",
     icon: Layers,
     steps: [
-      "Trust Cards, evidence badges, command center actions, export touchpoints",
+      "Trust Cards, evidence badges, AI cache provenance, command center actions",
       "Planning Brief, Audit Drawer, Opportunity Finder, review status controls",
       "Document Workbench, Trust Center, PIM Registry, admin observability",
       "Scenario Builder, Counterpart Mode, geospatial prioritization workspace",
@@ -217,7 +218,7 @@ const workstreams = [
       "The services, manifests, validation states, and graph links that let every visible claim be traced.",
     icon: Database,
     steps: [
-      "Typed release metadata provider, validation outputs, caveat model",
+      "Typed release metadata provider, AI run store, cache keys, caveat model",
       "Evidence graph nodes and edges, opportunity triggers, export lineage",
       "Country manifests, document states, registry schema, OC4IDS-ready fields",
       "Climate/geospatial layers, scenario packages, API/download contracts",
@@ -230,7 +231,7 @@ const workstreams = [
       "The policy layer that keeps AI in a synthesis role and makes source quality visible at the point of use.",
     icon: Scale,
     steps: [
-      "No source, no answer; block unsupported AI stages",
+      "No source, no answer; persist and replay every LLM-backed brief stage",
       "Prompt versions, source fingerprints, audit records, human review status",
       "Readiness gates for translations, OCR, validation, incident handling",
       "AI summarizes tradeoffs only after deterministic outputs are shown",
@@ -285,7 +286,7 @@ const guardrails = [
   {
     title: "Every output is inspectable",
     body:
-      "AI outputs need model, prompt version, release ID, source fingerprint, retrieval IDs, generation time, caveats, and review status.",
+      "AI outputs need cache status, run ID, model, prompt version, release ID, source fingerprint, retrieval IDs, generation time, caveats, and review status.",
     icon: ClipboardCheck,
   },
 ] as const;
@@ -293,6 +294,7 @@ const guardrails = [
 const executionBacklog = [
   "Publish a first-class roadmap destination.",
   "Visualize the dated v1.5-v2 product sequence.",
+  "Pull AI Brief Cache and Run Store into v1.5.",
   "Map frontend, backend, and governance workstreams.",
   "Expose release gates and AI guardrails.",
   "Add MEGA migration as the October 2026 v2 target.",
