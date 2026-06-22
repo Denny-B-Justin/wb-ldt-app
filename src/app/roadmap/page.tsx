@@ -595,7 +595,7 @@ export default function RoadmapPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/resources"
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-5 text-sm font-semibold text-[var(--primary-foreground)] transition duration-200 hover:bg-[var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] motion-reduce:transition-none dark:bg-white dark:text-[var(--gpb-chrome-bg)] dark:hover:bg-[var(--gpb-chrome-link)]"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-5 text-sm font-semibold text-white transition duration-200 hover:bg-[var(--accent)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] motion-reduce:transition-none dark:bg-white dark:text-[var(--gpb-chrome-bg)] dark:hover:bg-[var(--gpb-chrome-link)] dark:hover:text-[var(--gpb-chrome-bg)]"
               >
                 View source materials
                 <ArrowRight aria-hidden="true" className="size-4" />
