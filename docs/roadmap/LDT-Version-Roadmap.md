@@ -23,7 +23,7 @@ Two-week sprints start in July 2026. Each roadmap version has a deadline at the 
 | `v1.7` | Country Scaling Platform and PIM Registry Beta | Aug 3-Aug 14, 2026 | Aug 14, 2026 | Country onboarding and lightweight registry workflows become repeatable. |
 | `v1.8` | Geospatial, Climate, Scenario, and Counterpart Layer | Aug 17-Aug 28, 2026 | Aug 28, 2026 | Spatial prioritization, climate screening, and scenario support become visible. |
 | `v1.9` | Delivery Monitoring and Transparency | Aug 31-Sep 11, 2026 | Sep 11, 2026 | Upstream planning starts linking to monitoring, transparency, and learning loops. |
-| `v2` | World Bank MEGA Platform Migration | Sep 28-Oct 9, 2026 | Oct 9, 2026 | Full backend and frontend migrate to MEGA with rollback and parity validation. |
+| `v2` | World Bank MEGA Platform Migration | Oct 19-Oct 31, 2026 | Oct 31, 2026 | Full backend and frontend migrate to MEGA with rollback and parity validation. |
 
 ---
 
@@ -137,7 +137,7 @@ Two-week sprints start in July 2026. Each roadmap version has a deadline at the 
 
 ## v2: World Bank MEGA Platform Migration
 
-**Deadline:** October 9, 2026.
+**Deadline:** October 31, 2026.
 **Goal:** Migrate the entire LDT backend and frontend to the World Bank's MEGA platform while preserving user-facing route parity, evidence lineage, exports, security posture, and AI auditability.
 
 ### Epics

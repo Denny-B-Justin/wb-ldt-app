@@ -3,7 +3,7 @@
 **Purpose:** Sprint-sized backlog for exposing the roadmap inside the public LDT app.
 **Source:** `docs/roadmap/LDT-Version-Roadmap.md` and related roadmap supplements.
 **Design reference:** In-app Roadmap page using an accessible public-sector SaaS/white-paper diagram style.
-**Schedule model:** `v1.5`-`v1.9` close at two-week sprint deadlines from July 17, 2026 through September 11, 2026; `v2` targets World Bank MEGA migration on October 9, 2026.
+**Schedule model:** `v1.5`-`v1.9` close at two-week sprint deadlines from July 17, 2026 through September 11, 2026; `v2` targets World Bank MEGA migration on October 31, 2026.
 
 ---
 

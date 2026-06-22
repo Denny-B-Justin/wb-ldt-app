@@ -1155,8 +1155,8 @@ AI may not:
 
 ### v2: World Bank MEGA Platform Migration
 
-**Sprint window:** Sep 28-Oct 9, 2026.
-**Deadline:** Oct 9, 2026.
+**Sprint window:** Oct 19-Oct 31, 2026.
+**Deadline:** Oct 31, 2026.
 
 **Goal**
 

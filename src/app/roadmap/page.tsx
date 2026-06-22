@@ -178,8 +178,8 @@ const roadmapPhases = [
     name: "MEGA Platform Migration",
     horizon: "World Bank platform migration",
     sprint: "Sprint 7",
-    window: "Sep 28 - Oct 9, 2026",
-    deadline: "Oct 9, 2026",
+    window: "Oct 19 - Oct 31, 2026",
+    deadline: "Oct 31, 2026",
     goal:
       "Migrate the entire LDT backend and frontend to the World Bank's MEGA platform while preserving evidence lineage, country routes, exports, and auditability.",
     icon: Network,

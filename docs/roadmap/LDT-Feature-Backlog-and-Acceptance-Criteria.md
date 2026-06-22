@@ -14,7 +14,7 @@
 | `v1.7` | Aug 14, 2026 | Epics 8-10: document workbench, country onboarding factory, and PIM registry beta. |
 | `v1.8` | Aug 28, 2026 | Epics 11-14: climate screen, geospatial studio, scenario builder, and counterpart mode. |
 | `v1.9` | Sep 11, 2026 | Epic 15 plus delivery monitoring, transparency, field evidence, and procurement bridge foundations. |
-| `v2` | Oct 9, 2026 | Epic 16: full backend and frontend migration to the World Bank's MEGA platform. |
+| `v2` | Oct 31, 2026 | Epic 16: full backend and frontend migration to the World Bank's MEGA platform. |
 
 ---
 
