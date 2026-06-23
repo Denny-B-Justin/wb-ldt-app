@@ -64,4 +64,14 @@ before update on analytics.ai_stage_runs
 for each row
 execute function analytics.touch_ai_updated_at();
 
+comment on table analytics.ai_stage_runs is
+  'Append-only v1.5 run store for AI stage generations, failures, cache keys, and evidence fingerprints.';
+
+comment on column analytics.ai_stage_runs.cache_key is
+  'Deterministic cache key derived from scope, input, prompt, model settings, and invalidation version.';
+
+comment on column analytics.ai_stage_runs.source_fingerprint is
+  'Stable hash of the evidence inputs used to produce or retrieve the AI stage output.';
+
+revoke all privileges on analytics.ai_stage_runs from anon, authenticated;
 grant all privileges on analytics.ai_stage_runs to service_role;

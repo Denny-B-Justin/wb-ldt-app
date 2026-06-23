@@ -20,5 +20,7 @@ test("v1.5 migration creates an append-only AI stage run store", async () => {
   assert.match(migration, /failed/i);
   assert.match(migration, /latest_run_id uuid/i);
   assert.match(migration, /cache_key_idx/i);
+  assert.match(migration, /comment on table analytics\.ai_stage_runs/i);
+  assert.match(migration, /revoke all privileges on analytics\.ai_stage_runs from anon, authenticated/i);
   assert.match(migration, /grant all privileges on analytics\.ai_stage_runs to service_role/i);
 });

@@ -15,11 +15,13 @@ import {
 } from "@/components/analytics/ai-result-renderers";
 import type { RegionalIndicatorRow } from "@/components/analytics/ai-result-renderers";
 import { AiStageCard } from "@/components/analytics/ai-stage-card";
+import { buildAiBriefMarkdownExport } from "@/lib/ai/export";
 import type {
   AiStageName,
   AiStageResponsePayload,
   AiTabData,
 } from "@/lib/ai/types";
+import { countries } from "@/lib/countries";
 import type { AnalyticsPageData } from "@/types/analytics";
 
 const stageRouteMap: Record<AiStageName, string> = {
@@ -36,6 +38,16 @@ const planningContextStages: AiStageName[] = [
   "province_plan_context",
   "national_plan_context",
   "plan_alignment",
+];
+
+const exportStageLabels: Array<{ stage: AiStageName; label: string }> = [
+  { stage: "indicator_narrative", label: "Component score analysis" },
+  { stage: "province_plan_context", label: "Local/SNG plan context" },
+  { stage: "national_plan_context", label: "National plan context" },
+  { stage: "plan_alignment", label: "Plan alignment" },
+  { stage: "web_context_search", label: "Web context" },
+  { stage: "swot_analysis", label: "SWOT analysis" },
+  { stage: "investment_recommendations", label: "Public investment recommendations" },
 ];
 
 type AiAnalyticsTabProps = {
@@ -263,6 +275,15 @@ function getStringValue(value: unknown) {
   return typeof value === "string" ? value : null;
 }
 
+function toFilenamePart(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 64) || "brief";
+}
+
 function toFailedStagePayload(stage: AiStageName, payload: unknown): AiStageResponsePayload {
   const errorPayload =
     payload && typeof payload === "object"
@@ -447,6 +468,44 @@ export function AiAnalyticsTab({
   const selectedScoreLabel =
     ai.scoreOptions.find((option) => option.id === ai.selectedScoreId)?.label ??
     ai.selectedScoreId;
+  const countryName =
+    countries.find((country) => country.code === release.countryCode)?.name ??
+    release.countryCode;
+  const hasAnyStageResult = exportStageLabels.some(({ stage }) => Boolean(stageResults[stage]));
+
+  function downloadAiBrief() {
+    if (!hasAnyStageResult) {
+      return;
+    }
+
+    const markdown = buildAiBriefMarkdownExport({
+      countryName,
+      municipalityName: municipality.municipality,
+      provinceName: municipality.province,
+      scoreLabel: selectedScoreLabel,
+      releaseKey: release.key,
+      year: release.year,
+      generatedAt: new Date().toISOString(),
+      stages: exportStageLabels.map(({ stage, label }) => ({
+        label,
+        result: stageResults[stage] ?? null,
+      })),
+    });
+    const blob = new Blob([markdown], { type: "text/markdown;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = [
+      "ldt-ai-brief",
+      toFilenamePart(municipality.municipality),
+      toFilenamePart(selectedScoreLabel),
+      release.year,
+    ].join("-") + ".md";
+    document.body.append(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+  }
 
   function getWorkflowState(
     stages: AiStageName[],
@@ -592,6 +651,13 @@ export function AiAnalyticsTab({
         eyebrow="AI planning workflow"
         title="Choose local unit and score"
         description="Use the shared local-unit selector in the sidebar, then choose the score theme for the AI planning workflow here. The AI flow currently supports only Prosperity, Infrastructure, and Livability."
+        actions={
+          <StageButton
+            label="Download brief"
+            onClick={downloadAiBrief}
+            disabled={!hasAnyStageResult}
+          />
+        }
       >
         <form className="grid gap-3 xl:grid-cols-[minmax(0,1fr)_auto]">
           <input type="hidden" name="tab" value="ai" />

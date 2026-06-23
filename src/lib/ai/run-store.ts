@@ -1,6 +1,11 @@
 import { createHash } from "node:crypto";
 
-import type { AiStageName, AiStageRequestPayload } from "@/lib/ai/types";
+import type {
+  AiStageMode,
+  AiStageName,
+  AiStageRequestPayload,
+  AiStageResponsePayload,
+} from "@/lib/ai/types";
 
 export type AiRunStatus = "running" | "completed" | "failed";
 
@@ -107,4 +112,92 @@ export function shouldBypassAiRunCache(mode: AiStageRequestPayload["mode"]) {
 
 export function isCacheReusableRunStatus(status: AiRunStatus) {
   return status === "completed";
+}
+
+function errorToMessage(error: unknown) {
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  if (typeof error === "string") {
+    return error;
+  }
+
+  try {
+    const serialized = JSON.stringify(error);
+    return serialized && serialized !== "{}"
+      ? serialized
+      : "AI generation failed.";
+  } catch {
+    return "AI generation failed.";
+  }
+}
+
+function attachRunMetadata(
+  response: AiStageResponsePayload,
+  runContract: AiRunCacheContract,
+  cacheStatus: NonNullable<AiStageResponsePayload["cacheStatus"]>,
+): AiStageResponsePayload {
+  return {
+    ...response,
+    cacheHit: cacheStatus === "cache_hit",
+    cacheStatus,
+    cacheKey: runContract.cacheKey,
+    sourceFingerprint: runContract.sourceFingerprint,
+    inputHash: runContract.inputHash,
+  };
+}
+
+export async function runWithAiStageCache({
+  mode,
+  runContract,
+  loadCached,
+  generate,
+  buildFailureResponse,
+  persistRun,
+  missingCacheMessage = "No cached AI stage output found.",
+}: {
+  mode: AiStageMode;
+  runContract: AiRunCacheContract;
+  loadCached: () => Promise<AiStageResponsePayload | null>;
+  generate: () => Promise<AiStageResponsePayload>;
+  buildFailureResponse: (message: string) => AiStageResponsePayload;
+  persistRun: (response: AiStageResponsePayload) => Promise<string | null>;
+  missingCacheMessage?: string;
+}): Promise<AiStageResponsePayload> {
+  if (!shouldBypassAiRunCache(mode)) {
+    const cached = await loadCached();
+
+    if (cached && isCacheReusableRunStatus(cached.status)) {
+      return attachRunMetadata(cached, runContract, "cache_hit");
+    }
+
+    if (mode === "load_cached") {
+      return attachRunMetadata(
+        buildFailureResponse(missingCacheMessage),
+        runContract,
+        "failed",
+      );
+    }
+  }
+
+  const cacheStatus = mode === "regenerate" ? "regenerated" : "generated";
+  let response: AiStageResponsePayload;
+
+  try {
+    response = attachRunMetadata(await generate(), runContract, cacheStatus);
+  } catch (error) {
+    response = attachRunMetadata(
+      buildFailureResponse(errorToMessage(error)),
+      runContract,
+      "failed",
+    );
+  }
+
+  const runId = await persistRun(response);
+
+  return {
+    ...response,
+    runId,
+  };
 }

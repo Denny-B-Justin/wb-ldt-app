@@ -17,10 +17,18 @@ test("AI pipeline uses the v1.5 run-store contract before LLM generation", async
   const pipelineSource = await readFile("src/lib/ai/pipeline.ts", "utf8");
 
   assert.match(pipelineSource, /buildAiRunCacheContract/);
-  assert.match(pipelineSource, /shouldBypassAiRunCache/);
+  assert.match(pipelineSource, /runWithAiStageCache/);
   assert.match(pipelineSource, /saveAiStageRun/);
   assert.match(pipelineSource, /runId/);
+  assert.doesNotMatch(pipelineSource, /if \(!shouldBypassAiRunCache\(mode\)\)/);
   assert.doesNotMatch(pipelineSource, /function buildStageFingerprint/);
+});
+
+test("AI cache persistence writes failed runs without replacing reusable cache entries", async () => {
+  const pipelineSource = await readFile("src/lib/ai/pipeline.ts", "utf8");
+
+  assert.match(pipelineSource, /if \(response\.status === "completed"\)/);
+  assert.match(pipelineSource, /saveAiStageCache/);
 });
 
 test("AI stage cards expose cache provenance fields to users", async () => {
@@ -29,4 +37,14 @@ test("AI stage cards expose cache provenance fields to users", async () => {
   assert.match(cardSource, /Run ID/);
   assert.match(cardSource, /Cache key/);
   assert.match(cardSource, /Source fingerprint/);
+});
+
+test("AI analytics tab can export a Markdown brief with cached run metadata", async () => {
+  const tabSource = await readFile("src/components/analytics/ai-analytics-tab.tsx", "utf8");
+
+  assert.match(tabSource, /buildAiBriefMarkdownExport/);
+  assert.match(tabSource, /Download brief/);
+  assert.match(tabSource, /new Blob/);
+  assert.match(tabSource, /text\/markdown/);
+  assert.match(tabSource, /stageResults\[stage\]/);
 });

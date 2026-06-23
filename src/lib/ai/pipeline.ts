@@ -14,7 +14,7 @@ import { searchWithExa, tryExtractWithExa } from "@/lib/ai/exa";
 import { generateOpenAiText, getOpenAiModel } from "@/lib/ai/openai";
 import {
   buildAiRunCacheContract,
-  shouldBypassAiRunCache,
+  runWithAiStageCache,
   type AiRunCacheContract,
 } from "@/lib/ai/run-store";
 import {
@@ -331,28 +331,30 @@ async function persistEntry(
     errorMessage: response.errorMessage,
   });
 
-  await saveAiStageCache({
-    countryCode: context.country.code,
-    stage,
-    releaseKey: context.releaseKey,
-    year: context.year,
-    municipalityId: context.municipality.id,
-    province: context.municipality.province,
-    scoreId: context.score.id,
-    modelName,
-    promptVersion: getAiPromptVersion(),
-    inputFingerprint: runContract.cacheKey,
-    cacheKey: runContract.cacheKey,
-    sourceFingerprint: runContract.sourceFingerprint,
-    inputHash: runContract.inputHash,
-    promptHash: runContract.promptHash,
-    renderedOutput: response.renderedOutput,
-    structuredOutput: response.structuredOutput,
-    sourceReferences: response.sourceReferences,
-    status: response.status,
-    errorMessage: response.errorMessage,
-    runId,
-  });
+  if (response.status === "completed") {
+    await saveAiStageCache({
+      countryCode: context.country.code,
+      stage,
+      releaseKey: context.releaseKey,
+      year: context.year,
+      municipalityId: context.municipality.id,
+      province: context.municipality.province,
+      scoreId: context.score.id,
+      modelName,
+      promptVersion: getAiPromptVersion(),
+      inputFingerprint: runContract.cacheKey,
+      cacheKey: runContract.cacheKey,
+      sourceFingerprint: runContract.sourceFingerprint,
+      inputHash: runContract.inputHash,
+      promptHash: runContract.promptHash,
+      renderedOutput: response.renderedOutput,
+      structuredOutput: response.structuredOutput,
+      sourceReferences: response.sourceReferences,
+      status: response.status,
+      errorMessage: response.errorMessage,
+      runId,
+    });
+  }
 
   return runId;
 }
@@ -364,13 +366,44 @@ async function persistEntrySafely(
   runContract: AiRunCacheContract,
   modelSettings: Record<string, unknown>,
   response: AiStageResponsePayload,
-) {
+): Promise<string | null> {
   try {
-    const runId = await persistEntry(stage, context, modelName, runContract, modelSettings, response);
-    response.runId = runId;
+    return await persistEntry(stage, context, modelName, runContract, modelSettings, response);
   } catch (error) {
     console.error(`Failed to persist AI stage ${stage}:`, error);
+    return null;
   }
+}
+
+async function runCachedStage({
+  stage,
+  context,
+  modelName,
+  mode,
+  runContract,
+  missingCacheMessage,
+  modelSettings = {},
+  generate,
+}: {
+  stage: AiStageName;
+  context: AiPipelineContext;
+  modelName: string;
+  mode: AiStageRequestPayload["mode"];
+  runContract: AiRunCacheContract;
+  missingCacheMessage: string;
+  modelSettings?: Record<string, unknown>;
+  generate: () => Promise<AiStageResponsePayload>;
+}) {
+  return runWithAiStageCache({
+    mode,
+    runContract,
+    loadCached: () => getCachedEntry(stage, context, modelName, runContract),
+    generate,
+    buildFailureResponse: (message) => toFailureStage(stage, modelName, message),
+    persistRun: (response) =>
+      persistEntrySafely(stage, context, modelName, runContract, modelSettings, response),
+    missingCacheMessage,
+  });
 }
 
 async function runIndicatorNarrativeStage(
@@ -400,56 +433,40 @@ async function runIndicatorNarrativeStage(
     },
   });
 
-  if (!shouldBypassAiRunCache(mode)) {
-    const cached = await getCachedEntry("indicator_narrative", context, modelName, runContract);
-    if (cached) {
-      return {
-        ...cached,
-        cacheHit: true,
-        cacheStatus: "cache_hit" as const,
-      };
-    }
-    if (mode === "load_cached") {
-      return toFailureStage("indicator_narrative", modelName, "No cached indicator narrative found.");
-    }
-  }
-
-  const generated = await generateOpenAiText({
-    system: basePlanningSystemPrompt,
-    prompt,
-    model: modelName,
-  });
-
-  const response = toCacheEntry({
+  return runCachedStage({
     stage: "indicator_narrative",
-    cacheHit: false,
-    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
-    runContract,
-    renderedOutput: generated.text,
-    structuredOutput: {
-      municipality: context.municipality,
-      score: context.score,
-    },
-    sourceReferences: [
-      {
-        label: `${context.score.label} indicator series`,
-        type: "indicator_series",
-        source: "supabase",
-      },
-    ],
-    modelName,
-    promptVersion: getAiPromptVersion(),
-  });
-
-  await persistEntrySafely(
-    "indicator_narrative",
     context,
     modelName,
+    mode,
     runContract,
-    {},
-    response,
-  );
-  return response;
+    missingCacheMessage: "No cached indicator narrative found.",
+    generate: async () => {
+      const generated = await generateOpenAiText({
+        system: basePlanningSystemPrompt,
+        prompt,
+        model: modelName,
+      });
+
+      return toCacheEntry({
+        stage: "indicator_narrative",
+        cacheHit: false,
+        renderedOutput: generated.text,
+        structuredOutput: {
+          municipality: context.municipality,
+          score: context.score,
+        },
+        sourceReferences: [
+          {
+            label: `${context.score.label} indicator series`,
+            type: "indicator_series",
+            source: "supabase",
+          },
+        ],
+        modelName,
+        promptVersion: getAiPromptVersion(),
+      });
+    },
+  });
 }
 
 async function getProvinceDocumentContext(context: AiPipelineContext) {
@@ -567,55 +584,35 @@ async function runProvincePlanStage(
     },
   });
 
-  if (!chosen) {
-    return toFailureStage(
-      "province_plan_context",
-      DOCUMENT_MODEL_NAME,
-      `No local/SNG plan URL is available for ${context.localPlanUnitName}.`,
-    );
-  }
-
-  if (!shouldBypassAiRunCache(mode)) {
-    const cached = await getCachedEntry("province_plan_context", context, DOCUMENT_MODEL_NAME, runContract);
-    if (cached) {
-      return {
-        ...cached,
-        cacheHit: true,
-        cacheStatus: "cache_hit" as const,
-      };
-    }
-    if (mode === "load_cached") {
-      return toFailureStage("province_plan_context", DOCUMENT_MODEL_NAME, "No cached local/SNG plan context found.");
-    }
-  }
-
-  const { document, sourceReferences } = await getProvinceDocumentContext(context);
-  const stageOutput = buildDocumentStageOutput(
-    document,
-    `${context.localPlanUnitName} local/SNG plan`,
-  );
-  const response = toCacheEntry({
+  return runCachedStage({
     stage: "province_plan_context",
-    cacheHit: false,
-    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
-    runContract,
-    renderedOutput: stageOutput.renderedOutput,
-    structuredOutput: stageOutput.structuredOutput,
-    sourceReferences,
-    modelName: DOCUMENT_MODEL_NAME,
-    promptVersion: getAiPromptVersion(),
-  });
-
-  await persistEntrySafely(
-    "province_plan_context",
     context,
-    DOCUMENT_MODEL_NAME,
+    modelName: DOCUMENT_MODEL_NAME,
+    mode,
     runContract,
-    {},
-    response,
-  );
+    missingCacheMessage: "No cached local/SNG plan context found.",
+    generate: async () => {
+      if (!chosen) {
+        throw new Error(`No local/SNG plan URL is available for ${context.localPlanUnitName}.`);
+      }
 
-  return response;
+      const { document, sourceReferences } = await getProvinceDocumentContext(context);
+      const stageOutput = buildDocumentStageOutput(
+        document,
+        `${context.localPlanUnitName} local/SNG plan`,
+      );
+
+      return toCacheEntry({
+        stage: "province_plan_context",
+        cacheHit: false,
+        renderedOutput: stageOutput.renderedOutput,
+        structuredOutput: stageOutput.structuredOutput,
+        sourceReferences,
+        modelName: DOCUMENT_MODEL_NAME,
+        promptVersion: getAiPromptVersion(),
+      });
+    },
+  });
 }
 
 async function runNationalPlanStage(
@@ -652,61 +649,45 @@ async function runNationalPlanStage(
     },
   });
 
-  if (!shouldBypassAiRunCache(mode)) {
-    const cached = await getCachedEntry("national_plan_context", context, DOCUMENT_MODEL_NAME, runContract);
-    if (cached) {
-      return {
-        ...cached,
-        cacheHit: true,
-        cacheStatus: "cache_hit" as const,
-      };
-    }
-    if (mode === "load_cached") {
-      return toFailureStage("national_plan_context", DOCUMENT_MODEL_NAME, "No cached national plan context found.");
-    }
-  }
-
-  const { context: document, sources } = await getNationalPlanContext(
-    context.country.code,
-    context.score.id,
-  );
-  const stageOutput = buildDocumentStageOutput(
-    document,
-    sources.length === 1
-      ? `${context.country.name} national plan`
-      : `${context.country.name} national planning documents`,
-  );
-  const response = toCacheEntry({
+  return runCachedStage({
     stage: "national_plan_context",
-    cacheHit: false,
-    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
-    runContract,
-    renderedOutput: stageOutput.renderedOutput,
-    structuredOutput: stageOutput.structuredOutput,
-    sourceReferences: sources.map((source) => ({
-      label: source.title,
-      type: "document" as const,
-      source: source.link,
-      metadata: {
-        documentType: source.documentType,
-        scoreTheme: source.scoreTheme,
-        priority: source.priority,
-      },
-    })),
-    modelName: DOCUMENT_MODEL_NAME,
-    promptVersion: getAiPromptVersion(),
-  });
-
-  await persistEntrySafely(
-    "national_plan_context",
     context,
-    DOCUMENT_MODEL_NAME,
+    modelName: DOCUMENT_MODEL_NAME,
+    mode,
     runContract,
-    {},
-    response,
-  );
+    missingCacheMessage: "No cached national plan context found.",
+    generate: async () => {
+      const { context: document, sources } = await getNationalPlanContext(
+        context.country.code,
+        context.score.id,
+      );
+      const stageOutput = buildDocumentStageOutput(
+        document,
+        sources.length === 1
+          ? `${context.country.name} national plan`
+          : `${context.country.name} national planning documents`,
+      );
 
-  return response;
+      return toCacheEntry({
+        stage: "national_plan_context",
+        cacheHit: false,
+        renderedOutput: stageOutput.renderedOutput,
+        structuredOutput: stageOutput.structuredOutput,
+        sourceReferences: sources.map((source) => ({
+          label: source.title,
+          type: "document" as const,
+          source: source.link,
+          metadata: {
+            documentType: source.documentType,
+            scoreTheme: source.scoreTheme,
+            priority: source.priority,
+          },
+        })),
+        modelName: DOCUMENT_MODEL_NAME,
+        promptVersion: getAiPromptVersion(),
+      });
+    },
+  });
 }
 
 async function loadRequiredStage(stage: AiStageName, context: AiPipelineContext) {
@@ -746,132 +727,93 @@ async function runWebContextSearchStage(
     },
   });
 
-  if (!shouldBypassAiRunCache(mode)) {
-    const cached = await getCachedEntry("web_context_search", context, modelName, runContract);
-    if (cached) {
-      return {
-        ...cached,
-        cacheHit: true,
-        cacheStatus: "cache_hit" as const,
-      };
-    }
-    if (mode === "load_cached") {
-      return toFailureStage("web_context_search", modelName, "No cached web context found.");
-    }
-  }
-
-  let hits: Array<{
-    title: string;
-    url: string;
-    text: string;
-    publishedDate: string | null;
-    score: number | null;
-  }> = [];
-
-  try {
-    hits = await searchWithExa(searchQuery, 5);
-  } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "The web context search provider raised an unexpected error.";
-
-    const response = toCacheEntry({
-      stage: "web_context_search",
-      cacheHit: false,
-      cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
-      runContract,
-      renderedOutput: `No additional web context was injected. The optional Exa web search failed: ${message}`,
-      structuredOutput: {
-        queryHits: [],
-        skipped: true,
-        reason: message,
-      },
-      sourceReferences: [],
-      modelName,
-      promptVersion: getAiPromptVersion(),
-    });
-
-    await persistEntrySafely(
-      "web_context_search",
-      context,
-      modelName,
-      runContract,
-      {},
-      response,
-    );
-
-    return response;
-  }
-
-  if (hits.length === 0) {
-    const response = toCacheEntry({
-      stage: "web_context_search",
-      cacheHit: false,
-      cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
-      runContract,
-      renderedOutput:
-        "No additional web context was injected. No reliable external search results were retrieved for the selected unit and score.",
-      structuredOutput: {
-        queryHits: [],
-        skipped: true,
-        reason: "No reliable Exa search results were available.",
-      },
-      sourceReferences: [],
-      modelName,
-      promptVersion: getAiPromptVersion(),
-    });
-
-    await persistEntrySafely(
-      "web_context_search",
-      context,
-      modelName,
-      runContract,
-      {},
-      response,
-    );
-
-    return response;
-  }
-
-  const prompt = buildWebContextSummaryPrompt({
-    context,
-    hits,
-  });
-  const generated = await generateOpenAiText({
-    system: basePlanningSystemPrompt,
-    prompt,
-    model: modelName,
-  });
-
-  const stageOutput = buildWebContextStageOutput(hits, generated.text);
-  const response = toCacheEntry({
+  return runCachedStage({
     stage: "web_context_search",
-    cacheHit: false,
-    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
-    runContract,
-    renderedOutput: stageOutput.renderedOutput,
-    structuredOutput: stageOutput.structuredOutput,
-    sourceReferences: hits.map((hit) => ({
-      label: hit.title,
-      type: "web_search" as const,
-      source: hit.url,
-      metadata: {
-        publishedDate: hit.publishedDate,
-        searchScore: hit.score,
-      },
-    })),
-    modelName,
-    promptVersion: getAiPromptVersion(),
-  });
-
-  await persistEntrySafely(
-    "web_context_search",
     context,
     modelName,
+    mode,
     runContract,
-    {},
-    response,
-  );
-  return response;
+    missingCacheMessage: "No cached web context found.",
+    generate: async () => {
+      let hits: Array<{
+        title: string;
+        url: string;
+        text: string;
+        publishedDate: string | null;
+        score: number | null;
+      }> = [];
+
+      try {
+        hits = await searchWithExa(searchQuery, 5);
+      } catch (error) {
+        const message =
+          error instanceof Error
+            ? error.message
+            : "The web context search provider raised an unexpected error.";
+
+        return toCacheEntry({
+          stage: "web_context_search",
+          cacheHit: false,
+          renderedOutput: `No additional web context was injected. The optional Exa web search failed: ${message}`,
+          structuredOutput: {
+            queryHits: [],
+            skipped: true,
+            reason: message,
+          },
+          sourceReferences: [],
+          modelName,
+          promptVersion: getAiPromptVersion(),
+        });
+      }
+
+      if (hits.length === 0) {
+        return toCacheEntry({
+          stage: "web_context_search",
+          cacheHit: false,
+          renderedOutput:
+            "No additional web context was injected. No reliable external search results were retrieved for the selected unit and score.",
+          structuredOutput: {
+            queryHits: [],
+            skipped: true,
+            reason: "No reliable Exa search results were available.",
+          },
+          sourceReferences: [],
+          modelName,
+          promptVersion: getAiPromptVersion(),
+        });
+      }
+
+      const prompt = buildWebContextSummaryPrompt({
+        context,
+        hits,
+      });
+      const generated = await generateOpenAiText({
+        system: basePlanningSystemPrompt,
+        prompt,
+        model: modelName,
+      });
+
+      const stageOutput = buildWebContextStageOutput(hits, generated.text);
+
+      return toCacheEntry({
+        stage: "web_context_search",
+        cacheHit: false,
+        renderedOutput: stageOutput.renderedOutput,
+        structuredOutput: stageOutput.structuredOutput,
+        sourceReferences: hits.map((hit) => ({
+          label: hit.title,
+          type: "web_search" as const,
+          source: hit.url,
+          metadata: {
+            publishedDate: hit.publishedDate,
+            searchScore: hit.score,
+          },
+        })),
+        modelName,
+        promptVersion: getAiPromptVersion(),
+      });
+    },
+  });
 }
 
 async function runAlignmentStage(
@@ -957,61 +899,47 @@ async function runAlignmentStage(
     },
   });
 
-  if (!shouldBypassAiRunCache(mode)) {
-    const cached = await getCachedEntry("plan_alignment", context, modelName, runContract);
-    if (cached) {
-      return {
-        ...cached,
-        cacheHit: true,
-        cacheStatus: "cache_hit" as const,
-      };
-    }
-    if (mode === "load_cached") {
-      return toFailureStage("plan_alignment", modelName, "No cached plan alignment found.");
-    }
-  }
-
-  const generated = await generateOpenAiText({
-    system: basePlanningSystemPrompt,
-    prompt,
-    model: modelName,
-  });
-  const response = toCacheEntry({
+  return runCachedStage({
     stage: "plan_alignment",
-    cacheHit: false,
-    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
-    runContract,
-    renderedOutput: generated.text,
-    structuredOutput: {
-      countryCode: context.country.code,
-      municipality: context.municipality,
-      localPlanUnitName: context.localPlanUnitName,
-    },
-    sourceReferences: [
-      {
-        label: provinceDocument.title,
-        type: "document",
-        source: provinceDocument.sourceUrlOrPath,
-      },
-      {
-        label: nationalDocument.title,
-        type: "document",
-        source: nationalDocument.sourceUrlOrPath,
-      },
-      ...(webContextStage?.sourceReferences ?? []),
-    ],
-    modelName,
-    promptVersion: getAiPromptVersion(),
-  });
-  await persistEntrySafely(
-    "plan_alignment",
     context,
     modelName,
+    mode,
     runContract,
-    {},
-    response,
-  );
-  return response;
+    missingCacheMessage: "No cached plan alignment found.",
+    generate: async () => {
+      const generated = await generateOpenAiText({
+        system: basePlanningSystemPrompt,
+        prompt,
+        model: modelName,
+      });
+
+      return toCacheEntry({
+        stage: "plan_alignment",
+        cacheHit: false,
+        renderedOutput: generated.text,
+        structuredOutput: {
+          countryCode: context.country.code,
+          municipality: context.municipality,
+          localPlanUnitName: context.localPlanUnitName,
+        },
+        sourceReferences: [
+          {
+            label: provinceDocument.title,
+            type: "document",
+            source: provinceDocument.sourceUrlOrPath,
+          },
+          {
+            label: nationalDocument.title,
+            type: "document",
+            source: nationalDocument.sourceUrlOrPath,
+          },
+          ...(webContextStage?.sourceReferences ?? []),
+        ],
+        modelName,
+        promptVersion: getAiPromptVersion(),
+      });
+    },
+  });
 }
 
 async function runSwotStage(
@@ -1102,66 +1030,52 @@ async function runSwotStage(
     },
   });
 
-  if (!shouldBypassAiRunCache(mode)) {
-    const cached = await getCachedEntry("swot_analysis", context, modelName, runContract);
-    if (cached) {
-      return {
-        ...cached,
-        cacheHit: true,
-        cacheStatus: "cache_hit" as const,
-      };
-    }
-    if (mode === "load_cached") {
-      return toFailureStage("swot_analysis", modelName, "No cached SWOT analysis found.");
-    }
-  }
-
-  const generated = await generateOpenAiText({
-    system: basePlanningSystemPrompt,
-    prompt,
-    model: modelName,
-  });
-  const response = toCacheEntry({
+  return runCachedStage({
     stage: "swot_analysis",
-    cacheHit: false,
-    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
-    runContract,
-    renderedOutput: generated.text,
-    structuredOutput: {
-      countryCode: context.country.code,
-      municipality: context.municipality,
-      score: context.score,
-    },
-    sourceReferences: [
-      {
-        label: "Indicator narrative",
-        type: "generated",
-        source: "indicator_narrative",
-      },
-      {
-        label: provinceDocument.title,
-        type: "document",
-        source: provinceDocument.sourceUrlOrPath,
-      },
-      {
-        label: nationalDocument.title,
-        type: "document",
-        source: nationalDocument.sourceUrlOrPath,
-      },
-      ...(webContextStage?.sourceReferences ?? []),
-    ],
-    modelName,
-    promptVersion: getAiPromptVersion(),
-  });
-  await persistEntrySafely(
-    "swot_analysis",
     context,
     modelName,
+    mode,
     runContract,
-    {},
-    response,
-  );
-  return response;
+    missingCacheMessage: "No cached SWOT analysis found.",
+    generate: async () => {
+      const generated = await generateOpenAiText({
+        system: basePlanningSystemPrompt,
+        prompt,
+        model: modelName,
+      });
+
+      return toCacheEntry({
+        stage: "swot_analysis",
+        cacheHit: false,
+        renderedOutput: generated.text,
+        structuredOutput: {
+          countryCode: context.country.code,
+          municipality: context.municipality,
+          score: context.score,
+        },
+        sourceReferences: [
+          {
+            label: "Indicator narrative",
+            type: "generated",
+            source: "indicator_narrative",
+          },
+          {
+            label: provinceDocument.title,
+            type: "document",
+            source: provinceDocument.sourceUrlOrPath,
+          },
+          {
+            label: nationalDocument.title,
+            type: "document",
+            source: nationalDocument.sourceUrlOrPath,
+          },
+          ...(webContextStage?.sourceReferences ?? []),
+        ],
+        modelName,
+        promptVersion: getAiPromptVersion(),
+      });
+    },
+  });
 }
 
 async function runRecommendationsStage(
@@ -1229,66 +1143,52 @@ async function runRecommendationsStage(
     },
   });
 
-  if (!shouldBypassAiRunCache(mode)) {
-    const cached = await getCachedEntry("investment_recommendations", context, modelName, runContract);
-    if (cached) {
-      return {
-        ...cached,
-        cacheHit: true,
-        cacheStatus: "cache_hit" as const,
-      };
-    }
-    if (mode === "load_cached") {
-      return toFailureStage("investment_recommendations", modelName, "No cached investment recommendations found.");
-    }
-  }
-
-  const generated = await generateOpenAiText({
-    system: basePlanningSystemPrompt,
-    prompt,
-    model: modelName,
-  });
-  const response = toCacheEntry({
+  return runCachedStage({
     stage: "investment_recommendations",
-    cacheHit: false,
-    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
-    runContract,
-    renderedOutput: generated.text,
-    structuredOutput: {
-      countryCode: context.country.code,
-      municipality: context.municipality,
-      score: context.score,
-    },
-    sourceReferences: [
-      {
-        label: "Indicator narrative",
-        type: "generated",
-        source: "indicator_narrative",
-      },
-      {
-        label: "Plan alignment",
-        type: "generated",
-        source: "plan_alignment",
-      },
-      {
-        label: "SWOT analysis",
-        type: "generated",
-        source: "swot_analysis",
-      },
-      ...(webContextStage?.sourceReferences ?? []),
-    ],
-    modelName,
-    promptVersion: getAiPromptVersion(),
-  });
-  await persistEntrySafely(
-    "investment_recommendations",
     context,
     modelName,
+    mode,
     runContract,
-    {},
-    response,
-  );
-  return response;
+    missingCacheMessage: "No cached investment recommendations found.",
+    generate: async () => {
+      const generated = await generateOpenAiText({
+        system: basePlanningSystemPrompt,
+        prompt,
+        model: modelName,
+      });
+
+      return toCacheEntry({
+        stage: "investment_recommendations",
+        cacheHit: false,
+        renderedOutput: generated.text,
+        structuredOutput: {
+          countryCode: context.country.code,
+          municipality: context.municipality,
+          score: context.score,
+        },
+        sourceReferences: [
+          {
+            label: "Indicator narrative",
+            type: "generated",
+            source: "indicator_narrative",
+          },
+          {
+            label: "Plan alignment",
+            type: "generated",
+            source: "plan_alignment",
+          },
+          {
+            label: "SWOT analysis",
+            type: "generated",
+            source: "swot_analysis",
+          },
+          ...(webContextStage?.sourceReferences ?? []),
+        ],
+        modelName,
+        promptVersion: getAiPromptVersion(),
+      });
+    },
+  });
 }
 
 export async function runAiStage(
