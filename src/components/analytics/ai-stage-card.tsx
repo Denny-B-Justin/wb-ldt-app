@@ -36,6 +36,10 @@ function StatusBadge({
   );
 }
 
+function shortIdentifier(value: string | null | undefined) {
+  return value ? value.slice(0, 12) : "not recorded";
+}
+
 export function AiStageCard({
   eyebrow,
   title,
@@ -90,12 +94,54 @@ export function AiStageCard({
               tone={result.status === "completed" ? "success" : "error"}
             />
             <StatusBadge
-              label={result.cacheHit ? "Loaded from cache" : "Freshly generated"}
+              label={
+                result.cacheStatus === "regenerated"
+                  ? "Regenerated"
+                  : result.cacheHit
+                    ? "Loaded from cache"
+                    : "Freshly generated"
+              }
               tone="neutral"
             />
             <StatusBadge label={`Model: ${result.modelName}`} tone="neutral" />
             <StatusBadge label={`Prompt ${result.promptVersion}`} tone="neutral" />
           </div>
+
+          <dl className="mt-3 grid gap-2 rounded-[1rem] border border-[var(--border-soft)] bg-[rgba(255,255,255,0.58)] p-3 text-xs sm:grid-cols-3">
+            <div className="min-w-0">
+              <dt className="font-semibold uppercase tracking-[0.14em] text-[var(--muted-foreground)]">
+                Run ID
+              </dt>
+              <dd
+                className="mt-1 truncate font-mono text-[var(--foreground)]"
+                title={result.runId ?? undefined}
+              >
+                {shortIdentifier(result.runId)}
+              </dd>
+            </div>
+            <div className="min-w-0">
+              <dt className="font-semibold uppercase tracking-[0.14em] text-[var(--muted-foreground)]">
+                Cache key
+              </dt>
+              <dd
+                className="mt-1 truncate font-mono text-[var(--foreground)]"
+                title={result.cacheKey ?? undefined}
+              >
+                {shortIdentifier(result.cacheKey)}
+              </dd>
+            </div>
+            <div className="min-w-0">
+              <dt className="font-semibold uppercase tracking-[0.14em] text-[var(--muted-foreground)]">
+                Source fingerprint
+              </dt>
+              <dd
+                className="mt-1 truncate font-mono text-[var(--foreground)]"
+                title={result.sourceFingerprint ?? undefined}
+              >
+                {shortIdentifier(result.sourceFingerprint)}
+              </dd>
+            </div>
+          </dl>
 
           {result.errorMessage ? (
             <p className="mt-4 text-sm leading-7 text-[#b23b3a]">{result.errorMessage}</p>

@@ -10,6 +10,7 @@ import type {
   AiStageName,
   AiStageSourceReference,
 } from "@/lib/ai/types";
+import type { AiRunStatus } from "@/lib/ai/run-store";
 
 const AI_INVALIDATION_VERSION = process.env.AI_INVALIDATION_VERSION ?? "v1";
 
@@ -45,7 +46,48 @@ export type AiStageCacheLookup = {
   modelName: string;
   promptVersion: string;
   inputFingerprint: string;
+  cacheKey?: string;
+  sourceFingerprint?: string;
+  inputHash?: string;
 };
+
+export type AiStageRunRecord = AiStageCacheLookup & {
+  cacheKey: string;
+  sourceFingerprint: string;
+  inputHash: string;
+  promptHash: string;
+  modelSettings: Record<string, unknown>;
+  renderedOutput: string | null;
+  structuredOutput: Record<string, unknown>;
+  sourceReferences: AiStageSourceReference[];
+  status: AiRunStatus;
+  errorMessage: string | null;
+};
+
+function toNullableText(value: unknown) {
+  return typeof value === "string" && value.length > 0 ? value : null;
+}
+
+function toCacheEntry(data: Record<string, unknown>): AiStageCacheEntry {
+  return {
+    stage: data.stage_name as AiStageName,
+    status: data.status as "completed" | "failed",
+    cacheHit: true,
+    cacheStatus: "cache_hit",
+    runId: toNullableText(data.latest_run_id),
+    cacheKey: toNullableText(data.cache_key),
+    sourceFingerprint: toNullableText(data.source_fingerprint),
+    inputHash: toNullableText(data.input_hash),
+    renderedOutput: data.rendered_output as string | null,
+    structuredOutput: (data.structured_output ?? {}) as Record<string, unknown>,
+    sourceReferences: (data.source_references ?? []) as AiStageSourceReference[],
+    modelName: data.model_name as string,
+    promptVersion: data.prompt_version as string,
+    invalidationVersion: data.invalidation_version as string,
+    updatedAt: data.updated_at as string | null,
+    errorMessage: data.error_message as string | null,
+  };
+}
 
 export async function loadAiStageCache(
   lookup: AiStageCacheLookup,
@@ -56,7 +98,7 @@ export async function loadAiStageCache(
     const { data, error } = await supabase
       .from("ai_stage_cache")
       .select(
-        "stage_name, status, rendered_output, structured_output, source_references, model_name, prompt_version, invalidation_version, updated_at, error_message",
+        "stage_name, status, rendered_output, structured_output, source_references, model_name, prompt_version, invalidation_version, updated_at, error_message, latest_run_id, cache_key, source_fingerprint, input_hash",
       )
       .eq("stage_name", lookup.stage)
       .eq("country_code", lookup.countryCode)
@@ -83,19 +125,7 @@ export async function loadAiStageCache(
       return null;
     }
 
-    return {
-      stage: data.stage_name as AiStageName,
-      status: data.status as "completed" | "failed",
-      cacheHit: true,
-      renderedOutput: data.rendered_output,
-      structuredOutput: (data.structured_output ?? {}) as Record<string, unknown>,
-      sourceReferences: (data.source_references ?? []) as AiStageSourceReference[],
-      modelName: data.model_name,
-      promptVersion: data.prompt_version,
-      invalidationVersion: data.invalidation_version,
-      updatedAt: data.updated_at,
-      errorMessage: data.error_message,
-    };
+    return toCacheEntry(data);
   } catch (error) {
     if (isMissingRelationError(error)) {
       return null;
@@ -128,7 +158,7 @@ export async function loadLatestAiStageCacheByScope({
     const { data, error } = await supabase
       .from("ai_stage_cache")
       .select(
-        "stage_name, status, rendered_output, structured_output, source_references, model_name, prompt_version, invalidation_version, updated_at, error_message",
+        "stage_name, status, rendered_output, structured_output, source_references, model_name, prompt_version, invalidation_version, updated_at, error_message, latest_run_id, cache_key, source_fingerprint, input_hash",
       )
       .eq("stage_name", stage)
       .eq("country_code", countryCode)
@@ -155,19 +185,7 @@ export async function loadLatestAiStageCacheByScope({
       return null;
     }
 
-    return {
-      stage: data.stage_name as AiStageName,
-      status: data.status as "completed" | "failed",
-      cacheHit: true,
-      renderedOutput: data.rendered_output,
-      structuredOutput: (data.structured_output ?? {}) as Record<string, unknown>,
-      sourceReferences: (data.source_references ?? []) as AiStageSourceReference[],
-      modelName: data.model_name,
-      promptVersion: data.prompt_version,
-      invalidationVersion: data.invalidation_version,
-      updatedAt: data.updated_at,
-      errorMessage: data.error_message,
-    };
+    return toCacheEntry(data);
   } catch (error) {
     if (isMissingRelationError(error)) {
       return null;
@@ -185,6 +203,7 @@ export async function saveAiStageCache(
     promptHash: string;
     status: "completed" | "failed";
     errorMessage: string | null;
+    runId?: string | null;
   },
 ) {
   const supabase = getSupabaseServerClient().schema("analytics");
@@ -204,6 +223,10 @@ export async function saveAiStageCache(
         invalidation_version: getAiInvalidationVersion(),
         input_fingerprint: lookup.inputFingerprint,
         prompt_hash: lookup.promptHash,
+        cache_key: lookup.cacheKey ?? lookup.inputFingerprint,
+        source_fingerprint: lookup.sourceFingerprint ?? lookup.inputFingerprint,
+        input_hash: lookup.inputHash ?? lookup.inputFingerprint,
+        latest_run_id: lookup.runId ?? null,
         status: lookup.status,
         rendered_output: lookup.renderedOutput,
         structured_output: lookup.structuredOutput,
@@ -223,6 +246,57 @@ export async function saveAiStageCache(
     if (!isMissingRelationError(error)) {
       throw error;
     }
+  }
+}
+
+export async function saveAiStageRun(record: AiStageRunRecord): Promise<string | null> {
+  const supabase = getSupabaseServerClient().schema("analytics");
+  const now = new Date().toISOString();
+
+  try {
+    const { data, error } = await supabase
+      .from("ai_stage_runs")
+      .insert({
+        cache_key: record.cacheKey,
+        stage_name: record.stage,
+        country_code: record.countryCode,
+        release_key: record.releaseKey,
+        year: record.year,
+        municipality_id: record.municipalityId,
+        province: record.province,
+        score_id: record.scoreId,
+        model_name: record.modelName,
+        model_settings: record.modelSettings,
+        prompt_version: record.promptVersion,
+        invalidation_version: getAiInvalidationVersion(),
+        source_fingerprint: record.sourceFingerprint,
+        input_hash: record.inputHash,
+        prompt_hash: record.promptHash,
+        status: record.status,
+        rendered_output: record.renderedOutput,
+        structured_output: record.structuredOutput,
+        source_references: record.sourceReferences,
+        error_message: record.errorMessage,
+        completed_at: record.status === "running" ? null : now,
+      })
+      .select("id")
+      .single();
+
+    if (error) {
+      if (isMissingRelationError(error)) {
+        return null;
+      }
+
+      throw error;
+    }
+
+    return typeof data?.id === "string" ? data.id : null;
+  } catch (error) {
+    if (isMissingRelationError(error)) {
+      return null;
+    }
+
+    throw error;
   }
 }
 

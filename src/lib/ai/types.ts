@@ -64,6 +64,11 @@ export type AiStageCacheEntry = {
   stage: AiStageName;
   status: "completed" | "failed";
   cacheHit: boolean;
+  cacheStatus?: "cache_hit" | "generated" | "regenerated" | "failed";
+  runId: string | null;
+  cacheKey: string | null;
+  sourceFingerprint: string | null;
+  inputHash: string | null;
   renderedOutput: string | null;
   structuredOutput: Record<string, unknown>;
   sourceReferences: AiStageSourceReference[];
@@ -139,6 +144,11 @@ export type AiStageResponsePayload = {
   stage: AiStageName;
   status: "completed" | "failed";
   cacheHit: boolean;
+  cacheStatus?: "cache_hit" | "generated" | "regenerated" | "failed";
+  runId?: string | null;
+  cacheKey?: string | null;
+  sourceFingerprint?: string | null;
+  inputHash?: string | null;
   renderedOutput: string | null;
   structuredOutput: Record<string, unknown>;
   sourceReferences: AiStageSourceReference[];

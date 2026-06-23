@@ -8,9 +8,15 @@ import {
   loadLatestAiStageCacheByScope,
   saveDocumentContext,
   saveAiStageCache,
+  saveAiStageRun,
 } from "@/lib/ai/cache";
 import { searchWithExa, tryExtractWithExa } from "@/lib/ai/exa";
 import { generateOpenAiText, getOpenAiModel } from "@/lib/ai/openai";
+import {
+  buildAiRunCacheContract,
+  shouldBypassAiRunCache,
+  type AiRunCacheContract,
+} from "@/lib/ai/run-store";
 import {
   basePlanningSystemPrompt,
   buildIndicatorNarrativePrompt,
@@ -111,14 +117,6 @@ function documentFromStructuredOutput(
   };
 }
 
-function buildStageFingerprint(stage: AiStageName, input: unknown) {
-  return createFingerprint({
-    stage,
-    input,
-    invalidationVersion: getAiInvalidationVersion(),
-  });
-}
-
 function buildWebContextQuery(context: AiPipelineContext) {
   return [
     `"${context.localPlanUnitName}" "${context.country.name}" local development plan`,
@@ -173,6 +171,9 @@ function getWebContextSummaryFromStage(
 function toCacheEntry({
   stage,
   cacheHit,
+  cacheStatus,
+  runContract,
+  runId,
   renderedOutput,
   structuredOutput,
   sourceReferences,
@@ -182,6 +183,9 @@ function toCacheEntry({
 }: {
   stage: AiStageName;
   cacheHit: boolean;
+  cacheStatus?: AiStageResponsePayload["cacheStatus"];
+  runContract?: AiRunCacheContract | null;
+  runId?: string | null;
   renderedOutput: string | null;
   structuredOutput: Record<string, unknown>;
   sourceReferences: AiStageSourceReference[];
@@ -193,6 +197,11 @@ function toCacheEntry({
     stage,
     status: errorMessage ? "failed" : "completed",
     cacheHit,
+    cacheStatus: cacheStatus ?? (errorMessage ? "failed" : cacheHit ? "cache_hit" : "generated"),
+    runId: runId ?? null,
+    cacheKey: runContract?.cacheKey ?? null,
+    sourceFingerprint: runContract?.sourceFingerprint ?? null,
+    inputHash: runContract?.inputHash ?? null,
     renderedOutput,
     structuredOutput,
     sourceReferences,
@@ -212,6 +221,11 @@ function toFailureStage(
     stage,
     status: "failed",
     cacheHit: false,
+    cacheStatus: "failed",
+    runId: null,
+    cacheKey: null,
+    sourceFingerprint: null,
+    inputHash: null,
     renderedOutput: null,
     structuredOutput: {},
     sourceReferences: [],
@@ -222,6 +236,41 @@ function toFailureStage(
   };
 }
 
+function buildStageRunContract({
+  stage,
+  context,
+  modelName,
+  input,
+  prompt,
+  modelSettings = {},
+}: {
+  stage: AiStageName;
+  context: AiPipelineContext;
+  modelName: string;
+  input: unknown;
+  prompt: {
+    system: string;
+    user: string;
+  };
+  modelSettings?: Record<string, unknown>;
+}) {
+  return buildAiRunCacheContract({
+    countryCode: context.country.code,
+    stage,
+    releaseKey: context.releaseKey,
+    year: context.year,
+    municipalityId: context.municipality.id,
+    province: context.municipality.province,
+    scoreId: context.score.id,
+    modelName,
+    promptVersion: getAiPromptVersion(),
+    invalidationVersion: getAiInvalidationVersion(),
+    input,
+    prompt,
+    modelSettings,
+  });
+}
+
 function chooseProvincePlanUrl(context: AiPipelineContext) {
   return [...context.provincePlanCandidates].sort((left, right) => left.priority - right.priority)[0] ?? null;
 }
@@ -230,7 +279,7 @@ async function getCachedEntry(
   stage: AiStageName,
   context: AiPipelineContext,
   modelName: string,
-  inputFingerprint: string,
+  runContract: AiRunCacheContract,
 ) {
   const cached = await loadAiStageCache({
     countryCode: context.country.code,
@@ -242,7 +291,10 @@ async function getCachedEntry(
     scoreId: context.score.id,
     modelName,
     promptVersion: getAiPromptVersion(),
-    inputFingerprint,
+    inputFingerprint: runContract.cacheKey,
+    cacheKey: runContract.cacheKey,
+    sourceFingerprint: runContract.sourceFingerprint,
+    inputHash: runContract.inputHash,
   });
 
   return cached?.status === "completed" ? cached : null;
@@ -252,10 +304,33 @@ async function persistEntry(
   stage: AiStageName,
   context: AiPipelineContext,
   modelName: string,
-  inputFingerprint: string,
-  promptHash: string,
+  runContract: AiRunCacheContract,
+  modelSettings: Record<string, unknown>,
   response: AiStageResponsePayload,
 ) {
+  const runId = await saveAiStageRun({
+    countryCode: context.country.code,
+    stage,
+    releaseKey: context.releaseKey,
+    year: context.year,
+    municipalityId: context.municipality.id,
+    province: context.municipality.province,
+    scoreId: context.score.id,
+    modelName,
+    promptVersion: getAiPromptVersion(),
+    inputFingerprint: runContract.cacheKey,
+    cacheKey: runContract.cacheKey,
+    sourceFingerprint: runContract.sourceFingerprint,
+    inputHash: runContract.inputHash,
+    promptHash: runContract.promptHash,
+    modelSettings,
+    renderedOutput: response.renderedOutput,
+    structuredOutput: response.structuredOutput,
+    sourceReferences: response.sourceReferences,
+    status: response.status,
+    errorMessage: response.errorMessage,
+  });
+
   await saveAiStageCache({
     countryCode: context.country.code,
     stage,
@@ -266,26 +341,33 @@ async function persistEntry(
     scoreId: context.score.id,
     modelName,
     promptVersion: getAiPromptVersion(),
-    inputFingerprint,
-    promptHash,
+    inputFingerprint: runContract.cacheKey,
+    cacheKey: runContract.cacheKey,
+    sourceFingerprint: runContract.sourceFingerprint,
+    inputHash: runContract.inputHash,
+    promptHash: runContract.promptHash,
     renderedOutput: response.renderedOutput,
     structuredOutput: response.structuredOutput,
     sourceReferences: response.sourceReferences,
     status: response.status,
     errorMessage: response.errorMessage,
+    runId,
   });
+
+  return runId;
 }
 
 async function persistEntrySafely(
   stage: AiStageName,
   context: AiPipelineContext,
   modelName: string,
-  inputFingerprint: string,
-  promptHash: string,
+  runContract: AiRunCacheContract,
+  modelSettings: Record<string, unknown>,
   response: AiStageResponsePayload,
 ) {
   try {
-    await persistEntry(stage, context, modelName, inputFingerprint, promptHash, response);
+    const runId = await persistEntry(stage, context, modelName, runContract, modelSettings, response);
+    response.runId = runId;
   } catch (error) {
     console.error(`Failed to persist AI stage ${stage}:`, error);
   }
@@ -297,22 +379,34 @@ async function runIndicatorNarrativeStage(
 ) {
   const modelName = getOpenAiModel();
   const prompt = buildIndicatorNarrativePrompt(context);
-  const inputFingerprint = buildStageFingerprint("indicator_narrative", {
+  const stageInput = {
     municipality: context.municipality,
     score: context.score,
     indicatorSeries: context.indicatorSeries,
-  });
-  const promptHash = createFingerprint({
-    system: basePlanningSystemPrompt,
-    prompt,
+    evidence: context.indicatorSeries.map((series) => ({
+      indicatorId: series.indicatorId,
+      componentId: series.componentId,
+      points: series.points,
+    })),
+  };
+  const runContract = buildStageRunContract({
+    stage: "indicator_narrative",
+    context,
+    modelName,
+    input: stageInput,
+    prompt: {
+      system: basePlanningSystemPrompt,
+      user: prompt,
+    },
   });
 
-  if (mode !== "regenerate") {
-    const cached = await getCachedEntry("indicator_narrative", context, modelName, inputFingerprint);
+  if (!shouldBypassAiRunCache(mode)) {
+    const cached = await getCachedEntry("indicator_narrative", context, modelName, runContract);
     if (cached) {
       return {
         ...cached,
         cacheHit: true,
+        cacheStatus: "cache_hit" as const,
       };
     }
     if (mode === "load_cached") {
@@ -329,6 +423,8 @@ async function runIndicatorNarrativeStage(
   const response = toCacheEntry({
     stage: "indicator_narrative",
     cacheHit: false,
+    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
+    runContract,
     renderedOutput: generated.text,
     structuredOutput: {
       municipality: context.municipality,
@@ -349,8 +445,8 @@ async function runIndicatorNarrativeStage(
     "indicator_narrative",
     context,
     modelName,
-    inputFingerprint,
-    promptHash,
+    runContract,
+    {},
     response,
   );
   return response;
@@ -450,12 +546,25 @@ async function runProvincePlanStage(
   mode: AiStageRequestPayload["mode"],
 ) {
   const chosen = chooseProvincePlanUrl(context);
-  const inputFingerprint = buildStageFingerprint("province_plan_context", {
+  const stageInput = {
     countryCode: context.country.code,
     localPlanUnitName: context.localPlanUnitName,
     selectedPlanUrl: chosen?.link ?? null,
+    evidence: chosen
+      ? [{ url: chosen.link, title: chosen.title, priority: chosen.priority }]
+      : [],
     extractionVersion: "v2",
     displayVersion: "v2",
+  };
+  const runContract = buildStageRunContract({
+    stage: "province_plan_context",
+    context,
+    modelName: DOCUMENT_MODEL_NAME,
+    input: stageInput,
+    prompt: {
+      system: DOCUMENT_MODEL_NAME,
+      user: JSON.stringify(stageInput),
+    },
   });
 
   if (!chosen) {
@@ -466,12 +575,13 @@ async function runProvincePlanStage(
     );
   }
 
-  if (mode !== "regenerate") {
-    const cached = await getCachedEntry("province_plan_context", context, DOCUMENT_MODEL_NAME, inputFingerprint);
+  if (!shouldBypassAiRunCache(mode)) {
+    const cached = await getCachedEntry("province_plan_context", context, DOCUMENT_MODEL_NAME, runContract);
     if (cached) {
       return {
         ...cached,
         cacheHit: true,
+        cacheStatus: "cache_hit" as const,
       };
     }
     if (mode === "load_cached") {
@@ -487,6 +597,8 @@ async function runProvincePlanStage(
   const response = toCacheEntry({
     stage: "province_plan_context",
     cacheHit: false,
+    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
+    runContract,
     renderedOutput: stageOutput.renderedOutput,
     structuredOutput: stageOutput.structuredOutput,
     sourceReferences,
@@ -498,8 +610,8 @@ async function runProvincePlanStage(
     "province_plan_context",
     context,
     DOCUMENT_MODEL_NAME,
-    inputFingerprint,
-    inputFingerprint,
+    runContract,
+    {},
     response,
   );
 
@@ -515,20 +627,38 @@ async function runNationalPlanStage(
     context.country.code,
     context.score.id,
   );
-  const inputFingerprint = buildStageFingerprint("national_plan_context", {
+  const stageInput = {
     countryCode: context.country.code,
     scoreId: context.score.id,
     selectedPlanUrls: selectedNationalSources.map((source) => source.link),
+    evidence: selectedNationalSources.map((source) => ({
+      url: source.link,
+      title: source.title,
+      priority: source.priority,
+      documentType: source.documentType,
+      scoreTheme: source.scoreTheme,
+    })),
     extractionVersion: "v2",
     displayVersion: "v2",
+  };
+  const runContract = buildStageRunContract({
+    stage: "national_plan_context",
+    context,
+    modelName: DOCUMENT_MODEL_NAME,
+    input: stageInput,
+    prompt: {
+      system: DOCUMENT_MODEL_NAME,
+      user: JSON.stringify(stageInput),
+    },
   });
 
-  if (mode !== "regenerate") {
-    const cached = await getCachedEntry("national_plan_context", context, DOCUMENT_MODEL_NAME, inputFingerprint);
+  if (!shouldBypassAiRunCache(mode)) {
+    const cached = await getCachedEntry("national_plan_context", context, DOCUMENT_MODEL_NAME, runContract);
     if (cached) {
       return {
         ...cached,
         cacheHit: true,
+        cacheStatus: "cache_hit" as const,
       };
     }
     if (mode === "load_cached") {
@@ -549,6 +679,8 @@ async function runNationalPlanStage(
   const response = toCacheEntry({
     stage: "national_plan_context",
     cacheHit: false,
+    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
+    runContract,
     renderedOutput: stageOutput.renderedOutput,
     structuredOutput: stageOutput.structuredOutput,
     sourceReferences: sources.map((source) => ({
@@ -569,8 +701,8 @@ async function runNationalPlanStage(
     "national_plan_context",
     context,
     DOCUMENT_MODEL_NAME,
-    inputFingerprint,
-    inputFingerprint,
+    runContract,
+    {},
     response,
   );
 
@@ -595,20 +727,32 @@ async function runWebContextSearchStage(
 ) {
   const modelName = getOpenAiModel();
   const searchQuery = buildWebContextQuery(context);
-  const inputFingerprint = buildStageFingerprint("web_context_search", {
+  const stageInput = {
     municipality: context.municipality,
     score: context.score,
     searchQuery,
+    evidence: [{ provider: "exa", query: searchQuery }],
     searchProvider: "exa",
     searchVersion: "v1",
+  };
+  const runContract = buildStageRunContract({
+    stage: "web_context_search",
+    context,
+    modelName,
+    input: stageInput,
+    prompt: {
+      system: basePlanningSystemPrompt,
+      user: searchQuery,
+    },
   });
 
-  if (mode !== "regenerate") {
-    const cached = await getCachedEntry("web_context_search", context, modelName, inputFingerprint);
+  if (!shouldBypassAiRunCache(mode)) {
+    const cached = await getCachedEntry("web_context_search", context, modelName, runContract);
     if (cached) {
       return {
         ...cached,
         cacheHit: true,
+        cacheStatus: "cache_hit" as const,
       };
     }
     if (mode === "load_cached") {
@@ -633,6 +777,8 @@ async function runWebContextSearchStage(
     const response = toCacheEntry({
       stage: "web_context_search",
       cacheHit: false,
+      cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
+      runContract,
       renderedOutput: `No additional web context was injected. The optional Exa web search failed: ${message}`,
       structuredOutput: {
         queryHits: [],
@@ -648,8 +794,8 @@ async function runWebContextSearchStage(
       "web_context_search",
       context,
       modelName,
-      inputFingerprint,
-      inputFingerprint,
+      runContract,
+      {},
       response,
     );
 
@@ -660,6 +806,8 @@ async function runWebContextSearchStage(
     const response = toCacheEntry({
       stage: "web_context_search",
       cacheHit: false,
+      cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
+      runContract,
       renderedOutput:
         "No additional web context was injected. No reliable external search results were retrieved for the selected unit and score.",
       structuredOutput: {
@@ -676,8 +824,8 @@ async function runWebContextSearchStage(
       "web_context_search",
       context,
       modelName,
-      inputFingerprint,
-      inputFingerprint,
+      runContract,
+      {},
       response,
     );
 
@@ -688,11 +836,6 @@ async function runWebContextSearchStage(
     context,
     hits,
   });
-  const promptHash = createFingerprint({
-    system: basePlanningSystemPrompt,
-    prompt,
-  });
-
   const generated = await generateOpenAiText({
     system: basePlanningSystemPrompt,
     prompt,
@@ -703,6 +846,8 @@ async function runWebContextSearchStage(
   const response = toCacheEntry({
     stage: "web_context_search",
     cacheHit: false,
+    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
+    runContract,
     renderedOutput: stageOutput.renderedOutput,
     structuredOutput: stageOutput.structuredOutput,
     sourceReferences: hits.map((hit) => ({
@@ -722,8 +867,8 @@ async function runWebContextSearchStage(
     "web_context_search",
     context,
     modelName,
-    inputFingerprint,
-    promptHash,
+    runContract,
+    {},
     response,
   );
   return response;
@@ -780,25 +925,45 @@ async function runAlignmentStage(
     context,
     getWebContextSummaryFromStage(webContextStage),
   );
-  const inputFingerprint = buildStageFingerprint("plan_alignment", {
+  const stageInput = {
     countryCode: context.country.code,
     provinceFingerprint: provinceDocument.contentFingerprint,
     nationalFingerprint: nationalDocument.contentFingerprint,
     webContext: getWebContextSummaryFromStage(webContextStage),
     municipality: context.municipality,
     score: context.score,
-  });
-  const promptHash = createFingerprint({
-    system: basePlanningSystemPrompt,
-    prompt,
+    evidence: [
+      {
+        type: "province_plan",
+        url: provinceDocument.sourceUrlOrPath,
+        fingerprint: provinceDocument.contentFingerprint,
+      },
+      {
+        type: "national_plan",
+        url: nationalDocument.sourceUrlOrPath,
+        fingerprint: nationalDocument.contentFingerprint,
+      },
+      ...(webContextStage?.sourceReferences ?? []),
+    ],
+  };
+  const runContract = buildStageRunContract({
+    stage: "plan_alignment",
+    context,
+    modelName,
+    input: stageInput,
+    prompt: {
+      system: basePlanningSystemPrompt,
+      user: prompt,
+    },
   });
 
-  if (mode !== "regenerate") {
-    const cached = await getCachedEntry("plan_alignment", context, modelName, inputFingerprint);
+  if (!shouldBypassAiRunCache(mode)) {
+    const cached = await getCachedEntry("plan_alignment", context, modelName, runContract);
     if (cached) {
       return {
         ...cached,
         cacheHit: true,
+        cacheStatus: "cache_hit" as const,
       };
     }
     if (mode === "load_cached") {
@@ -814,6 +979,8 @@ async function runAlignmentStage(
   const response = toCacheEntry({
     stage: "plan_alignment",
     cacheHit: false,
+    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
+    runContract,
     renderedOutput: generated.text,
     structuredOutput: {
       countryCode: context.country.code,
@@ -840,8 +1007,8 @@ async function runAlignmentStage(
     "plan_alignment",
     context,
     modelName,
-    inputFingerprint,
-    promptHash,
+    runContract,
+    {},
     response,
   );
   return response;
@@ -897,7 +1064,7 @@ async function runSwotStage(
     nationalDocument,
     webContextSummary: getWebContextSummaryFromStage(webContextStage),
   });
-  const inputFingerprint = buildStageFingerprint("swot_analysis", {
+  const stageInput = {
     countryCode: context.country.code,
     indicatorNarrative: indicatorStage.renderedOutput,
     provinceFingerprint: provinceDocument.contentFingerprint,
@@ -905,18 +1072,43 @@ async function runSwotStage(
     webContext: getWebContextSummaryFromStage(webContextStage),
     municipality: context.municipality,
     score: context.score,
-  });
-  const promptHash = createFingerprint({
-    system: basePlanningSystemPrompt,
-    prompt,
+    evidence: [
+      {
+        type: "indicator_narrative",
+        runId: indicatorStage.runId,
+        cacheKey: indicatorStage.cacheKey,
+      },
+      {
+        type: "province_plan",
+        url: provinceDocument.sourceUrlOrPath,
+        fingerprint: provinceDocument.contentFingerprint,
+      },
+      {
+        type: "national_plan",
+        url: nationalDocument.sourceUrlOrPath,
+        fingerprint: nationalDocument.contentFingerprint,
+      },
+      ...(webContextStage?.sourceReferences ?? []),
+    ],
+  };
+  const runContract = buildStageRunContract({
+    stage: "swot_analysis",
+    context,
+    modelName,
+    input: stageInput,
+    prompt: {
+      system: basePlanningSystemPrompt,
+      user: prompt,
+    },
   });
 
-  if (mode !== "regenerate") {
-    const cached = await getCachedEntry("swot_analysis", context, modelName, inputFingerprint);
+  if (!shouldBypassAiRunCache(mode)) {
+    const cached = await getCachedEntry("swot_analysis", context, modelName, runContract);
     if (cached) {
       return {
         ...cached,
         cacheHit: true,
+        cacheStatus: "cache_hit" as const,
       };
     }
     if (mode === "load_cached") {
@@ -932,6 +1124,8 @@ async function runSwotStage(
   const response = toCacheEntry({
     stage: "swot_analysis",
     cacheHit: false,
+    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
+    runContract,
     renderedOutput: generated.text,
     structuredOutput: {
       countryCode: context.country.code,
@@ -963,8 +1157,8 @@ async function runSwotStage(
     "swot_analysis",
     context,
     modelName,
-    inputFingerprint,
-    promptHash,
+    runContract,
+    {},
     response,
   );
   return response;
@@ -997,7 +1191,7 @@ async function runRecommendationsStage(
     swot: swotStage.renderedOutput,
     webContextSummary: getWebContextSummaryFromStage(webContextStage),
   });
-  const inputFingerprint = buildStageFingerprint("investment_recommendations", {
+  const stageInput = {
     countryCode: context.country.code,
     indicatorNarrative: indicatorStage.renderedOutput,
     alignment: alignmentStage.renderedOutput,
@@ -1005,18 +1199,43 @@ async function runRecommendationsStage(
     webContext: getWebContextSummaryFromStage(webContextStage),
     municipality: context.municipality,
     score: context.score,
-  });
-  const promptHash = createFingerprint({
-    system: basePlanningSystemPrompt,
-    prompt,
+    evidence: [
+      {
+        type: "indicator_narrative",
+        runId: indicatorStage.runId,
+        cacheKey: indicatorStage.cacheKey,
+      },
+      {
+        type: "plan_alignment",
+        runId: alignmentStage.runId,
+        cacheKey: alignmentStage.cacheKey,
+      },
+      {
+        type: "swot_analysis",
+        runId: swotStage.runId,
+        cacheKey: swotStage.cacheKey,
+      },
+      ...(webContextStage?.sourceReferences ?? []),
+    ],
+  };
+  const runContract = buildStageRunContract({
+    stage: "investment_recommendations",
+    context,
+    modelName,
+    input: stageInput,
+    prompt: {
+      system: basePlanningSystemPrompt,
+      user: prompt,
+    },
   });
 
-  if (mode !== "regenerate") {
-    const cached = await getCachedEntry("investment_recommendations", context, modelName, inputFingerprint);
+  if (!shouldBypassAiRunCache(mode)) {
+    const cached = await getCachedEntry("investment_recommendations", context, modelName, runContract);
     if (cached) {
       return {
         ...cached,
         cacheHit: true,
+        cacheStatus: "cache_hit" as const,
       };
     }
     if (mode === "load_cached") {
@@ -1032,6 +1251,8 @@ async function runRecommendationsStage(
   const response = toCacheEntry({
     stage: "investment_recommendations",
     cacheHit: false,
+    cacheStatus: mode === "regenerate" ? "regenerated" : "generated",
+    runContract,
     renderedOutput: generated.text,
     structuredOutput: {
       countryCode: context.country.code,
@@ -1063,8 +1284,8 @@ async function runRecommendationsStage(
     "investment_recommendations",
     context,
     modelName,
-    inputFingerprint,
-    promptHash,
+    runContract,
+    {},
     response,
   );
   return response;
