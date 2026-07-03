@@ -2,24 +2,13 @@ import Image from "next/image";
 
 import pilDiagram from "../../images/PIL Diagram v2.png";
 import { CountrySelector } from "@/components/home/country-selector";
-import nplAnalyticsData from "@/generated/analytics-data.json";
-import serbiaAnalyticsData from "@/generated/serbia/analytics-data.json";
-import zambiaAnalyticsData from "@/generated/zambia/analytics-data.json";
-import { countries } from "@/lib/countries";
+import {
+  getAllReleaseMetadata,
+  getGlobalReleaseSummary,
+} from "@/lib/release-metadata";
 
-const analyticsDatasets = [
-  nplAnalyticsData,
-  serbiaAnalyticsData,
-  zambiaAnalyticsData,
-] as const;
-
-const totalLoadedLsgs = analyticsDatasets.reduce(
-  (sum, dataset) => sum + dataset.coverage.analyticsMunicipalityCount,
-  0,
-);
-const latestDataYear = Math.max(
-  ...analyticsDatasets.map((dataset) => dataset.release.year),
-);
+const releaseMetadata = getAllReleaseMetadata();
+const releaseSummary = getGlobalReleaseSummary();
 
 const capabilityCards = [
   {
@@ -42,16 +31,20 @@ const capabilityCards = [
 
 const homeStats = [
   {
-    value: String(countries.length),
+    value: String(releaseSummary.countryCount),
     label: "Country workspaces",
   },
   {
-    value: totalLoadedLsgs.toLocaleString("en-US"),
+    value: releaseSummary.totalLoadedLocalUnits.toLocaleString("en-US"),
     label: "LSGs currently loaded",
   },
   {
-    value: String(latestDataYear),
+    value: String(releaseSummary.latestDataYear),
     label: "Latest data year",
+  },
+  {
+    value: releaseSummary.methodologyVersion,
+    label: "Methodology version",
   },
 ] as const;
 
@@ -69,7 +62,7 @@ export default function Home() {
               municipality-level score drivers, and linking planning evidence to public investment
               choices.
             </p>
-            <div className="mt-8 grid max-w-[48rem] gap-3 sm:grid-cols-3">
+            <div className="mt-8 grid max-w-[60rem] gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {homeStats.map((stat) => (
                 <div
                   key={stat.label}
@@ -84,6 +77,10 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            <p className="mt-4 max-w-3xl text-xs leading-6 text-[var(--muted-foreground)]">
+              Loaded releases: {releaseMetadata.map((release) => release.releaseKey).join(", ")}.
+              Metadata is shared across pages, exports, and AI brief provenance.
+            </p>
             <CountrySelector />
           </div>
         </div>
