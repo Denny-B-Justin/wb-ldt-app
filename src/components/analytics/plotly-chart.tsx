@@ -12,6 +12,7 @@ type PlotlyClickEvent = {
 };
 
 export type PlotlyChartProps = {
+  className?: string;
   data: unknown[];
   layout?: Record<string, unknown>;
   config?: Record<string, unknown>;

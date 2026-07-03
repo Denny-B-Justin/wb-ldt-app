@@ -10,11 +10,15 @@ const DeferredScatter3DCard = dynamic(
   {
     ssr: false,
     loading: () => (
-      <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
+      <section
+        role="status"
+        className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(2,20,32,0.08)]"
+      >
         <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
           3D scatterplot
         </p>
-        <div className="mt-6 h-[420px] rounded-[1.5rem] border border-[var(--border-soft)] bg-white/70" />
+        <p className="sr-only">Loading 3D chart</p>
+        <div className="mt-6 min-h-[420px] rounded-[1.5rem] border border-[var(--border-soft)] bg-white/70" />
       </section>
     ),
   },

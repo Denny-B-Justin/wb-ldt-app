@@ -1,6 +1,12 @@
 export default function AnalyticsLoading() {
   return (
-    <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col px-6 pb-16 pt-10 sm:px-8 lg:px-12">
+    <main
+      className="mx-auto flex w-full max-w-7xl flex-1 flex-col px-6 pb-16 pt-10 sm:px-8 lg:px-12"
+      aria-busy="true"
+    >
+      <p role="status" className="sr-only">
+        Loading analytics workspace
+      </p>
       <div className="animate-pulse space-y-6">
         <div className="h-8 w-40 rounded-full bg-white/70" />
         <div className="h-16 w-full max-w-3xl rounded-[1.5rem] bg-white/70" />

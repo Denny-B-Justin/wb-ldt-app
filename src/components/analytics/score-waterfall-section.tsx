@@ -96,47 +96,49 @@ function WaterfallCard({
           <span className="text-[#54a24b]">Above average →</span>
         </div>
 
-        <div className="mt-6 space-y-4">
-          {visibleRows.map((row) => {
-            const width = Math.max((Math.abs(row.contribution) / axisExtent) * 50, 1.5);
-            const left = row.contribution >= 0 ? 50 : 50 - width;
+        <div className="mt-6 overflow-x-auto">
+          <div className="min-w-[640px] space-y-4">
+            {visibleRows.map((row) => {
+              const width = Math.max((Math.abs(row.contribution) / axisExtent) * 50, 1.5);
+              const left = row.contribution >= 0 ? 50 : 50 - width;
 
-            return (
-              <div
-                key={row.componentId}
-                className="grid gap-4 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)_120px] md:items-center"
-              >
-                <div className="flex items-center justify-end gap-2 text-right">
-                  <span className="text-base text-[var(--foreground)]">
-                    {row.label.replace(/ Score$/, "")}
-                  </span>
-                  <TooltipIcon text={row.description} />
-                </div>
+              return (
+                <div
+                  key={row.componentId}
+                  className="grid gap-4 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)_120px] md:items-center"
+                >
+                  <div className="flex items-center justify-end gap-2 text-right">
+                    <span className="text-base text-[var(--foreground)]">
+                      {row.label.replace(/ Score$/, "")}
+                    </span>
+                    <TooltipIcon text={row.description} />
+                  </div>
 
-                <div className="relative h-12 overflow-hidden rounded-full bg-[rgba(55,66,145,0.05)]">
-                  <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-[rgba(55,66,145,0.35)]" />
-                  <div
-                    className="absolute top-1/2 h-8 -translate-y-1/2 rounded-full"
-                    style={{
-                      left: `${left}%`,
-                      width: `${width}%`,
-                      backgroundColor: row.contribution >= 0 ? "#54a24b" : "#e45756",
-                    }}
-                  />
-                </div>
+                  <div className="relative h-12 overflow-hidden rounded-full bg-[rgba(55,66,145,0.05)]">
+                    <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-[rgba(55,66,145,0.35)]" />
+                    <div
+                      className="absolute top-1/2 h-8 -translate-y-1/2 rounded-full"
+                      style={{
+                        left: `${left}%`,
+                        width: `${width}%`,
+                        backgroundColor: row.contribution >= 0 ? "#54a24b" : "#e45756",
+                      }}
+                    />
+                  </div>
 
-                <div className="text-right">
-                  <p className="font-mono text-base text-[var(--foreground)]">
-                    {row.contribution >= 0 ? "+" : ""}
-                    {row.contribution.toFixed(2)}
-                  </p>
-                  <p className="text-xs text-[var(--muted-foreground)]">
-                    {formatValue(row.municipalityValue)} vs {formatValue(row.nationalValue)}
-                  </p>
+                  <div className="text-right">
+                    <p className="font-mono text-base text-[var(--foreground)]">
+                      {row.contribution >= 0 ? "+" : ""}
+                      {row.contribution.toFixed(2)}
+                    </p>
+                    <p className="text-xs text-[var(--muted-foreground)]">
+                      {formatValue(row.municipalityValue)} vs {formatValue(row.nationalValue)}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
         <div className="mt-6">

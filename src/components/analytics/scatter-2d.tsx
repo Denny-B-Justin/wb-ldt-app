@@ -124,8 +124,9 @@ export function Scatter2DCard({
         </div>
       ) : null}
       {controls ? <div className="mt-5">{controls}</div> : null}
-      <div className="mt-6 overflow-hidden rounded-[1.5rem] border border-[var(--border-soft)] bg-white/80">
+      <div className="mt-6 overflow-x-auto rounded-[1.5rem] border border-[var(--border-soft)] bg-white/80">
         <PlotlyChart
+          className="min-w-[720px]"
           data={[
             {
               type: "scatter",
