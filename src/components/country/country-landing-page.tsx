@@ -2,11 +2,17 @@ import Link from "next/link";
 
 import { CountryContextPanel } from "@/components/country/country-context-panel";
 import { CountryDetailLoader } from "@/components/country/country-detail-loader";
+import { CountryTrustCard } from "@/components/country/country-trust-card";
 import { buildCountryHomeModel } from "@/lib/country-home";
 import { getCountryLandingActions } from "@/lib/country-landing-actions";
-import { loadCountryDataset } from "@/lib/country-landing-data";
+import {
+  loadCountryDataset,
+  loadLocalPlanSources,
+} from "@/lib/country-landing-data";
 import { getPlanAvailabilityDisclosure } from "@/lib/country-plan-availability";
+import { buildCountryTrustModel } from "@/lib/country-trust";
 import type { Country } from "@/lib/countries";
+import { getReleaseMetadataBySlug } from "@/lib/release-metadata";
 
 function lowerFirst(value: string) {
   return value.charAt(0).toLowerCase() + value.slice(1);
@@ -96,6 +102,8 @@ function CountryAdminLevelGuide({
 
 export async function CountryLandingPage({ country }: { country: Country }) {
   const dataset = await loadCountryDataset(country);
+  const releaseMetadata = getReleaseMetadataBySlug(country.slug);
+  const planSources = await loadLocalPlanSources(country);
   const model = buildCountryHomeModel(country, dataset);
   const lowerSingular = country.adminLabels.lower.singular;
   const lowerPlural = country.adminLabels.lower.plural;
@@ -119,6 +127,14 @@ export async function CountryLandingPage({ country }: { country: Country }) {
   }
 
   const adminCountSummary = `In the ${model.latestYear} LDT release, Admin level 1 includes ${model.higherCount} ${higherPluralLabel}, and Admin level 2 includes ${model.lowerCount} ${lowerPluralLabel}.`;
+  const trustModel = releaseMetadata
+    ? buildCountryTrustModel({
+        country,
+        releaseMetadata,
+        groups: model.groups,
+        planSources,
+      })
+    : null;
 
   return (
     <main className="flex flex-1 flex-col">
@@ -158,6 +174,8 @@ export async function CountryLandingPage({ country }: { country: Country }) {
           </div>
         </div>
       </section>
+
+      {trustModel ? <CountryTrustCard model={trustModel} /> : null}
 
       <section className="mx-auto mt-14 w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <article className="rounded-[1.9rem] border border-[var(--border-strong)] bg-white/80 p-7 shadow-[0_18px_45px_rgba(2,20,32,0.08)]">
