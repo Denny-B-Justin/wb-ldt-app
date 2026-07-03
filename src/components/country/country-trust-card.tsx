@@ -30,6 +30,7 @@ function statusLabel(status: CountryTrustStatus) {
 export function CountryTrustCard({ model }: { model: CountryTrustModel }) {
   return (
     <section
+      id="country-trust-card"
       className="mx-auto mt-8 w-full max-w-7xl px-6 sm:px-8 lg:px-12"
       aria-labelledby={`${model.countryName.toLowerCase()}-trust-heading`}
     >

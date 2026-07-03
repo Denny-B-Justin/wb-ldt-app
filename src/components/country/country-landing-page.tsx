@@ -4,7 +4,10 @@ import { CountryContextPanel } from "@/components/country/country-context-panel"
 import { CountryDetailLoader } from "@/components/country/country-detail-loader";
 import { CountryTrustCard } from "@/components/country/country-trust-card";
 import { buildCountryHomeModel } from "@/lib/country-home";
-import { getCountryLandingActions } from "@/lib/country-landing-actions";
+import {
+  getCountryCommandCenterTasks,
+  getCountryLandingActions,
+} from "@/lib/country-landing-actions";
 import {
   loadCountryDataset,
   loadLocalPlanSources,
@@ -113,6 +116,7 @@ export async function CountryLandingPage({ country }: { country: Country }) {
   const lowerPluralLabel = lowerFirst(lowerPlural);
   const higherPluralLabel = lowerFirst(higherPlural);
   const actions = getCountryLandingActions(country);
+  const commandCenterTasks = getCountryCommandCenterTasks(country);
   const leftActions = actions.filter((action) => action.align === "left");
   const rightActions = actions.filter((action) => action.align === "right");
   const planAvailabilityDisclosure = getPlanAvailabilityDisclosure(country);
@@ -175,6 +179,41 @@ export async function CountryLandingPage({ country }: { country: Country }) {
         </div>
       </section>
 
+      <section className="mx-auto -mt-8 w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <article className="rounded-[1.35rem] border border-[var(--border-soft)] bg-white/90 p-5 shadow-[0_14px_34px_rgba(2,20,32,0.08)]">
+          <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
+                Command center
+              </p>
+              <h2 className="mt-2 text-xl font-semibold tracking-tight text-[var(--foreground)]">
+                Main tasks for this workspace
+              </h2>
+            </div>
+            <p className="max-w-xl text-sm leading-6 text-[var(--muted-foreground)]">
+              Jump directly into comparison, evidence review, planning brief,
+              document readiness, or release trust checks.
+            </p>
+          </div>
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+            {commandCenterTasks.map((task) => (
+              <Link
+                key={task.href}
+                href={task.href}
+                className="rounded-[0.9rem] border border-[var(--border-soft)] bg-[var(--surface)] p-4 transition-colors hover:border-[var(--accent)] hover:bg-[var(--surface-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)]"
+              >
+                <span className="text-sm font-semibold text-[var(--foreground)]">
+                  {task.label}
+                </span>
+                <span className="mt-2 block text-sm leading-6 text-[var(--muted-foreground)]">
+                  {task.description}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </article>
+      </section>
+
       {trustModel ? <CountryTrustCard model={trustModel} /> : null}
 
       <section className="mx-auto mt-14 w-full max-w-7xl px-6 sm:px-8 lg:px-12">
@@ -223,7 +262,10 @@ export async function CountryLandingPage({ country }: { country: Country }) {
         adminCountSummary={adminCountSummary}
       />
 
-      <section className="mx-auto mt-10 mb-16 w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+      <section
+        id="document-readiness"
+        className="mx-auto mt-10 mb-16 w-full max-w-7xl px-6 sm:px-8 lg:px-12"
+      >
         <article className="rounded-[1.9rem] border border-[var(--border-strong)] bg-white/80 p-7 shadow-[0_18px_45px_rgba(2,20,32,0.08)]">
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
             Administrative levels
