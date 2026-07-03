@@ -2,7 +2,9 @@
 
 import type { ReactNode } from "react";
 
+import { EvidenceGapBadge } from "@/components/analytics/evidence-gap-badge";
 import type { AiStageResponsePayload } from "@/lib/ai/types";
+import { deriveAiStageEvidenceGap } from "@/lib/evidence-gaps";
 
 type AiStageCardProps = {
   eyebrow: string;
@@ -64,6 +66,7 @@ export function AiStageCard({
         .filter(Boolean)
         .join("\n\n")
     : null;
+  const evidenceGap = deriveAiStageEvidenceGap(result);
 
   return (
     <section className="rounded-[1.75rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-5 shadow-[0_18px_50px_rgba(2,20,32,0.08)] xl:p-6">
@@ -80,6 +83,7 @@ export function AiStageCard({
           </p>
         </div>
         {actions ? <div className="flex flex-wrap items-center gap-2 pt-1">{actions}</div> : null}
+        {evidenceGap ? <EvidenceGapBadge gap={evidenceGap} /> : null}
       </div>
 
       {children ? <div className="mt-5">{children}</div> : null}

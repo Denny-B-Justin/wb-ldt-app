@@ -1,4 +1,6 @@
+import { EvidenceGapBadge } from "@/components/analytics/evidence-gap-badge";
 import type { AdminLabels } from "@/lib/countries";
+import { deriveWaterfallEvidenceGap } from "@/lib/evidence-gaps";
 import type { ScoreWaterfallGroup } from "@/types/analytics";
 
 type ScoreWaterfallSectionProps = {
@@ -37,6 +39,7 @@ function WaterfallCard({
   const visibleRows = group.rows.filter(
     (row): row is typeof row & { contribution: number } => row.contribution !== null,
   );
+  const evidenceGap = deriveWaterfallEvidenceGap(group);
 
   const axisExtent =
     Math.max(
@@ -60,6 +63,11 @@ function WaterfallCard({
       <p className="mt-3 text-sm leading-7 text-[var(--muted-foreground)]">
         Component impacts are shown as weighted score-point differences relative to the national average.
       </p>
+      {evidenceGap ? (
+        <div className="mt-3">
+          <EvidenceGapBadge gap={evidenceGap} />
+        </div>
+      ) : null}
 
       <div className="mt-6 rounded-[1.5rem] border border-[var(--border-soft)] bg-white/75 p-5">
         <div className="text-center">

@@ -3,9 +3,11 @@
 import type { ReactNode } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
+import { EvidenceGapBadge } from "@/components/analytics/evidence-gap-badge";
 import { PlotlyChart } from "@/components/analytics/plotly-chart";
 import { useTheme } from "@/components/theme/theme-provider";
 import type { AdminLabels } from "@/lib/countries";
+import { deriveScatterEvidenceGap } from "@/lib/evidence-gaps";
 
 type Scatter2DCardProps = {
   xLabel: string;
@@ -45,6 +47,7 @@ export function Scatter2DCard({
     (point): point is typeof point & { x: number; y: number } =>
       point.x !== null && point.y !== null,
   );
+  const evidenceGap = deriveScatterEvidenceGap(points);
 
   const highlighted = visiblePoints.filter((point) => point.selected);
   const sameProvince = visiblePoints.filter(
@@ -77,6 +80,11 @@ export function Scatter2DCard({
       <p className="mt-3 text-sm leading-7 text-[var(--muted-foreground)]">
         Hover for score values, drag to zoom, and click a {lowerFirst(lowerSingular)} to make it the active comparison target.
       </p>
+      {evidenceGap ? (
+        <div className="mt-3">
+          <EvidenceGapBadge gap={evidenceGap} />
+        </div>
+      ) : null}
       {controls ? <div className="mt-5">{controls}</div> : null}
       <div className="mt-6 overflow-hidden rounded-[1.5rem] border border-[var(--border-soft)] bg-white/80">
         <PlotlyChart
