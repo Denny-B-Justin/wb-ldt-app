@@ -7,6 +7,7 @@ import { EvidenceGapBadge } from "@/components/analytics/evidence-gap-badge";
 import { PlotlyChart } from "@/components/analytics/plotly-chart";
 import { useTheme } from "@/components/theme/theme-provider";
 import type { AdminLabels } from "@/lib/countries";
+import { buildCsv, downloadCsv } from "@/lib/csv";
 import { deriveScatterEvidenceGap } from "@/lib/evidence-gaps";
 
 type Scatter2DCardProps = {
@@ -68,15 +69,52 @@ export function Scatter2DCard({
   const hoverLocationTemplate = adminLabels.middle
     ? `${adminLabels.middle.singular}: %{customdata[2]}<br>${higherSingular}: %{customdata[3]}<br>`
     : `${higherSingular}: %{customdata[3]}<br>`;
+  const exportFileName = `${xLabel.toLowerCase().replace(/\s+/g, "-")}-${yLabel.toLowerCase().replace(/\s+/g, "-")}-comparison.csv`;
+
+  function handleCsvDownload() {
+    const csv = buildCsv(
+      [
+        "id",
+        lowerSingular,
+        adminLabels.middle?.singular ?? "District",
+        higherSingular,
+        xLabel,
+        yLabel,
+        "selected",
+      ],
+      points.map((point) => [
+        point.id,
+        point.label,
+        point.district,
+        point.province,
+        point.x,
+        point.y,
+        point.selected,
+      ]),
+    );
+
+    downloadCsv(exportFileName, csv);
+  }
 
   return (
     <section className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6 shadow-[0_18px_50px_rgba(2,20,32,0.08)]">
-      <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
-        2D scatterplot
-      </p>
-      <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--foreground)]">
-        {yLabel} vs {xLabel}
-      </h2>
+      <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+        <div>
+          <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
+            2D scatterplot
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--foreground)]">
+            {yLabel} vs {xLabel}
+          </h2>
+        </div>
+        <button
+          type="button"
+          onClick={handleCsvDownload}
+          className="inline-flex min-h-10 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)]"
+        >
+          Download CSV
+        </button>
+      </div>
       <p className="mt-3 text-sm leading-7 text-[var(--muted-foreground)]">
         Hover for score values, drag to zoom, and click a {lowerFirst(lowerSingular)} to make it the active comparison target.
       </p>
